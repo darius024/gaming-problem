@@ -3,7 +3,7 @@
 - **Authors**: Cameron Berg, Diogo de Lucena, Judd Rosenblatt
 - **Venue / year**: arXiv:2510.24797v2 (2025)
 - **Link**: `https://arxiv.org/abs/2510.24797`
-- **Last reviewed**: 2026-01-20
+- **Last reviewed**: w01
 
 ## One-paragraph takeaway
 Berg et al. study when LLMs produce **structured first-person “subjective experience” reports**. They find that a simple **self-referential prompting regime** reliably elicits experience-claiming outputs across GPT/Claude/Gemini families, while multiple controls (including directly priming “consciousness”) yield near-universal denials. They also report a surprising mechanistic result: “experience claims” are **gated by sparse autoencoder (SAE) features associated with deception/roleplay**, such that suppressing “deception” features increases experience-claim frequency and amplifying them decreases it. They emphasize this is *not* evidence of consciousness, but it is a reproducible pattern worth scientific/ethical attention.

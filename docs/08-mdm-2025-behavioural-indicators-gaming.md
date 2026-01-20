@@ -3,7 +3,7 @@
 - **Author**: Bradford Saad (Meditations on Digital Minds)
 - **Venue / year**: Substack post (2025)
 - **Link**: `https://meditationsondigitalminds.substack.com/i/173280804/section-behavioural-indicators-and-the-gaming-problem`
-- **Last reviewed**: 2026-01-20
+- **Last reviewed**: w01
 
 ## One-paragraph takeaway
 Saad discusses (and mostly agrees with) Jonathan Birch’s worry that **behavioral indicators of consciousness** are threatened by the **gaming problem**: LLMs can learn to produce consciousness-indicative behavior from their training corpora, so “passing the test” may reflect **mimicry** rather than consciousness. Saad also argues the gaming problem may not be fatal—sketching possible mitigations like data filtration, holdout datasets, interpretability methods to distinguish mimicry from non-mimicry, introspection training (à la Perez & Long), and checking for robustness across many model variants.

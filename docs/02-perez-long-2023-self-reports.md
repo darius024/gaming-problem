@@ -3,7 +3,7 @@
 - **Authors**: Ethan Perez, Robert Long
 - **Venue / year**: arXiv:2311.08576v1 (2023)
 - **Link**: `https://arxiv.org/abs/2311.08576`
-- **Last reviewed**: 2026-01-20
+- **Last reviewed**: w01
 
 ## One-paragraph takeaway
 Perez & Long argue that **self-reports could (in principle) be evidence about morally significant internal states**, but that **current LLM self-reports are spurious** (driven by imitation, RLHF, and instructions). Their proposal: deliberately train models on **many “about-themselves” questions with known answers** to build **introspection-like** reporting skills, then test whether those skills **generalize** to self-reports about consciousness/pain/desire—while carefully controlling for “extrospection” and strategic incentives.

@@ -3,7 +3,7 @@
 - **Authors**: Patrick Butlin, Robert Long, Tim Bayne, Yoshua Bengio, Jonathan Birch, David Chalmers, … (many coauthors)
 - **Venue / year**: *Trends in Cognitive Sciences* (Opinion), 2025
 - **Link**: `http://eprints.lse.ac.uk/130322/` (free PDF mirror)
-- **Last reviewed**: 2026-01-20
+- **Last reviewed**: w01
 
 ## One-paragraph takeaway
 Butlin et al. argue that we can make **non-handwavy progress on AI consciousness** by taking mainstream *neuroscientific theories of consciousness*, deriving **indicator properties** implied by those theories, then empirically assessing whether particular AI systems satisfy them—using the results to **update our credences** (not to “prove” consciousness).

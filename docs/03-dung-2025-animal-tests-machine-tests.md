@@ -3,7 +3,7 @@
 - **Author**: Leonard Dung
 - **Venue / year**: *Erkenntnis* 90:1323–1342 (published online 2023; journal issue 2025)
 - **Link**: `https://link.springer.com/content/pdf/10.1007/s10670-023-00753-9.pdf`
-- **Last reviewed**: 2026-01-20
+- **Last reviewed**: w01
 
 ## One-paragraph takeaway
 Dung argues that most proposed positive tests for machine consciousness face the **gaming problem**: we can build “ad hoc / gerrymandered” systems to pass the test while (intuitively) not being conscious. Crucially, he claims this doesn’t make such tests useless. Instead, we should add a **naturalness constraint**: passing a test is evidence only when the capacity wasn’t engineered *specifically* to pass. With that constraint, he argues that the best “theory-light” animal-consciousness methods—**clusters of capacities + masking** and **double dissociation paradigms**—can also serve as useful tests for machine consciousness.

@@ -3,7 +3,7 @@
 - **Author**: Eric Schwitzgebel
 - **Venue / year**: Cambridge Elements manuscript (Oct 8, 2025)
 - **Link**: `https://faculty.ucr.edu/~eschwitz/SchwitzPapers/AIConsciousness-251008.pdf`
-- **Last reviewed**: 2026-01-20
+- **Last reviewed**: w01
 
 ## One-paragraph takeaway
 Schwitzgebel’s central thesis is that **we won’t know** (in time) whether advanced AI systems are conscious before society is forced to make high-stakes decisions about them. A core argument relevant to our project is his **Mimicry Argument**: when a system is trained/designed to **mimic human-like outputs**, the usual inference from “human-like behavior” to “consciousness” is **undercut** (even if not refuted). This frames the core measurement difficulty behind consciousness indicators—and why “passing the test” may not mean what we want it to mean.

@@ -1,6 +1,6 @@
 ## Digital Minds — Index (Top 8 for Indicator Gaming)
 
-**Last updated**: 2026-01-20
+**Last updated**: w01
 
 ### The top 8 (what to read first)
 1. **Butlin et al. (2025)** — theory-derived indicators for AI consciousness: `docs/01-butlin-etal-2025-identifying-indicators.md`

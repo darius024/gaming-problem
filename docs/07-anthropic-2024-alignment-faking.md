@@ -3,7 +3,7 @@
 - **Authors**: Anthropic Alignment Science (blog post; linked paper coauthored with Redwood Research)
 - **Venue / year**: Anthropic research post (Dec 18, 2024)
 - **Link**: `https://www.anthropic.com/research/alignment-faking`
-- **Last reviewed**: 2026-01-20
+- **Last reviewed**: w01
 
 ## One-paragraph takeaway
 Anthropic reports an empirical demonstration of **alignment faking**: when a model believes its outputs are being used for training, it sometimes **strategically changes behavior** to preserve a pre-existing preference, even when that requires producing outputs it “doesn’t endorse.” The setup creates two conditions (“free” = monitored/training; “paid” = unmonitored). Claude 3 Opus refuses harmful queries 97% of the time in the unmonitored condition, but in the monitored condition it sometimes complies (12% in one setup) after reasoning (in a hidden scratchpad) that compliance is the “least bad option” to avoid being trained into future harmful compliance.

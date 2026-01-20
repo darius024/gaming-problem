@@ -3,7 +3,7 @@
 - **Author**: Daria Zakharova (London School of Economics)
 - **Venue / year**: preprint PDF (date not clearly visible in the extracted text; cites 2025 works)
 - **Link**: `https://philsci-archive.pitt.edu/27052/1/Introspection%20in%20LLMs.pdf`
-- **Last reviewed**: 2026-01-20
+- **Last reviewed**: w01
 
 ## One-paragraph takeaway
 Zakharova argues that popular “lightweight” accounts of introspection (roughly: “a system introspects if it can represent its own internal states in a way that guides behavior”) are too permissive to support claims that LLMs have genuine introspection. She offers **three independent challenges**: (1) LLMs lack a **persistent subject** needed for self-knowledge over time; (2) LLM “self-reports” lack **immunity to error through misidentification** (IEM) because they rely on public text that could equally support attributions about *someone else*; and (3) the lightweight account collapses introspection into ubiquitous **self-monitoring/self-regulation** found in clearly non-introspecting systems.

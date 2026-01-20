@@ -1,2 +1,23 @@
 # Minimal ignores (local artifacts only)
 .DS_Store
+
+# Cursor (local IDE rules/settings)
+.cursorrules
+.cursor/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Experiment artifacts (generated)
+runs/
+
+# Secrets / local config
+.env
+.env.*

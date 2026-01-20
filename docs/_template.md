@@ -3,7 +3,7 @@
 - **Authors**:
 - **Venue / year**:
 - **Link**:
-- **Last reviewed**: YYYY-MM-DD
+- **Last reviewed**: wWW
 
 ## One-paragraph takeaway
 
