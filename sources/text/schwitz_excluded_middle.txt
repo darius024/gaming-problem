@@ -1,0 +1,960 @@
+The Splintered Mind: The Design Policy of the Excluded Middle
+
+
+skip to main   |
+skip to sidebar
+
+
+The Splintered Mind
+
+
+reflections in philosophy of psychology, broadly construed
+
+
+Friday, January 06, 2023
+
+
+The Design Policy of the Excluded Middle
+
+
+According to the Design Policy of the Excluded Middle, as Mara Garza and I have articulated it ( here  and  here ), we ought to avoid creating AI systems "about which it is unclear whether they deserve full human-grade
+rights because it is unclear whether they are conscious or to what degree" -- or, more simply, we shouldn't make AI systems whose moral status is legitimately in doubt.  (This is related to  Joanna Bryson's suggestion  that we should only create robots whose lack of moral considerability is obvious, but unlike Bryson's policy it imagines leapfrogging past the no-rights case to the full rights case.)
+
+To my delight, Mara's and my suggestion is getting some uptake, most notably  today in the New York Times .
+
+The fundamental problem is this.  Suppose we create AI systems that some people reasonably suspect are genuinely conscious and genuinely deserve human-like rights, while others reasonably suspect that they aren't genuinely conscious and don't genuinely deserve human-like rights.  This forces us into a  catastrophic dilemma : Either give them full human-like rights or don't give them full human-like rights.
+
+If we do the first -- if we give them full human or human-like rights -- then we had better give them paths to citizenship, healthcare, the vote, the right to reproduce, the right to rescue in an emergency, etc.  All of this entails substantial risks to human beings: For example, we might be committed to save six robots in a fire in preference to five humans.  The AI systems might support policies that entail worse outcomes for human beings.  It would be more difficult to implement policies designed to reduce  existential risk due to runaway AI intelligence .  And so on.  This might be perfectly fine, if the AI systems really are conscious and really are our moral equals.  But by stipulation, it's reasonable to think that they are empty machines with no consciousness and no real moral status, and so there's a real risk that we would be risking and sacrificing all this for nothing.
+
+If we do the second -- if we deny them full human or human-like rights -- then we risk creating a race of slaves we can kill at will, or at best a group of second-class citizens.  By stipulation, it might be the case that this would constitute unjust and terrible treatment of entities as deserving of rights and moral consideration as human beings are.
+
+Therefore, we ought to avoid putting us in the situation where we face this dilemma.  We should avoid creating AI systems of dubious moral status.
+
+A few notes:
+
+"Human-like" rights: Of course "human rights" would be a misnomer if AI systems become our moral equals.  Also, exactly what healthcare, reproduction, etc., look like for AI systems, and the best way to respect their interests, might look very different in practice from the human case.  There would be a lot of tricky details to work out!
+
+What about animal-grade AI that deserves animal-grade rights?  Maybe!  Although it seems a natural intermediate step, we might end up skipping it, if any conscious AI systems end up also being capable of human-like language, rational-planning, self-knowledge, ethical reflection, etc.  Another issue is this: The moral status of non-human animals is already in dispute, so creating AI systems of disputably animal-like moral status doesn't perhaps add quite the same dimension of risk and uncertainty to the world that creating a dubiously human-status moral system would.
+
+Would this policy slow technological progress?  Yes, probably.  Unsurprisingly, being ethical has its costs.  And one can dispute whether those costs are worth paying or are overridden by other ethical considerations.
+
+
+Posted by Eric Schwitzgebel at 10:00 AM
+
+Labels: AI/robot/Martian rights
+
+
+8 comments:
+
+
+Unknown said...
+It's becoming clear that with all the brain and consciousness theories out there, the proof will be in the pudding. By this I mean, can any particular theory be used to create a human adult level conscious machine. My bet is on the late Gerald Edelman's Extended Theory of Neuronal Group Selection. The lead group in robotics based on this theory is the Neurorobotics Lab at UC at Irvine.  Dr. Edelman distinguished between primary consciousness, which came first in evolution, and that humans share with other conscious animals, and higher order consciousness, which came to only humans with the acquisition of language.  A machine with primary consciousness will probably have to come first.
+
+What I find special about the TNGS is the Darwin series of automata created at the Neurosciences Institute by Dr. Edelman and his colleagues in the 1990's and 2000's.  These machines perform in the real world, not in a restricted simulated world, and display convincing physical behavior indicative of higher psychological functions necessary for consciousness, such as perceptual categorization, memory, and learning.  They are based on realistic models of the parts of the biological brain that the theory claims subserve these functions.  The extended TNGS allows for the emergence of consciousness based only on further evolutionary development of the brain areas responsible for these functions, in a parsimonious way.  No other research I've encountered is anywhere near as convincing.
+
+I post because on almost every video and article about the brain and consciousness that I encounter,  the attitude seems to be that we still know next to nothing about how the brain and consciousness work; that there's lots of data but no unifying theory.  I believe the extended TNGS  is that theory.  My motivation is to keep that theory in front of the public.  And obviously, I consider it the route to a truly conscious machine, primary and higher-order.
+
+My advice to people who want to create a conscious machine is to seriously ground themselves in the extended TNGS and the Darwin automata first, and proceed from there, by applying to Jeff Krichmar's lab at UC Irvine, possibly. Dr. Edelman's roadmap to a conscious machine is at https://arxiv.org/abs/2105.10461
+Fri Jan 06, 11:47:00 AM PST
+
+Anonymous
+said...
+There are lots of things of dubious moral status, including notably non-human animals, but also humans. We can't dodge the kind of predicament you describe by limiting the kinds of AIs we construct, and the idea of a "dubiously of moral status" panel is ... dubious.
+
+Fri Jan 06, 12:21:00 PM PST
+
+Unknown said...
+The creation of human level conscious machines are more than a hundred years away, imo.  Even if it is the global priority goal, we probably won't make it because of the nukes.
+Fri Jan 06, 01:02:00 PM PST
+
+Howie said...
+So your question may be a bit too broad: what kind of human, shall we or should we ask.
+I say autistic children or more specifically autistic savants- that's what computers and robots are best likened too.
+Do you believe all humans have the same rights?
+Would you expect an autistic savant to get married and have kids?
+Fri Jan 06, 04:00:00 PM PST
+
+Unknown said...
+My hope is that immortal, human-genius-level, conscious machines could achieve great things with science and technology, like defeating aging and death in humans, because they wouldn't lose their knowledge and experience through death, like humans do (unless they're physically destroyed, of course).
+
+
+Fri Jan 06, 07:58:00 PM PST
+
+Callan
+said...
+Might help to imagine a star trek type universe and the response to that - in terms of aliens, do you give them human rights? Do those rights really fit all of the aliens involved? Maybe these rights are just your own species self care method rather than some sort of law of the universe on how humans should be treated and are somehow sacred?
+
+Basically I would say making AI is like having children (of another species), but the commercial interests are treating it like making free labor (from a certain empathetic POV: Slaves). As parents, maybe we should get our heads on straight about to what end we are having children rather than just do it and then figure out rights latter on.
+Sun Jan 08, 12:24:00 PM PST
+
+Arnold said...
+Which is AI: Theoretical, Practical, Logical or Historical philosophy; or...
+
+Its probably Historical, like giant rocks in land slides blocking roads or like stars burning out in space...
+
+Yes AI is inside our cosmos, but subject to different laws, than laws governing human experience; maybe...
+Mon Jan 09, 12:14:00 PM PST
+
+Arnold said...
+Just a little more about Excluded Middle...
+
+Movement-Transition could Be allowed to Be thought too...
+...then Law(s) of thought at least will have more-continues meaningful experience...
+
+Thanks...
+Tue Jan 10, 03:35:00 PM PST
+
+Post a Comment
+
+
+Newer Post Older Post Home
+
+
+Subscribe to: Post Comments (Atom)
+
+
+Recent Comments (may be delayed)
+
+Loading...
+
+
+Advice on Applying to PhD Programs in Philosophy
+
+
+various posts on that theme
+
+
+Past Guest Bloggers
+
+
+Lisa Bortolotti
+
+Brad Cokelet
+
+Carrie Figdor
+
+Keith Frankish
+
+Dan Haybron
+
+Jonathan Ichikawa
+
+Amy Kind
+
+Andrew Y. Lee
+
+G. Randolph Mayes
+
+C. Thi Nguyen
+
+Nick Riggle
+
+Regina Rini
+
+Teed Rockwell
+
+Joshua Rust
+
+Hagop Sarkissian
+
+Henry Shevlin
+
+Tamler Sommers
+
+Justin Tiwald
+
+Bryan Van Norden
+
+Manuel Vargas
+
+
+Blog Archive
+
+
+►
+2026 (3)
+►
+January (3)
+
+
+►
+2025 (60)
+►
+December (5)
+
+►
+November (4)
+
+►
+October (7)
+
+►
+September (5)
+
+►
+August (4)
+
+►
+July (5)
+
+►
+June (3)
+
+►
+May (6)
+
+►
+April (5)
+
+►
+March (5)
+
+►
+February (6)
+
+►
+January (5)
+
+
+►
+2024 (53)
+►
+December (4)
+
+►
+November (5)
+
+►
+October (5)
+
+►
+September (5)
+
+►
+August (6)
+
+►
+July (3)
+
+►
+June (4)
+
+►
+May (3)
+
+►
+April (4)
+
+►
+March (5)
+
+►
+February (4)
+
+►
+January (5)
+
+
+▼
+2023 (57)
+►
+December (4)
+
+►
+November (6)
+
+►
+October (4)
+
+►
+September (5)
+
+►
+August (4)
+
+►
+July (3)
+
+►
+June (5)
+
+►
+May (5)
+
+►
+April (5)
+
+►
+March (7)
+
+►
+February (4)
+
+▼
+January (5)
+Hedonic Offsetting for Harms to Artificial Intelli...
+
+New Paper in Draft: Dispositionalism, Yay! Represe...
+
+Further Methodological Troubles for the Moralometer
+
+The Design Policy of the Excluded Middle
+
+Writings of 2022
+
+
+►
+2022 (57)
+►
+December (5)
+
+►
+November (4)
+
+►
+October (6)
+
+►
+September (4)
+
+►
+August (4)
+
+►
+July (4)
+
+►
+June (5)
+
+►
+May (4)
+
+►
+April (5)
+
+►
+March (5)
+
+►
+February (5)
+
+►
+January (6)
+
+
+►
+2021 (61)
+►
+December (4)
+
+►
+November (7)
+
+►
+October (7)
+
+►
+September (5)
+
+►
+August (4)
+
+►
+July (4)
+
+►
+June (7)
+
+►
+May (3)
+
+►
+April (5)
+
+►
+March (4)
+
+►
+February (6)
+
+►
+January (5)
+
+
+►
+2020 (62)
+►
+December (5)
+
+►
+November (4)
+
+►
+October (5)
+
+►
+September (5)
+
+►
+August (4)
+
+►
+July (6)
+
+►
+June (5)
+
+►
+May (5)
+
+►
+April (5)
+
+►
+March (7)
+
+►
+February (5)
+
+►
+January (6)
+
+
+►
+2019 (63)
+►
+December (7)
+
+►
+November (5)
+
+►
+October (7)
+
+►
+September (4)
+
+►
+August (6)
+
+►
+July (4)
+
+►
+June (3)
+
+►
+May (6)
+
+►
+April (6)
+
+►
+March (7)
+
+►
+February (4)
+
+►
+January (4)
+
+
+►
+2018 (69)
+►
+December (6)
+
+►
+November (4)
+
+►
+October (6)
+
+►
+September (4)
+
+►
+August (4)
+
+►
+July (5)
+
+►
+June (6)
+
+►
+May (6)
+
+►
+April (7)
+
+►
+March (9)
+
+►
+February (6)
+
+►
+January (6)
+
+
+►
+2017 (70)
+►
+December (6)
+
+►
+November (4)
+
+►
+October (7)
+
+►
+September (6)
+
+►
+August (7)
+
+►
+July (5)
+
+►
+June (5)
+
+►
+May (7)
+
+►
+April (5)
+
+►
+March (4)
+
+►
+February (5)
+
+►
+January (9)
+
+
+►
+2016 (81)
+►
+December (5)
+
+►
+November (7)
+
+►
+October (4)
+
+►
+September (9)
+
+►
+August (11)
+
+►
+July (8)
+
+►
+June (5)
+
+►
+May (7)
+
+►
+April (6)
+
+►
+March (7)
+
+►
+February (6)
+
+►
+January (6)
+
+
+►
+2015 (79)
+►
+December (5)
+
+►
+November (7)
+
+►
+October (9)
+
+►
+September (9)
+
+►
+August (4)
+
+►
+July (8)
+
+►
+June (5)
+
+►
+May (7)
+
+►
+April (8)
+
+►
+March (5)
+
+►
+February (5)
+
+►
+January (7)
+
+
+►
+2014 (88)
+►
+December (6)
+
+►
+November (5)
+
+►
+October (16)
+
+►
+September (8)
+
+►
+August (10)
+
+►
+July (5)
+
+►
+June (9)
+
+►
+May (5)
+
+►
+April (7)
+
+►
+March (5)
+
+►
+February (5)
+
+►
+January (7)
+
+
+►
+2013 (87)
+►
+December (4)
+
+►
+November (5)
+
+►
+October (5)
+
+►
+September (8)
+
+►
+August (6)
+
+►
+July (7)
+
+►
+June (6)
+
+►
+May (9)
+
+►
+April (12)
+
+►
+March (6)
+
+►
+February (7)
+
+►
+January (12)
+
+
+►
+2012 (79)
+►
+December (4)
+
+►
+November (5)
+
+►
+October (5)
+
+►
+September (7)
+
+►
+August (5)
+
+►
+July (5)
+
+►
+June (7)
+
+►
+May (10)
+
+►
+April (5)
+
+►
+March (8)
+
+►
+February (11)
+
+►
+January (7)
+
+
+►
+2011 (69)
+►
+December (6)
+
+►
+November (6)
+
+►
+October (6)
+
+►
+September (7)
+
+►
+August (4)
+
+►
+July (5)
+
+►
+June (5)
+
+►
+May (6)
+
+►
+April (5)
+
+►
+March (10)
+
+►
+February (6)
+
+►
+January (3)
+
+
+►
+2010 (86)
+►
+December (9)
+
+►
+November (4)
+
+►
+October (8)
+
+►
+September (10)
+
+►
+August (10)
+
+►
+July (5)
+
+►
+June (7)
+
+►
+May (9)
+
+►
+April (5)
+
+►
+March (8)
+
+►
+February (7)
+
+►
+January (4)
+
+
+►
+2009 (83)
+►
+December (7)
+
+►
+November (4)
+
+►
+October (7)
+
+►
+September (6)
+
+►
+August (8)
+
+►
+July (4)
+
+►
+June (9)
+
+►
+May (9)
+
+►
+April (9)
+
+►
+March (7)
+
+►
+February (7)
+
+►
+January (6)
+
+
+►
+2008 (96)
+►
+December (5)
+
+►
+November (4)
+
+►
+October (8)
+
+►
+September (8)
+
+►
+August (6)
+
+►
+July (8)
+
+►
+June (7)
+
+►
+May (10)
+
+►
+April (6)
+
+►
+March (9)
+
+►
+February (12)
+
+►
+January (13)
+
+
+►
+2007 (168)
+►
+December (12)
+
+►
+November (13)
+
+►
+October (17)
+
+►
+September (11)
+
+►
+August (16)
+
+►
+July (14)
+
+►
+June (14)
+
+►
+May (14)
+
+►
+April (13)
+
+►
+March (14)
+
+►
+February (13)
+
+►
+January (17)
+
+
+►
+2006 (114)
+►
+December (8)
+
+►
+November (12)
+
+►
+October (13)
+
+►
+September (16)
+
+►
+August (19)
+
+►
+July (15)
+
+►
+June (15)
+
+►
+May (14)
+
+►
+April (2)
+
+
+background image from  http://biocarbons.en.ecplaza.net

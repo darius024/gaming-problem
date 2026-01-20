@@ -1,0 +1,4639 @@
+<!DOCTYPE html>
+<html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<link href='https://www.blogger.com/static/v1/widgets/2944754296-widget_css_bundle.css' rel='stylesheet' type='text/css'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href='https://schwitzsplinters.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="The Splintered Mind - Atom" href="https://schwitzsplinters.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="The Splintered Mind - RSS" href="https://schwitzsplinters.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="The Splintered Mind - Atom" href="https://www.blogger.com/feeds/26951738/posts/default" />
+
+<link rel="alternate" type="application/atom+xml" title="The Splintered Mind - Atom" href="https://schwitzsplinters.blogspot.com/feeds/8994636870830143997/comments/default" />
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAeMR6NyPMfgHDjVZyUt9NKjntNaYHIai-B97esDt7kFWUOxwCJARiz2NkFml3X6mXjXy9uxGg3DEr5smA_e4hisJ_ExOwae_4JfW1vMxRY5TisFVrbA8wIsU1FfDx8YD4k1_G6kbSgRJKyRjxUPfYCVvyl60zo8jwuATQKO8z98rdAxPOT4g/s200/AI.jpg' rel='image_src'/>
+<meta content='http://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html' property='og:url'/>
+<meta content='The Design Policy of the Excluded Middle' property='og:title'/>
+<meta content='' property='og:description'/>
+<meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAeMR6NyPMfgHDjVZyUt9NKjntNaYHIai-B97esDt7kFWUOxwCJARiz2NkFml3X6mXjXy9uxGg3DEr5smA_e4hisJ_ExOwae_4JfW1vMxRY5TisFVrbA8wIsU1FfDx8YD4k1_G6kbSgRJKyRjxUPfYCVvyl60zo8jwuATQKO8z98rdAxPOT4g/w1200-h630-p-k-no-nu/AI.jpg' property='og:image'/>
+<title>The Splintered Mind: The Design Policy of the Excluded Middle</title>
+<style id='page-skin-1' type='text/css'><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Son of Moto (Mean Green Blogging Machine variation)
+Designer: Jeffrey Zeldman
+URL:      www.zeldman.com
+Date:     23 Feb 2004
+Updated by: Blogger Team
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="mainBgColor" description="Main Background Color"
+type="color" default="#ffffff">
+<Variable name="mainTextColor" description="Text Color"
+type="color" default="#333333">
+<Variable name="pageHeaderColor" description="Blog Title Color"
+type="color" default="#ffffff">
+<Variable name="blogDescriptionColor" description="Blog Description Color"
+type="color" default="#ffffff">
+<Variable name="linkColor" description="Link Color"
+type="color" default="#6E4117">
+<Variable name="hoverLinkColor" description="Link Hover Color"
+type="color" default="#352117">
+<Variable name="dateHeaderColor" description="Date Header Color"
+type="color" default="#61381B">
+<Variable name="sidebarHeaderColor" description="Sidebar Title Color"
+type="color" default="#61381B">
+<Variable name="sidebarTextColor" description="Sidebar Text Color"
+type="color" default="#555544">
+<Variable name="bodyFont" description="Text Font" type="font"
+default="normal normal 100% tahoma, 'Trebuchet MS', lucida, helvetica, sans-serif">
+*/
+/* Primary layout */
+body {
+margin: 0;
+padding: 0;
+border: 0;
+text-align: center;
+color: #333333;
+background: #61381B url(https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tdaZRD23Su1l8HMtotYuQgkBSAWhQWIikmitESicUz2V2z-9jkW_d7w1apMNsJeZBIe274HPHsuYvLsABRTzLnObQIZRR6emvgrdwGFGRHkgPZVJuNNuDg9t6lAnzOLA=s0-d) top center repeat-y;
+font-size: small;
+}
+.quickedit {
+display:none;
+}
+img {
+border: 0;
+display: block;
+}
+.clear {
+clear: both;
+}
+/* Wrapper */
+#outer-wrapper {
+margin: 0 auto;
+border: 0;
+width: 692px;
+text-align: left;
+background: #ffffff url(//www.blogblog.com/moto_son/innerwrap.gif) top right repeat-y;
+font: normal normal 100% tahoma, 'Trebuchet MS', lucida, helvetica, sans-serif;
+}
+/* Header */
+#header-wrapper	{
+background: #000 url(https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vd3qWqsOYaOnnt2Y5cT2GGMPA-LS9vpLOlVkZp4GAIVvceMP5nmlsArseAPo0dSlhKjIoEulyq7L2I0fQqNtrrRm5GROH9KhdtQNDSmEB9EWXcxHGCLQ=s0-d) bottom left repeat-x;
+margin: 0 auto;
+padding: 0 0 15px 0;
+border: 0;
+}
+#header h1 {
+text-align: left;
+font-size: 200%;
+color: #ffffff;
+margin: 0;
+padding: 15px 20px 0 20px;
+background-image: url(https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tfW1ZCVyoc1VzvzKJNk-Sw1I7u1RoFXK1QdC1nMeOGwjZA-9A3omMFEsLdytenhxUoAtONJgugPA5cFj1nO4GyVoB9VpX4euP84D6o6fw=s0-d);
+background-repeat: repeat-x;
+background-position: top left;
+}
+h1 a, h1 a:link, h1 a:visited {
+color: #ffffff;
+}
+#header .description {
+font-size: 110%;
+text-align: left;
+padding: 3px 20px 10px 23px;
+margin: 0;
+line-height:140%;
+color: #ffffff;
+}
+/* Inner layout */
+#content-wrapper {
+padding: 0 16px;
+}
+#main {
+width: 400px;
+float: left;
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;     /* fix for long non-text content breaking IE sidebar float */
+}
+#sidebar {
+width: 226px;
+float: right;
+color: #555544;
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;     /* fix for long non-text content breaking IE sidebar float */
+}
+/* Bottom layout */
+#footer	{
+clear: left;
+margin: 0;
+padding: 0 20px;
+border: 0;
+text-align: left;
+border-top: 1px solid #f9f9f9;
+}
+#footer .widget	{
+text-align: left;
+margin: 0;
+padding: 10px 0;
+background-color: transparent;
+}
+/* Default links 	*/
+a:link, a:visited {
+font-weight: bold;
+text-decoration: none;
+color: #6E4117;
+background: transparent;
+}
+a:hover {
+font-weight: bold;
+text-decoration: underline;
+color: #352117;
+background: transparent;
+}
+a:active {
+font-weight : bold;
+text-decoration : none;
+color: #352117;
+background: transparent;
+}
+/* Typography */
+.main p, .sidebar p {
+line-height: 140%;
+margin-top: 5px;
+margin-bottom: 1em;
+}
+h2, h3, h4, h5	{
+margin: 0;
+padding: 0;
+}
+h2 {
+font-size: 130%;
+}
+h2.date-header {
+color: #61381B;
+}
+.post h3 {
+margin-top: 5px;
+font-size: 120%;
+}
+.post-footer {
+font-style: italic;
+}
+.sidebar h2 {
+color: #61381B;
+}
+.sidebar .widget {
+margin: 12px 0 13px 0;
+padding: 0;
+}
+.main .widget {
+margin: 12px 0 0 0 ;
+}
+li  {
+line-height: 160%;
+}
+.sidebar ul {
+margin-left: 1;
+margin-top: 0;
+padding-left: 0;
+}
+.sidebar ul li {
+padding-left: 0px;
+padding-top: 3px;
+margin: 0;
+}
+.widget-content {
+margin-top: 0.5em;
+}
+/* Profile
+----------------------------------------------- */
+.profile-datablock {
+margin: 3px 0 5px 0;
+line-height: 140%;
+}
+.profile-textblock {
+margin-left: 0;
+}
+.profile-img {
+float: left;
+margin: 0 5px 5px 0;
+border:4px solid #333333;
+}
+#comments  {
+border: 0;
+border-top: 1px dashed #eed;
+margin: 10px 0 0 0;
+padding: 0;
+}
+#comments h4	{
+margin-top: 10px;
+margin-bottom: -10px;
+font-weight: normal;
+font-style: italic;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+#comments dl dt 	{
+font-weight: bold;
+font-style: italic;
+margin-top: 35px;
+padding: 1px 0 0 18px;
+background: transparent url(//www.blogblog.com/moto_son/commentbug.gif) top left no-repeat;
+}
+#comments dl dd	{
+padding: 0;
+margin: 0;
+}
+.deleted-comment {
+font-style:italic;
+color:gray;
+}
+.feed-links {
+clear: both;
+line-height: 2.5em;
+}
+#blog-pager-newer-link {
+float: left;
+}
+#blog-pager-older-link {
+float: right;
+}
+#blog-pager {
+text-align: center;
+}
+/** Page structure tweaks for layout editor wireframe */
+body#layout #outer-wrapper {
+padding-top: 0;
+}
+body#layout #header,
+body#layout #content-wrapper,
+body#layout #footer {
+padding: 0;
+}
+
+--></style>
+<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=26951738&amp;zx=6d1fe02d-e5fa-48c0-8ec5-b134afe0daed' media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=26951738&amp;zx=6d1fe02d-e5fa-48c0-8ec5-b134afe0daed' rel='stylesheet'/></noscript>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+
+<script type="text/javascript" language="javascript">
+  // Supply ads personalization default for EEA readers
+  // See https://www.blogger.com/go/adspersonalization
+  adsbygoogle = window.adsbygoogle || [];
+  if (typeof adsbygoogle.requestNonPersonalizedAds === 'undefined') {
+    adsbygoogle.requestNonPersonalizedAds = 1;
+  }
+</script>
+
+
+</head>
+<body>
+<div class='navbar section' id='navbar'><div class='widget Navbar' data-version='1' id='Navbar1'><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar/26951738?po\x3d8994636870830143997\x26origin\x3dhttps://schwitzsplinters.blogspot.com',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div id='outer-wrapper'><div id='wrap2'>
+<!-- skip links for text browsers -->
+<span id='skiplinks' style='display:none;'>
+<a href='#main'>skip to main </a> |
+      <a href='#sidebar'>skip to sidebar</a>
+</span>
+<div id='header-wrapper'>
+<div class='header section' id='header'><div class='widget Header' data-version='1' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+<a href='https://schwitzsplinters.blogspot.com/'>
+The Splintered Mind
+</a>
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'><span>reflections in philosophy of psychology, broadly construed</span></p>
+</div>
+</div>
+</div></div>
+</div>
+<div id='content-wrapper'>
+<div id='crosscol-wrapper' style='text-align:center'>
+<div class='crosscol no-items section' id='crosscol'></div>
+</div>
+<div id='main-wrapper'>
+<div class='main section' id='main'><div class='widget Blog' data-version='1' id='Blog1'>
+<div class='blog-posts hfeed'>
+
+          <div class="date-outer">
+        
+<h2 class='date-header'><span>Friday, January 06, 2023</span></h2>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry uncustomized-post-template'>
+<a name='8994636870830143997'></a>
+<h3 class='post-title entry-title'>
+<a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html'>The Design Policy of the Excluded Middle</a>
+</h3>
+<div class='post-header-line-1'></div>
+<div class='post-body entry-content'>
+<p><div class="separator" style="clear: both;"><a href="https://www.nytimes.com/2023/01/06/science/robots-artificial-intelligence-consciousness.html" style="display: block; padding: 1em 0; text-align: center; clear: right; float: right;"><img alt="" border="0" data-original-height="507" data-original-width="947" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAeMR6NyPMfgHDjVZyUt9NKjntNaYHIai-B97esDt7kFWUOxwCJARiz2NkFml3X6mXjXy9uxGg3DEr5smA_e4hisJ_ExOwae_4JfW1vMxRY5TisFVrbA8wIsU1FfDx8YD4k1_G6kbSgRJKyRjxUPfYCVvyl60zo8jwuATQKO8z98rdAxPOT4g/s200/AI.jpg" width="200"/></a></div>
+
+<p>According to the Design Policy of the Excluded Middle, as Mara Garza and I have articulated it (<a href="http://faculty.ucr.edu/~eschwitz/SchwitzAbs/AIRights.htm">here</a> and <a href="http://faculty.ucr.edu/~eschwitz/SchwitzAbs/AIRights2.htm">here</a>), we ought to avoid creating AI systems "about which it is unclear whether they deserve full human-grade
+rights because it is unclear whether they are conscious or to what degree" -- or, more simply, we shouldn't make AI systems whose moral status is legitimately in doubt.&nbsp; (This is related to <a href="http://www.cs.bath.ac.uk/~jjb/ftp/Bryson-Slaves-Book09.html">Joanna Bryson's suggestion</a> that we should only create robots whose lack of moral considerability is obvious, but unlike Bryson's policy it imagines leapfrogging past the no-rights case to the full rights case.)</p><p>To my delight, Mara's and my suggestion is getting some uptake, most notably <a href="https://www.nytimes.com/2023/01/06/science/robots-artificial-intelligence-consciousness.html">today in the New York Times</a>.</p><p>The fundamental problem is this.&nbsp; Suppose we create AI systems that some people reasonably suspect are genuinely conscious and genuinely deserve human-like rights, while others reasonably suspect that they aren't genuinely conscious and don't genuinely deserve human-like rights.&nbsp; This forces us into a <a href="http://schwitzsplinters.blogspot.com/2022/10/the-coming-robot-rights-catastrophe.html">catastrophic dilemma</a>: Either give them full human-like rights or don't give them full human-like rights.</p><p>If we do the first -- if we give them full human or human-like rights -- then we had better give them paths to citizenship, healthcare, the vote, the right to reproduce, the right to rescue in an emergency, etc.&nbsp; All of this entails substantial risks to human beings: For example, we might be committed to save six robots in a fire in preference to five humans.&nbsp; The AI systems might support policies that entail worse outcomes for human beings.&nbsp; It would be more difficult to implement policies designed to reduce <a href="https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies">existential risk due to runaway AI intelligence</a>.&nbsp; And so on.&nbsp; This might be perfectly fine, if the AI systems really are conscious and really are our moral equals.&nbsp; But by stipulation, it's reasonable to think that they are empty machines with no consciousness and no real moral status, and so there's a real risk that we would be risking and sacrificing all this for nothing.</p><p>If we do the second -- if we deny them full human or human-like rights -- then we risk creating a race of slaves we can kill at will, or at best a group of second-class citizens.&nbsp; By stipulation, it might be the case that this would constitute unjust and terrible treatment of entities as deserving of rights and moral consideration as human beings are.</p><p>Therefore, we ought to avoid putting us in the situation where we face this dilemma.&nbsp; We should avoid creating AI systems of dubious moral status.</p><p>A few notes:</p><p>"Human-like" rights: Of course "human rights" would be a misnomer if AI systems become our moral equals.&nbsp; Also, exactly what healthcare, reproduction, etc., look like for AI systems, and the best way to respect their interests, might look very different in practice from the human case.&nbsp; There would be a lot of tricky details to work out!</p><p>What about animal-grade AI that deserves animal-grade rights?&nbsp; Maybe!&nbsp; Although it seems a natural intermediate step, we might end up skipping it, if any conscious AI systems end up also being capable of human-like language, rational-planning, self-knowledge, ethical reflection, etc.&nbsp; Another issue is this: The moral status of non-human animals is already in dispute, so creating AI systems of disputably animal-like moral status doesn't perhaps add quite the same dimension of risk and uncertainty to the world that creating a dubiously human-status moral system would.</p><p>Would this policy slow technological progress?&nbsp; Yes, probably.&nbsp; Unsurprisingly, being ethical has its costs.&nbsp; And one can dispute whether those costs are worth paying or are overridden by other ethical considerations.</p></p>
+<div style='clear: both;'></div>
+</div>
+<div class='post-footer'>
+<p class='post-footer-line post-footer-line-1'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn'>Eric Schwitzgebel</span>
+</span>
+<span class='post-timestamp'>
+at
+<a class='timestamp-link' href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html' rel='bookmark' title='permanent link'><abbr class='published' title='2023-01-06T10:00:00-08:00'>10:00 AM</abbr></a>
+</span>
+<span class='post-comment-link'>
+</span>
+<span class='post-backlinks post-comment-link'>
+</span>
+<span class='post-icons'>
+</span>
+</p>
+<p class='post-footer-line post-footer-line-2'>
+<span class='post-labels'>
+Labels:
+<a href='https://schwitzsplinters.blogspot.com/search/label/AI%2Frobot%2FMartian%20rights' rel='tag'>AI/robot/Martian rights</a>
+</span>
+</p>
+<p class='post-footer-line post-footer-line-3'></p>
+</div>
+</div>
+<div class='comments' id='comments'>
+<a name='comments'></a>
+<h4>8 comments:</h4>
+<div id='Blog1_comments-block-wrapper'>
+<dl class='avatar-comment-indent' id='comments-block'>
+<dt class='comment-author ' id='c4426143519468282293'>
+<a name='c4426143519468282293'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/04322715631227155808" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-4426143519468282293-04322715631227155808"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Unknown">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/04322715631227155808' rel='nofollow'>Unknown</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-4426143519468282293'>
+<p>
+It&#39;s becoming clear that with all the brain and consciousness theories out there, the proof will be in the pudding. By this I mean, can any particular theory be used to create a human adult level conscious machine. My bet is on the late Gerald Edelman&#39;s Extended Theory of Neuronal Group Selection. The lead group in robotics based on this theory is the Neurorobotics Lab at UC at Irvine.  Dr. Edelman distinguished between primary consciousness, which came first in evolution, and that humans share with other conscious animals, and higher order consciousness, which came to only humans with the acquisition of language.  A machine with primary consciousness will probably have to come first.<br /><br />What I find special about the TNGS is the Darwin series of automata created at the Neurosciences Institute by Dr. Edelman and his colleagues in the 1990&#39;s and 2000&#39;s.  These machines perform in the real world, not in a restricted simulated world, and display convincing physical behavior indicative of higher psychological functions necessary for consciousness, such as perceptual categorization, memory, and learning.  They are based on realistic models of the parts of the biological brain that the theory claims subserve these functions.  The extended TNGS allows for the emergence of consciousness based only on further evolutionary development of the brain areas responsible for these functions, in a parsimonious way.  No other research I&#39;ve encountered is anywhere near as convincing.<br /><br /> I post because on almost every video and article about the brain and consciousness that I encounter,  the attitude seems to be that we still know next to nothing about how the brain and consciousness work; that there&#39;s lots of data but no unifying theory.  I believe the extended TNGS  is that theory.  My motivation is to keep that theory in front of the public.  And obviously, I consider it the route to a truly conscious machine, primary and higher-order.<br /><br />My advice to people who want to create a conscious machine is to seriously ground themselves in the extended TNGS and the Darwin automata first, and proceed from there, by applying to Jeff Krichmar&#39;s lab at UC Irvine, possibly. Dr. Edelman&#39;s roadmap to a conscious machine is at https://arxiv.org/abs/2105.10461
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html?showComment=1673034425001#c4426143519468282293' title='comment permalink'>
+Fri Jan 06, 11:47:00 AM PST
+</a>
+<span class='item-control blog-admin pid-1461650278'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/26951738/4426143519468282293' title='Delete Comment'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5804928602596398981'>
+<a name='c5804928602596398981'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><img src="//resources.blogblog.com/img/blank.gif" width="35" height="35" alt="" title="Anonymous">
+
+</span></div>
+Anonymous
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-5804928602596398981'>
+<p>
+There are lots of things of dubious moral status, including notably non-human animals, but also humans. We can&#39;t dodge the kind of predicament you describe by limiting the kinds of AIs we construct, and the idea of a &quot;dubiously of moral status&quot; panel is ... dubious.<br />
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html?showComment=1673036478728#c5804928602596398981' title='comment permalink'>
+Fri Jan 06, 12:21:00 PM PST
+</a>
+<span class='item-control blog-admin pid-1870517809'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/26951738/5804928602596398981' title='Delete Comment'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c9100256556019591372'>
+<a name='c9100256556019591372'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/04322715631227155808" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-9100256556019591372-04322715631227155808"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Unknown">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/04322715631227155808' rel='nofollow'>Unknown</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-9100256556019591372'>
+<p>
+The creation of human level conscious machines are more than a hundred years away, imo.  Even if it is the global priority goal, we probably won&#39;t make it because of the nukes.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html?showComment=1673038957097#c9100256556019591372' title='comment permalink'>
+Fri Jan 06, 01:02:00 PM PST
+</a>
+<span class='item-control blog-admin pid-1461650278'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/26951738/9100256556019591372' title='Delete Comment'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5580401854544925483'>
+<a name='c5580401854544925483'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/12474061778220524205" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-5580401854544925483-12474061778220524205"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Howie">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/12474061778220524205' rel='nofollow'>Howie</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-5580401854544925483'>
+<p>
+So your question may be a bit too broad: what kind of human, shall we or should we ask.<br />I say autistic children or more specifically autistic savants- that&#39;s what computers and robots are best likened too.<br />Do you believe all humans have the same rights?<br />Would you expect an autistic savant to get married and have kids?
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html?showComment=1673049622399#c5580401854544925483' title='comment permalink'>
+Fri Jan 06, 04:00:00 PM PST
+</a>
+<span class='item-control blog-admin pid-1225518613'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/26951738/5580401854544925483' title='Delete Comment'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c7071973942103052922'>
+<a name='c7071973942103052922'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/04322715631227155808" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-7071973942103052922-04322715631227155808"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Unknown">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/04322715631227155808' rel='nofollow'>Unknown</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-7071973942103052922'>
+<p>
+My hope is that immortal, human-genius-level, conscious machines could achieve great things with science and technology, like defeating aging and death in humans, because they wouldn&#39;t lose their knowledge and experience through death, like humans do (unless they&#39;re physically destroyed, of course).<br /><br />
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html?showComment=1673063881752#c7071973942103052922' title='comment permalink'>
+Fri Jan 06, 07:58:00 PM PST
+</a>
+<span class='item-control blog-admin pid-1461650278'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/26951738/7071973942103052922' title='Delete Comment'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c1180168223606025889'>
+<a name='c1180168223606025889'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><img src="//resources.blogblog.com/img/blank.gif" width="35" height="35" alt="" title="Callan">
+
+</span></div>
+Callan
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-1180168223606025889'>
+<p>
+Might help to imagine a star trek type universe and the response to that - in terms of aliens, do you give them human rights? Do those rights really fit all of the aliens involved? Maybe these rights are just your own species self care method rather than some sort of law of the universe on how humans should be treated and are somehow sacred?<br /><br />Basically I would say making AI is like having children (of another species), but the commercial interests are treating it like making free labor (from a certain empathetic POV: Slaves). As parents, maybe we should get our heads on straight about to what end we are having children rather than just do it and then figure out rights latter on.
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html?showComment=1673209460842#c1180168223606025889' title='comment permalink'>
+Sun Jan 08, 12:24:00 PM PST
+</a>
+<span class='item-control blog-admin pid-1870517809'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/26951738/1180168223606025889' title='Delete Comment'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c1078002682563937268'>
+<a name='c1078002682563937268'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/02580641063222662041" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-1078002682563937268-02580641063222662041"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Arnold">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/02580641063222662041' rel='nofollow'>Arnold</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-1078002682563937268'>
+<p>
+Which is AI: Theoretical, Practical, Logical or Historical philosophy; or...<br /><br />Its probably Historical, like giant rocks in land slides blocking roads or like stars burning out in space...<br /><br />Yes AI is inside our cosmos, but subject to different laws, than laws governing human experience; maybe...
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html?showComment=1673295242754#c1078002682563937268' title='comment permalink'>
+Mon Jan 09, 12:14:00 PM PST
+</a>
+<span class='item-control blog-admin pid-2109307066'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/26951738/1078002682563937268' title='Delete Comment'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c6655011684174692653'>
+<a name='c6655011684174692653'></a>
+<div class="avatar-image-container avatar-stock"><span dir="ltr"><a href="https://www.blogger.com/profile/02580641063222662041" target="" rel="nofollow" onclick="" class="avatar-hovercard" id="av-6655011684174692653-02580641063222662041"><img src="//www.blogger.com/img/blogger_logo_round_35.png" width="35" height="35" alt="" title="Arnold">
+
+</a></span></div>
+<a href='https://www.blogger.com/profile/02580641063222662041' rel='nofollow'>Arnold</a>
+said...
+</dt>
+<dd class='comment-body' id='Blog1_cmt-6655011684174692653'>
+<p>
+Just a little more about Excluded Middle...<br /><br />Movement-Transition could Be allowed to Be thought too...<br />...then Law(s) of thought at least will have more-continues meaningful experience...<br /><br />Thanks...
+</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html?showComment=1673393710949#c6655011684174692653' title='comment permalink'>
+Tue Jan 10, 03:35:00 PM PST
+</a>
+<span class='item-control blog-admin pid-2109307066'>
+<a class='comment-delete' href='https://www.blogger.com/comment/delete/26951738/6655011684174692653' title='Delete Comment'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</span>
+</dd>
+</dl>
+</div>
+<p class='comment-footer'>
+<a href='https://www.blogger.com/comment/fullpage/post/26951738/8994636870830143997' onclick=''>Post a Comment</a>
+</p>
+</div>
+</div>
+
+        </div></div>
+      
+</div>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' href='https://schwitzsplinters.blogspot.com/2023/01/further-methodological-troubles-for.html' id='Blog1_blog-pager-newer-link' title='Newer Post'>Newer Post</a>
+</span>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='https://schwitzsplinters.blogspot.com/2023/01/writings-of-2022.html' id='Blog1_blog-pager-older-link' title='Older Post'>Older Post</a>
+</span>
+<a class='home-link' href='https://schwitzsplinters.blogspot.com/'>Home</a>
+</div>
+<div class='clear'></div>
+<div class='post-feeds'>
+<div class='feed-links'>
+Subscribe to:
+<a class='feed-link' href='https://schwitzsplinters.blogspot.com/feeds/8994636870830143997/comments/default' target='_blank' type='application/atom+xml'>Post Comments (Atom)</a>
+</div>
+</div>
+</div></div>
+</div>
+<div id='sidebar-wrapper'>
+<div class='sidebar section' id='sidebar'><div class='widget HTML' data-version='1' id='HTML1'>
+<div class='widget-content'>
+<!-- Start of StatCounter Code -->
+<script language="javascript" type="text/javascript">
+var sc_project=1508379; 
+var sc_invisible=1; 
+var sc_partition=13; 
+var sc_security="2c679bf5"; 
+</script>
+
+<script language="javascript" src="//www.statcounter.com/counter/frames.js" type="text/javascript"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img border="0" alt="counter" src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s0JOx_Zw6E7HWz1U-uKkXPLUaix6HYIUnNfNzzRj93gm3tSTvtQCzFXjtK2O-uEqs5Zj4ZTIY-NE6hS8ZBz_Z0NgkOSTGMyYIWn_sJhTkOz02xijsPtwVltV9_wolox5fTkokTy3QGVZxVzWIoDEn4moPI0eLO4U3RnVia0QOH_-0=s0-d"></a> </noscript>
+<!-- End of StatCounter Code -->
+</div>
+<div class='clear'></div>
+</div><div class='widget Feed' data-version='1' id='Feed1'>
+<h2>Recent Comments (may be delayed)</h2>
+<div class='widget-content' id='Feed1_feedItemListDisplay'>
+<span style='filter: alpha(25); opacity: 0.25;'>
+<a href='http://schwitzsplinters.blogspot.com/feeds/comments/default'>Loading...</a>
+</span>
+</div>
+<div class='clear'></div>
+</div><div class='widget LinkList' data-version='1' id='LinkList6'>
+<h2>Advice on Applying to PhD Programs in Philosophy</h2>
+<div class='widget-content'>
+<ul>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/applying%20to%20grad%20school'>various posts on that theme</a></li>
+</ul>
+<div class='clear'></div>
+</div>
+</div><div class='widget LinkList' data-version='1' id='LinkList5'>
+<h2>Past Guest Bloggers</h2>
+<div class='widget-content'>
+<ul>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Lisa%20Bortolotti'>Lisa Bortolotti</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Brad%20Cokelet'>Brad Cokelet</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Carrie%20Figdor'>Carrie Figdor</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Keith%20Frankish'>Keith Frankish</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Dan%20Haybron'>Dan Haybron</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Jonathan%20Ichikawa'>Jonathan Ichikawa</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Amy%20Kind'>Amy Kind</a></li>
+<li><a href='https://schwitzsplinters.blogspot.com/search/label/Andrew%20Y%20Lee'>Andrew Y. Lee</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/G.%20Randolph%20Mayes'>G. Randolph Mayes</a></li>
+<li><a href='https://schwitzsplinters.blogspot.com/search?q=c+thi+nguyen'>C. Thi Nguyen</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Nick%20Riggle'>Nick Riggle</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Regina%20Rini'>Regina Rini</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Teed%20Rockwell'>Teed Rockwell</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Joshua%20Rust'>Joshua Rust</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Hagop%20Sarkissian'>Hagop Sarkissian</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search?q=shevlin'>Henry Shevlin</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Tamler%20Sommers'>Tamler Sommers</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/justin%20tiwald'>Justin Tiwald</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Bryan%20Van%20Norden'>Bryan Van Norden</a></li>
+<li><a href='http://schwitzsplinters.blogspot.com/search/label/Manuel%20Vargas'>Manuel Vargas</a></li>
+</ul>
+<div class='clear'></div>
+</div>
+</div><div class='widget BlogArchive' data-version='1' id='BlogArchive1'>
+<h2>Blog Archive</h2>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2026/'>
+2026
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2026/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/'>
+2025
+</a>
+<span class='post-count' dir='ltr'>(60)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2025/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/'>
+2024
+</a>
+<span class='post-count' dir='ltr'>(53)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2024/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>
+
+        &#9660;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/'>
+2023
+</a>
+<span class='post-count' dir='ltr'>(57)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>
+
+        &#9660;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2023/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+<ul class='posts'>
+<li><a href='https://schwitzsplinters.blogspot.com/2023/01/hedonic-offsetting-for-harms-to.html'>Hedonic Offsetting for Harms to Artificial Intelli...</a></li>
+<li><a href='https://schwitzsplinters.blogspot.com/2023/01/new-paper-in-draft-dispositionalism-yay.html'>New Paper in Draft: Dispositionalism, Yay! Represe...</a></li>
+<li><a href='https://schwitzsplinters.blogspot.com/2023/01/further-methodological-troubles-for.html'>Further Methodological Troubles for the Moralometer</a></li>
+<li><a href='https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html'>The Design Policy of the Excluded Middle</a></li>
+<li><a href='https://schwitzsplinters.blogspot.com/2023/01/writings-of-2022.html'>Writings of 2022</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/'>
+2022
+</a>
+<span class='post-count' dir='ltr'>(57)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2022/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/'>
+2021
+</a>
+<span class='post-count' dir='ltr'>(61)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2021/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/'>
+2020
+</a>
+<span class='post-count' dir='ltr'>(62)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2020/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/'>
+2019
+</a>
+<span class='post-count' dir='ltr'>(63)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2019/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/'>
+2018
+</a>
+<span class='post-count' dir='ltr'>(69)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2018/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/'>
+2017
+</a>
+<span class='post-count' dir='ltr'>(70)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2017/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/'>
+2016
+</a>
+<span class='post-count' dir='ltr'>(81)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(11)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2016/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/'>
+2015
+</a>
+<span class='post-count' dir='ltr'>(79)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2015/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/'>
+2014
+</a>
+<span class='post-count' dir='ltr'>(88)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(16)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(10)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2014/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/'>
+2013
+</a>
+<span class='post-count' dir='ltr'>(87)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(12)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2013/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(12)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/'>
+2012
+</a>
+<span class='post-count' dir='ltr'>(79)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(10)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(11)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2012/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/'>
+2011
+</a>
+<span class='post-count' dir='ltr'>(69)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(10)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2011/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/'>
+2010
+</a>
+<span class='post-count' dir='ltr'>(86)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(10)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(10)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2010/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/'>
+2009
+</a>
+<span class='post-count' dir='ltr'>(83)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2009/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/'>
+2008
+</a>
+<span class='post-count' dir='ltr'>(96)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(10)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(6)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(12)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2008/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(13)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/'>
+2007
+</a>
+<span class='post-count' dir='ltr'>(168)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(12)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(13)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(17)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(11)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(16)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(14)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(14)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(14)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(13)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/03/'>
+March
+</a>
+<span class='post-count' dir='ltr'>(14)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/02/'>
+February
+</a>
+<span class='post-count' dir='ltr'>(13)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2007/01/'>
+January
+</a>
+<span class='post-count' dir='ltr'>(17)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/'>
+2006
+</a>
+<span class='post-count' dir='ltr'>(114)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/12/'>
+December
+</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/11/'>
+November
+</a>
+<span class='post-count' dir='ltr'>(12)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/10/'>
+October
+</a>
+<span class='post-count' dir='ltr'>(13)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(16)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(19)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/07/'>
+July
+</a>
+<span class='post-count' dir='ltr'>(15)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/06/'>
+June
+</a>
+<span class='post-count' dir='ltr'>(15)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/05/'>
+May
+</a>
+<span class='post-count' dir='ltr'>(14)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://schwitzsplinters.blogspot.com/2006/04/'>
+April
+</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class='clear'></div>
+</div>
+</div><div class='widget Text' data-version='1' id='Text1'>
+<div class='widget-content'>
+<span style="color:#999999;">background image from </span><a href="http://biocarbons.en.ecplaza.net/"><span style="color:#999999;">http://biocarbons.en.ecplaza.net</span></a><br/>
+</div>
+<div class='clear'></div>
+</div></div>
+</div>
+<!-- spacer for skins that want sidebar and main to be the same height-->
+<div class='clear'>&#160;</div>
+</div>
+<!-- end content-wrapper -->
+<div id='footer-wrapper'>
+<div class='footer no-items section' id='footer'></div>
+</div>
+</div></div>
+<!-- end outer-wrapper -->
+<!--It is your responsibility to notify your visitors about cookies used and data collected on your blog. Blogger makes a standard notification available for you to use on your blog, and you can customise it or replace it with your own notice. See http://www.blogger.com/go/cookiechoices for more details.-->
+<script defer='' src='/js/cookienotice.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function(event) {
+      window.cookieChoices && cookieChoices.showCookieConsentBar && cookieChoices.showCookieConsentBar(
+          (window.cookieOptions && cookieOptions.msg) || 'This site uses cookies from Google to deliver its services and to analyse traffic. Your IP address and user agent are shared with Google, together with performance and security metrics, to ensure quality of service, generate usage statistics and to detect and address abuse.',
+          (window.cookieOptions && cookieOptions.close) || 'Got it',
+          (window.cookieOptions && cookieOptions.learn) || 'Learn more',
+          (window.cookieOptions && cookieOptions.link) || 'https://www.blogger.com/go/blogspot-cookies');
+    });
+  </script>
+
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/2028843038-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AOuZoY7UCS_YC5zrAqkVCzXuLDLzn5YqGQ:1768901908846';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d26951738','//schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html','26951738');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '26951738', 'title': 'The Splintered Mind', 'url': 'https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html', 'canonicalUrl': 'http://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html', 'homepageUrl': 'https://schwitzsplinters.blogspot.com/', 'searchUrl': 'https://schwitzsplinters.blogspot.com/search', 'canonicalHomepageUrl': 'http://schwitzsplinters.blogspot.com/', 'blogspotFaviconUrl': 'https://schwitzsplinters.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': 'UA-43027794-1', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22The Splintered Mind - Atom\x22 href\x3d\x22https://schwitzsplinters.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22The Splintered Mind - RSS\x22 href\x3d\x22https://schwitzsplinters.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22The Splintered Mind - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/26951738/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22The Splintered Mind - Atom\x22 href\x3d\x22https://schwitzsplinters.blogspot.com/feeds/8994636870830143997/comments/default\x22 /\x3e\n', 'meTag': '', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/6e0d22adcfa5abea', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'X', 'key': 'twitter', 'shareMessage': 'Share to X', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Read more', 'pageType': 'item', 'postId': '8994636870830143997', 'postImageThumbnailUrl': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAeMR6NyPMfgHDjVZyUt9NKjntNaYHIai-B97esDt7kFWUOxwCJARiz2NkFml3X6mXjXy9uxGg3DEr5smA_e4hisJ_ExOwae_4JfW1vMxRY5TisFVrbA8wIsU1FfDx8YD4k1_G6kbSgRJKyRjxUPfYCVvyl60zo8jwuATQKO8z98rdAxPOT4g/s72-c/AI.jpg', 'postImageUrl': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAeMR6NyPMfgHDjVZyUt9NKjntNaYHIai-B97esDt7kFWUOxwCJARiz2NkFml3X6mXjXy9uxGg3DEr5smA_e4hisJ_ExOwae_4JfW1vMxRY5TisFVrbA8wIsU1FfDx8YD4k1_G6kbSgRJKyRjxUPfYCVvyl60zo8jwuATQKO8z98rdAxPOT4g/s200/AI.jpg', 'pageName': 'The Design Policy of the Excluded Middle', 'pageTitle': 'The Splintered Mind: The Design Policy of the Excluded Middle', 'metaDescription': ''}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard!', 'ok': 'Ok', 'postLink': 'Post Link'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Custom', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'The Design Policy of the Excluded Middle', 'description': '', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAeMR6NyPMfgHDjVZyUt9NKjntNaYHIai-B97esDt7kFWUOxwCJARiz2NkFml3X6mXjXy9uxGg3DEr5smA_e4hisJ_ExOwae_4JfW1vMxRY5TisFVrbA8wIsU1FfDx8YD4k1_G6kbSgRJKyRjxUPfYCVvyl60zo8jwuATQKO8z98rdAxPOT4g/s200/AI.jpg', 'url': 'https://schwitzsplinters.blogspot.com/2023/01/the-design-policy-of-excluded-middle.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 8994636870830143997}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/4049919853-lbx.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/828616780-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebar', document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FeedView', new _WidgetInfo('Feed1', 'sidebar', document.getElementById('Feed1'), {'title': 'Recent Comments (may be delayed)', 'showItemDate': true, 'showItemAuthor': true, 'feedUrl': 'http://schwitzsplinters.blogspot.com/feeds/comments/default', 'numItemsShow': 5, 'loadingMsg': 'Loading...', 'openLinksInNewWindow': false, 'useFeedWidgetServ': 'true'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList6', 'sidebar', document.getElementById('LinkList6'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList5', 'sidebar', document.getElementById('LinkList5'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar', document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Loading\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_TextView', new _WidgetInfo('Text1', 'sidebar', document.getElementById('Text1'), {}, 'displayModeFull'));
+</script>
+</body>
+</html>

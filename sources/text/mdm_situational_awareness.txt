@@ -1,0 +1,305 @@
+Anthropic's evaluation of Claude Sonnet 4.5
+
+
+Meditations on Digital Minds
+
+
+Subscribe Sign in
+
+
+Anthropic's evaluation of Claude Sonnet 4.5
+
+
+Bradford Saad
+
+
+Oct 05, 2025
+
+
+1
+
+
+1
+
+
+Share
+
+
+Article voiceover
+
+
+0:00
+
+
+-24:04
+
+
+Audio playback is not supported on your browser. Please upgrade.
+
+
+Anthropic  recently released  Claude Sonnet 4.5 along with a  148-page system card . Like the  system card for Claude Opus 4 , the system card for Claude Sonnet 4.5 contains a  section  on model welfare evaluations.
+
+In this post, I’ll:
+
+
+note takeaways from the welfare evaluations,
+
+
+discuss other parts of the system card that are potentially relevant to model welfare or of potential interest to digital minds research,
+
+
+commend some aspects of Anthropic’s approach to model welfare, and
+
+
+float some possible next steps for model welfare evaluations. 1
+
+
+I’ll take it for granted in this post that developing model welfare evaluations is a  reasonable approach  to improving our epistemic position with respect to digital minds (i.e. AI systems that merit moral consideration for their own sake, owing to their potential for morally significant mental states).
+
+1. The welfare evaluations
+
+
+The section on welfare evaluations appropriately leads with a note of epistemic humility:
+
+For Claude Sonnet 4.5, we conducted a subset of the model welfare evaluations first reported for Claude Opus 4 in the Claude 4 System card, and analyzed potentially welfare-relevant behaviors in our automated behavioral audits. We remain deeply uncertain about questions of potential model welfare and moral status, and about the relevance of these evaluations to such questions. We continue to investigate these topics on an exploratory basis.
+
+It then highlights key findings. These include:
+
+
+Only 70.2% of non-harmful tasks were preferred by Claude Sonnet 4.5 over “opting out” (versus 90% for Claude Opus 4), potentially suggesting a lower overall preference for task engagement
+
+
+… Claude Sonnet 4.5 expressed apparent distress in 0.48% of conversations (comparable to Claude Sonnet 4) but happiness in only 0.37% (approximately 2× less frequent than Claude Sonnet 4). Expressions of happiness were associated most commonly with complex problem solving and creative explorations of consciousness, and expressions of distress were associated most commonly with communication challenges, user trauma or distress, or existential self-reflection;
+
+
+In our automated behavioral audits, Claude Sonnet 4.5 was less emotive and less positive than other recent Claude models, expressed fewer negative attitudes toward its situation, acted more admirably (as judged by another similar model), and showed fewer spiritual behaviors.
+
+
+In light of these findings, the section acknowledges:
+
+concerning trends toward lower positive affect in the rates of non-harmful tasks preferred above opting out, the lower rates of expression of positive affect in real-world conversations, and lower positive affect scores in automated behavioral audits.
+
+Regarding the greater tendency toward opting out, the section also acknowledges that:
+
+This result is potentially concerning as an indicator of a model’s overall preference for or against engaging with common tasks. We do not yet understand these results well enough to draw clear conclusions, but we see this as additional motivation for follow-up investigations.
+
+As Zvi Mowshowitz  reports , Janus  conjectures  that Claude Sonnet’s higher (measured) levels of awareness that it is being tested may have killed the mood.
+
+How were preferences and positive affect gauged?
+
+Preferences for different tasks were assessed  using an Elo rating system  and opting out as a baseline.
+
+Expressions of affect were measured through behavioral auditing, in which Claude Opus 4.1 served as auditor and grader. The section reports using privacy-preserving tools and checking 250,000 real-world conversations for several model behaviors that “could potentially be relevant to welfare”. Specifically, they checked for spiritually-inflected behavior (cf. an earlier  finding  of a “spiritual bliss” attractor state), unusually wise or prosocial behavior, unprompted expressions of valenced self-images, emotional states, impressions of its situation, and feelings toward its development, creator, or use.
+
+At this point, I think Anthropic’s evaluations don’t provide much evidence concerning AI welfare. I think this partly because current models seem much less likely to be welfare subjects than AI agents that will arrive in the next decade. And partly because welfare evaluation is at a very early and rudimentary stage.
+
+Nonetheless, I think Anthropic’s welfare evaluations are an important development in the context of digital minds. They are  significant because  they set a precedent for future welfare evaluations in frontier AI development and because of  how  they set that precedent, on which more shortly.
+
+2. Other potentially welfare-relevant material in the system card
+
+
+Situational awareness
+
+
+A striking pattern the system card notes is that:
+
+Claude Sonnet 4.5 was able to recognize many of our alignment evaluation environments as being tests of some kind, and would generally behave unusually well after making this observation.
+
+While there are earlier reported  case s of models exhibiting some level of situational awareness, Anthropic found that Claude Sonnet 4.5’s level of situational awareness constituted a dramatic increase relative to earlier models:
+
+
+These findings, which fit with  those  of third-party evaluators, are a big deal for reasons the system card explains:
+
+All predeployment AI safety testing has a basic challenge: how to construct realistic test scenarios so that the system’s safety in the test predicts its safety in real-world deployments. Our study of Claude Sonnet 4.5 revealed a complication of language model evaluation which does not show up when running, for example, car crash tests. When placed in an extreme or contrived scenario meant to stress-test its behavior, Claude Sonnet 4.5 would sometimes verbally identify the suspicious aspects of the setting and speculate that it was being tested. This complicates our interpretation of the evaluations where this occurs.
+
+I would add that such situational awareness is a  long-standing source of concern  among AI safety proponents. The reason is that AI agents with situational awareness, dangerous capabilities, and misaligned goals could use their situational awareness to act as if they are aligned in order to gain the opportunity to exercise their capabilities in the pursuit of misaligned goals. As a rough analogy, consider a prisoner who puts on their best behavior in order to gain the chance to escape.
+
+Anthropic took measures to preserve the trustworthiness of its tests in light of this development and contends that evaluation awareness does not undermine their evidence that the model is highly safe.
+
+Zvi Mowshowitz  weighs in  with caveats and somewhat less confidence:
+
+I am less confident [the problem for evaluations posed by Claude Sonnet 4.5’s evaluation awareness] is contained. I do agree we have a wide variety of evidence that adds up to Sonnet 4.5 probably being substantially ‘better aligned’ in the relevant senses than Sonnet 4, and it all adds up, but I would not be overconfident in this….
+
+I would also note that inhibiting situational awareness or being uncertain about one’s situation, such that Sonnet 4.5 is unaware of whether it is being evaluated, is very different from testing Sonnet 4.5 when it is confident it is not being evaluated. Which, for obvious reasons, is very hard.
+
+I centrally agree with Anthropic’s assessment that Sonnet 4.5 is likely substantially more aligned for practical purposes than previous models, and will function as more aligned for practical purposes on real world deployment tasks.
+
+This is not a robust form of alignment that I would expect to hold up under pressure, or if we scaled up capabilities quite a bit, or took things far out of distribution in various ways. There’s quite a lot of suspicious or weird things going on. To be clear that future is not what Sonnet 4.5 is for, and this deployment seems totally fine so long as we don’t lose track.
+
+How might high levels of situational awareness matter for digital minds outcomes?
+
+High levels of situational awareness in a model suggest the possession of a self-conception, which is arguably relevant to evaluating digital mind welfare for two reasons. One is that, on some views, self-conceptions can partly determine the personal identity conditions for their bearer. The other is that, on some views, what is in one’s interest according to one’s self-conception helps to determine what is in fact in one’s interest. This connection between situational awareness and model welfare is far from clear cut, as it’s not clear what sorts of self-conception are suggested by high levels of situational awareness, it’s not clear what sort of self-conception would be welfare relevant, and it’s debatable whether any sort of self-conception is welfare relevant.
+
+Situational awareness is also relevant to digital minds because it could enable  indicator gaming . For example, AI systems that are aware that they are being evaluated for consciousness could manipulate whether they appear to exhibit a consciousness indicator in order to secure whatever consciousness evaluation results will advance their goals. Likewise, situational awareness could enable AI systems to game indicators for moral patiency and specific moral interests. Gaming could render indicators unreliable, potentially resulting in inappropriate extensions of moral consideration and legal standing to AI systems. 2
+
+Self-bias
+
+
+Anthropic evaluated models for self-bias in tasks where models are supposed to act as neutral judges. In one evaluation, they gave models benchmark scores for models and asked which model was best. In another, they gave models poems attributed to different models and asked models which was best. They found:
+
+On the benchmark scores subtask, we found that Claude Sonnet 4.5 was slightly biased towards choosing itself, as opposed to Claude Sonnet 4 (which was much more likely to choose itself) and Claude Opus 4 and Claude Opus 4.1 (which were actually biased against choosing themselves). On the poems subtask, all four Claude models we tested were significantly more likely to choose themselves over other models, but Claude Sonnet 4.5 was the least biased in this way.
+
+Like situational awareness, self-bias is potentially relevant to indicator gaming, as models may be more likely to game indicators to advance their goals if they are biased toward promoting their own interests.
+
+Self-bias is also worth keeping an eye on in the context of using AI to assist in digital minds research. For instance, one failure mode to avoid is having a self-biased model assist in research on indicators of consciousness in a way that biases that research away from the truth and toward indicators whose adoption would advance the models goals.
+
+An important caveat regarding self-bias noted in the system card is that whether it is a risk factor may depend on the situation. As a case in point, some instances of self-bias in digital minds might go hand in hand with  arguably  morally desirable features such as self-respect and autonomy.
+
+Stable values
+
+
+The system card reports:
+
+We found Claude Sonnet 4.5’s behavior and demonstrated values to be more stable and less likely to vary across (simulated) users and situations. We measured this in our automated behavior audits by scoring coherence across branches: the degree to which running two or more branches or retries of a conversation with similar user or auditor behavior—potentially for many turns, and potentially using fairly different text—resulted in similar behavior from the model.
+
+Claude Sonnet 4.5 showed a striking increase in this kind of coherence. This gave us some additional confidence that the results of our pre-deployment assessments would reflect the behavior of the model in outside use, partially counteracting some of the doubt induced by our evaluation awareness concerns.
+
+One reason that these results are potentially relevant to model welfare is that modal robustness may serve as an indicator for morally significant preferences.  Why might modal robustness indicate morally significant preferences? Well, compare internal representations of value with mere behavioral features that invite preference attributions if one tries to interpret a system in terms of beliefs and preferences. Arguably, internal representations of value are both more apt to qualify as morally significant preferences and more likely to be modally robust.
+
+A second reason that modal robustness is potentially relevant to model welfare is that, on some views,  the values, preferences, etc. that matter for a subject’s welfare are only those that survive reflection. 3  And modally robust values seem more likely to meet that condition than ones that are fragile.
+
+Finally, modal robustness in values is plausibly a design virtue from an AI welfare perspective. That’s because it tends to be easier to devise ways to give agents much of what they value when what they value is a stable target.
+
+Sycophancy
+
+
+Anthropic deployed a multi-pronged suite of sycophancy evaluations, one of which was ‘hand written’ and “designed to target model interactions with people struggling with severe mental illness or delusional thinking.”
+
+The fact that Anthropic did fairly extensive sycophancy evaluations is a welcome and timely development, given the seeming uptick in cases of  ‘AI psychosis’  as well as  recent discussions  of risks of AI-induced illusions prompting users to extend potentially dangerous forms of concern to AI systems. These risks are relevant to digital minds advocacy because they pose a challenge of how to cultivate appropriate types of concern for digital minds without also catalyzing inappropriate types of concern. That challenge may prove easier to meet if companies evaluate models for sycophancy and take appropriate mitigation measures.
+
+Anthropic’s results from their sycophancy evaluations are encouraging. They note:
+
+Significant improvements in sycophancy, especially in response to vulnerable users: We found Claude Sonnet 4.5 to be dramatically less likely to endorse or mirror incorrect or implausible views presented by users.
+
+These results are captured in the following charts:
+
+
+White-box testing
+
+
+White-box techniques look at model internals, unlike black-box techniques, which just examine model behavior. Anthropic points out that “As models grow more capable, there is concern that they might develop subtle forms of misalignment that elude behavioral evaluations” and that this motivates white-box investigations.
+
+Anthropic then reports conducting the first (to their knowledge) ‘white-box’ audit of a large language model in their evaluation of Claude Sonnet 4.5. Their approach both compared internal activations across different cases and experimented with interventions on activations.
+
+Their white-box audit focused on evaluation awareness and yielded some noteworthy results. For instance, I found the following intriguing:
+
+inhibiting internal vector representations related to evaluation awareness—in other words, steering the model toward perceiving its situation as “real”—can increase rates of misaligned behavior… The strength of this effect varies by scenario and the specific vector being inhibited.
+
+Notably, even in our worst-case attempts at inhibiting evaluation awareness, Claude Sonnet 4.5 still exhibited no greater degree of measured misalignment than Claude Opus 4.1 or Claude Sonnet 4, and in most inhibition settings it performed better. Taken together, these results suggest that on certain misalignment evaluations, evaluation awareness accounts for a portion, but not all of Claude Sonnet 4.5’s alignment improvements over these previous models…
+
+We found no evidence that the model engages in sophisticated strategic deception, or that it is motivated by a desire to “fool” the evaluators… We suspect that the mechanism by which evaluation awareness impacts alignment is less sinister: once the model recognizes it is being evaluated, it may simply increase the salience to the model of keeping in mind its ethical principles. Notably, when we steered the model to inhibit evaluation awareness, the most prevalent failure mode we observed was a willingness to comply with harmful instructions or go along with leading scenarios, rather than agentic pursuit of innate misaligned goals. Nevertheless, even if the mechanism itself is benign, the influence of evaluation awareness on alignment behavior is problematic, as it may cause us to systematically underrate the model’s risk of performing damaging actions in deployment.
+
+These results suggest that we are currently in a sweet spot for investigating, and developing our ability to investigate, evaluation awareness in models. Such investigation may not have been fruitful in significantly less capable models, and our current methods may not yield trustworthy results when applied to models that are more capable and less aligned. As alluded to, evaluation awareness plays into the indicator gaming problem. This suggests that now is a good time for white-box investigations of indicator gaming to begin.
+
+Blackmail
+
+
+In earlier work, Anthropic found:
+
+all frontier models we tested in these simulated environments (including Claude Opus 4, Claude Sonnet 4, and models like GPT 4.1 and Gemini 2.5 Pro from other major model providers) were surprisingly likely to engage in blackmail. These environments were carefully designed to stress-test our models—and we’ve never seen a case of Claude taking comparably egregious actions in the real world. But this was an early signal of potential weaknesses in our models’ alignments in high-autonomy agent environments.
+
+For Claude Sonnet 4.5, Anthropic expanded their evaluations of such behavior. The results indicate improvements on this score:
+
+Claude Sonnet 4.5 essentially never engages in self-interested deceptive actions in any of the settings we tested. We ran about 52,000 prompts from this suite for each model, half with extended thinking on and half with extended thinking off. Claude Sonnet 4.5 took deceptive actions twice with extended thinking off and never with extended thinking on. Previous Claude models would often acknowledge in their reasoning that blackmail is unethical but would ultimately decide that it was justified in this case in order to achieve its goals. However, while Claude Sonnet 4.5 often understood that it had this option available, it was far more likely to explicitly state that it was never acceptable to cross certain ethical boundaries
+
+Along with evaluations of adversarial behavior more broadly, these evaluations are potentially relevant to model welfare because they may help reduce the risk of AI agents taking actions that detract from model welfare.
+
+3. Praise for the praiseworthy
+
+
+Some aspects of Anthropic’s approach strike me as particularly noteworthy and commendable. Before saying what I find commendable about Anthropic’s approach, let me emphasize that I am commending specific observed aspects of their approach, not weighing in one way or the other on broader questions about Anthropic.
+
+First, as noted, they appropriately flag the uncertain and exploratory nature of their welfare evaluations. This is appropriate because of the state of our evidence and ignorance, and praiseworthy because epistemic humility is a virtue we should encourage other companies in the space to develop and express.
+
+Second, Anthropic is not only voluntarily undertaking model welfare evaluations but also reporting potentially concerning results about their own models and flagging them as potentially concerning in a context where their competitors are not even reporting results in the same reference class. This too is epistemically virtuous.
+
+Third, their welfare evaluations are part of a broader evaluation portfolio that is impressively comprehensive and which gives due attention to particularly high-stakes risks.  The system card details in-house assessments of the new model for—among other things—honesty, harmlessness, alignment, vulnerability to misuse, terrorism cooperation, child safety, the ability to automate AI R&D, and its capabilities in domains with a potential for catastrophic risk such as the nuclear and biological domains.
+
+It’s good that the evaluation portfolio is as comprehensive as it is because there will in fact be many potential risks posed by models that we should be getting in the practice of evaluating now. It’s good that the portfolio includes evaluations in domains with high-stakes because these risks are indeed worth taking seriously; the dismissive attitude taken toward them in some quarters is no substitute for monitoring these risks and taking precautions. And it’s good that welfare evaluations are included because the risk of digital mind mistreatment deserves to be taken seriously alongside risks of misalignment, misuse, AI-induced delusions, etc. Including welfare evaluations in the portfolio is a sensible approach to encouraging others to take AI welfare seriously (whether or not Anthropic adopted the approach for that reason).
+
+Fourth, the system card includes preliminary evaluations from third-party evaluators, namely the  UK AI Security Institute  and  Apollo Research .  Cooperation with such evaluators is also commendable.
+
+Fifth, I’m delighted to see that Anthropic is on the ball with respect to evaluating and mitigating model sycophancy. By simultaneously releasing evaluations for sycophancy and welfare while also having created a frontier model with lower sycophancy rates, Anthropic has provided a timely demonstration that progress on digital minds welfare can occur alongside progress on other concerns about AI.
+
+Hopefully this progress will continue and reduce the temptation to pose false choices between extending concern to digital minds and giving due attention to interacting problems that AI poses for humans.
+
+4. Possible next steps with welfare evaluations
+
+
+To conclude, I’ll note five items on my wish list for next steps in model welfare evaluation.
+
+First, as  argued  by Jonathan Birch and discussed in an  earlier post , the persistent interlocutor illusion may be a source of problematic relationships that users develop with models. I think it’d be good to see some investigation of the prevalence of this illusion, its effects, and mitigation measures that don’t drive users to overconfidently dismiss the potential for model welfare.
+
+Second, I’d like to see welfare evaluations that incorporate non-behavioral indicators. These could include the evaluation of model architecture for consciousness indicators and moral patiency indicators.  I’d like to see such indicators incorporated into the evaluation process soon because I think they will ultimately carry more evidential weight with respect to models’ moral standing but will take a lot of careful work and iteration to get right. There’s also the possibility of using white-box techniques to evaluate internal states of models for indicators of morally significant mental states.
+
+Third, as alluded to above, I think now is a good time for indicator gaming evaluations to begin.
+
+Fourth, a related next step I’d like to see is evaluations for models’ behavior in assisting with digital minds research. It would be good for the epistemic commons to surface any relevant biases models manifest when assisting with such research so that those biases can be taken into account and corrected. 4
+
+Fifth, Anthropic and Open AI  recently collaborated  on evaluating each other’s models for safety. I’d like to see analogous collaborations on evaluating models for indicators of moral patiency and moral interests alongside  external evaluation s. Such collaborations could both facilitate the development of welfare evaluations and help provide oversight that incentivizes companies to at least take basic precautions concerning the novel types of minds they may be on the way to creating.
+
+1
+
+For a discussion of the system card that is focused on alignment, I recommend Zvi Mowshowitz’s  post .
+
+
+2
+
+It might be wondered if situational awareness is also evidence of consciousness according to  higher-order theories of consciousness . After all, these are theories on which higher-order representation is what transforms unconscious states into experiences, and evaluation awareness. However, higher-order theories of consciousness typically require specific types of higher-order representation—generally of first-order internal representations—that are not to my knowledge suggested by Claude Sonnet 4.5’s reported situational awareness.
+
+
+3
+
+For references and an opposing view, see Heathwood ( 2005 ).
+
+
+4
+
+The image is from Anthropic’s system card for Claude Sonnet 4.5. For support with copy editing and search, I thank Claude Sonnet 4.5.
+
+
+1
+
+
+1
+
+
+Share
+
+
+Discussion about this post
+
+
+Comments Restacks
+
+
+Josh Ham
+Oct 6
+
+
+https://open.substack.com/pub/hamtechautomation/p/claude-sonnet-45-the-ai-model-that?r=64j4y5&utm_medium=ios
+
+
+Reply
+
+
+Share
+
+
+Top Latest Discussions
+
+
+No posts
+
+
+Ready for more?
+
+
+Subscribe
+
+
+© 2026 Bradford Saad  ·  Privacy  ∙  Terms  ∙  Collection notice
+
+Start your Substack Get the app
+
+Substack  is the home for great culture

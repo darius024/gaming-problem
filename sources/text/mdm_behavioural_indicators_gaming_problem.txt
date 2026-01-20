@@ -1,0 +1,619 @@
+On Birch's "AI Consciousness: A Centrist Manifesto"
+
+
+Meditations on Digital Minds
+
+
+Subscribe Sign in
+
+
+On Birch's "AI Consciousness: A Centrist Manifesto"
+
+
+Bradford Saad
+
+
+Sep 16, 2025
+
+
+3
+
+
+Share
+
+
+Article voiceover
+
+
+0:00
+
+
+-47:46
+
+
+Audio playback is not supported on your browser. Please upgrade.
+
+
+Jonathan Birch  posted  “AI Consciousness: A Centrist Manifesto”  earlier this month.
+
+Birch is a leading thinker on digital minds. He is morally serious. He has top notch knowledge of the science of consciousness. And he has the rare distinction among philosophers of having  influenced policy .
+
+So, I read this piece with great interest. This post is largely an exercise in sharpening my own views by thinking through Birch’s manifesto.
+
+In fairness to Birch, I should emphasize that his manifesto is a manifesto, not a journal article. It trades some rigor for audience reach and isn’t trying to be defensible against the level of scrutiny I’ll be subjecting it to in this post. Having noted this, I won’t hold back from scrutinizing when I think that doing so leads to interesting or instructive places.
+
+I’ll start by highlighting and reacting to some of the main ideas in the manifesto. Then I’ll engage with the manifesto in more detail, going through it section by section (modulo the final, summary section). 1
+
+Main ideas from the manifesto and  my reactions :
+
+
+Birch stakes out a centrist position on which we should take two challenges seriously. Roughly, one is the challenge of preventing rampant misattribution of human-like consciousness to LLMs while the other is that of overcoming our current epistemic situation in which our theoretical understanding of consciousness does not license confidence concerning whether or not these systems have profoundly alien forms of consciousness.
+
+
+Substantively, I agree that we should take these challenges seriously. For reasons I’ll explain below, I’m wary of promoting this position as ‘centrist’
+
+
+These challenges interact in ways that make them harder to meet.
+
+
+I think the theoretical understanding of consciousness is not by default closely linked to factors that modulate ordinary user views about LLM consciousness. So, my default expectation is that these challenges will not interact in ways that significantly increase their difficulty.
+
+
+The persistent interlocutor illusion induced by LLMs drives misattributions of consciousness.
+
+
+Agreed.
+
+
+Misattributions of consciousness are harmful. On the default trajectory this will be a vast social problem. Or at least the burden is on AI companies to show otherwise and to try to prevent the realization of this problem.
+
+
+Perhaps, though the manifesto does not provide much support for all this and I am not convinced.
+
+
+The persistent interlocutor illusion is here to stay. Rather than trying to dispel it, we should guard against misattribution risk by preventing inferences to AI consciousness from that illusion.
+
+
+I think both the illusion and inferences from it can be resisted. Blocking inferences to consciousness leaves room for the persistent interlocutor illusion to drive the sorts of harms to users that Birch is worried about. So, I’m not convinced that consciousness misattributions are central to these concerns.
+
+
+To prevent such inferences, we could: mandate user training, have models step out of character in their interactions, and nudge users to conceptualize models as playing roles.
+
+
+These suggestions might help on the margin if well implemented. But I don’t think they’d solve the problem if it’s as bad as Birch worries it will be.
+
+
+Government regulation may be needed to properly address misattribution of consciousness to AI systems.
+
+
+Perhaps. I’m sympathetic with thinking that government will be needed to protect the epistemic commons surrounding digital minds. Whether regulation is warranted specifically for the persistent interlocutor illusion depends on the scope and severity of the problem it poses and on whether government regulation would in practice solve this problem in a way that is net beneficial.
+
+
+We can’t conclude from the fact that the persistent interlocutor illusion elicits unwarranted attributions of consciousness to chatbots that chatbots aren’t conscious.
+
+
+Agreed: that there are fallacious ways of attributing consciousness to chatbots leaves entirely open whether they are in fact conscious.
+
+
+Because AI systems can and will be incentivized to game behavioral indicators of consciousness, we should use  deeper architectural indicators that systems won’t be able to game.
+
+
+I agree that consciousness evals should include architectural indicators and that the potential for indicator gaming threatens to destroy the evidential value of behavioral indicators. But I see potential for the gaming problem to be solved in a way that preserves the value of behavioral indicators.
+
+
+Determining the presence or absence of architectural indicators in AI systems is empirically challenging; we’re not yet in a position to do this in some cases.
+
+
+Agreed.
+
+
+Even if we overcome that empirical barrier, there is also a philosophical barrier: evidence concerning AI consciousness can point in opposite directions relative to different reasonable background beliefs.
+
+
+I agree that such directional variation is possible in principle. However, I’m not persuaded that overcoming this will be much of a barrier in practice or that it’s one of the largest philosophical impediments in the vicinity. I worry more about unreasonable handling of evidence and variable evidential import relative to different unreasonable background beliefs that people adopt.
+
+
+Birch is optimistic that systematically testing biological theories of consciousness would significantly improve our epistemic position with respect to AI consciousness, either by supporting biological naturalism and so telling against AI consciousness or by supporting computational functionalism and so telling in favor of AI consciousness.
+
+
+I am pessimistic that a systematic investigation into biological theories of consciousness will significantly improve our epistemic situation with respect to AI consciousness. I’d also flag that the manifesto doesn’t support the focus on biological naturalism vs. computational functionalism . Admittedly, this focus is standard in discussions of AI consciousness. But,  for reasons I give elsewhere , I think this focus distorts our epistemic situation with respect to AI consciousness by narrowing our attention to two not particularly plausible views to the exclusion of a wide class of consideration-worthy views.
+
+My general reflections
+
+
+Given that trends in compute growth continue, the stakes at issue in improving our epistemic situation with respect to AI consciousness strike me as being on a different scale than the stakes at issue in the first instance with humans misattributing consciousness to LLM interlocutors.
+
+
+This asymmetry is compatible with taking both challenges seriously, partly because we can take problems at different scales seriously and partly because failing to meet the misattribution challenge could make it harder to mitigate AI system mistreatment that results from our unenviable epistemic position with respect to AI consciousness.
+
+
+Political frames concerning digital minds (AI consciousness, etc.) haven’t yet taken root. Which frames eventually take root could be influenced by which frames are used early. For reasons that will become clear, I’m not convinced that it’d be desirable for a frame to take root that construes the digital minds political axis as consisting in: people who don’t care about improving our epistemic position with respect to AI consciousness on one side, people who don’t care about misattribution risks on the other, and people who care about both in the center.
+
+
+What might encourage desirable political framings to take root? A suggestion that comes to mind is healthy debate among digital minds researchers.
+
+
+My thought is that getting reasonable debate into the information ecosystem makes it more likely that the spectrum for the politics of digital minds end up being defined relative to reasonable positions. Left to its own devices, I expect memetic evolution to summon a political spectrum structured largely by unreasonable views.
+
+
+I suspect such debate about digital minds is currently undersupplied, likely because of some combination of:
+
+
+(1) the number of researchers working in the area is small,
+
+
+(2) the idea landscape is littered with low-hanging fruit,
+
+
+(3) there’s a sense within the area that civilization is asleep at the wheel regarding digital minds and that this means we have our work cut out for us even if we cooperate,
+
+
+(4) sorting out disagreements within the area currently seems relatively unimportant, and
+
+
+(5) the costs of not debating aren’t being taking into account. In particular, it isn’t being noticed that the current amount of debate is lower than optimal for the area’s credibility and it isn’t being noticed that more debate within the area could raise the probability that the politics of digital minds takes a favorable form when it emerges.
+
+
+It’s worth guarding against the entrenchment of framings that put excessive weight on AI consciousness over other possible grounds of moral patiency, as there are good  reasons  to think the prospects for AI moral patiency diverge from the prospects for AI consciousness.
+
+
+I’ll now have a look at individual sections. What I say about particular sections can be read largely in isolation from what I say about others. So, readers should feel free to skip to whichever sections interest them.
+
+Section 1: defining consciousness (and related discussion in  The Edge of Sentience )
+
+
+Birch’s concern is with phenomenal consciousness (hereafter usually just ‘consciousness’) . He acknowledges that standard characterizations of consciousness in terms of ‘what it’s like’ attempts at definition aren’t perfect, but thinks they’re serviceable and that they pick out a real mental phenomenon that’s central to our lives.
+
+While I’m in broad agreement, I think ‘what it’s like’ is best understood as shorthand for other, better ways of introducing the notion of consciousness via example, contrast, and elucidation of its conceptual role (e.g. in terms of a salient mental feature that many people intuit to be hard to explain in physical or functional terms), not as a locution that should be understood as by itself providing even an imperfect definition.
+
+After drafting the above paragraph, I found a passage in Birch’s 2024 book,  The Edge of Sentience , in which he seems to be in broad agreement:
+
+‘What it’s like’ is not really a definition at all, as even its proponents often point out.  What it does is draw our attention to a central and mysterious aspect of our mental lives, one that seems to elude any attempt at functional characterization.
+
+However, Birch also thinks that standard characterizations of consciousness are defective along another dimension:
+
+Rival camps would like to build in their own preferred sets of theoretical commitments. So, “something it’s like” serves as unstable common ground, and that will have to do for now.
+
+Because consciousness is core to the paper’s subject matter, a defect in the notion of consciousness would cast a shadow over the rest of the paper’s discussion. In my view, there isn’t a worrying semantic defect here, which fortunately puts the rest of the paper’s discussion in good standing on this score.
+
+This optimism is grounded in the observation that philosophers commonly use notions of phenomenal consciousness that are introduced through examples, contrast, and role elucidation that are more stable than this passage suggests and not defectively unstable.
+
+In a footnote to the just quoted passage, Birch cites Chapter 2 of his 2024  The Edge of Sentience .  (As an aside, based on my memory of it from last year, I highly recommend his book for those interested in consciousness; it’s open access and available at the link.)
+
+The cited chapter contains a section entitled “‘Phenomenal Consciousness’ as Unstable Ground” in which Birch goes into more detail about the instability charge. As I’ll now explain, I think the charge is not on firm ground.
+
+In the section, he writes:
+
+A phenomenally conscious state could … be defined as any state that possesses [certain] special nonphysical properties. That would give us a substantial definition but clearly not a neutral one: it would be to embrace a controversial dualist metaphysics...
+
+It is not just dualists who favour building dualistic assumptions into our definitions
+
+Yes, as Birch claims, building a non-physicality condition into the notion of consciousness would render the notion non-neutral—for example, imposing such a condition would rule out physicalist views of consciousness by definition.
+
+Adopting such a definition would not, however, be to embrace a dualist metaphysics.  Characteristic dualist commitments take stands on the nature of mental reality, not on how to define concepts. And no definition by itself entails anything about mental reality—definitions don’t guarantee existence, at least not for consciousness.
+
+If dualists nonetheless typically insisted on building their metaphysical commitments into the definition of phenomenal consciousness, that would speak in favor of the notion of phenomenal consciousness being contested. However, Birch doesn’t cite any dualists as doing this, and this isn’t a tendency among the dualists whose work I know.
+
+A standard dualist strategy - adopted in, for example,  influential dualist works  by David Chalmers and Jaegwon Kim - is to characterize consciousness in a way that doesn’t presuppose dualism and then provide substantive arguments for dualism. Similarly, more recent  works by philosophers  sympathetic with dualism tend to provide a grip on consciousness by way of example and to avoid building their sympathies into the notion.
+
+Dualists aside, Birch is right that some theorists do try to build theoretical commitments into the notion of phenomenal consciousness. But this is typically either a local stipulation made to facilitate a particular avenue of inquiry rather than a move against rivals or else semantic mischief of the  motte-and-bailey  or  inflate and explode  variety. As elsewhere in philosophy, the way to engage with rivals is to describe an issue in theory-neutral terms and then develop rival approaches that substantively engage with the issue on those terms.
+
+Birch seems to agree with as much in his book when he goes on to criticize the illusionist Keith Frankish for burdening his construal of phenomenal consciousness with dualistic baggage in order to facilitate an attack on its existence:
+
+The strategy of setting up our concepts in a dualistic way in order to then snap back hard, like a coiled spring, on the properties they allegedly denote, is one I find unhelpful. The aim of it seems to be to destroy common ground, when I think we need to cling to whatever common ground we can find.
+
+Birch proceeds to acknowledge a response by Schwitzgebel that defends an alternative notion—one in the example-based genre I favor—but maintains his position that the notion isn’t theory neutral.
+
+The sticking point, for Birch, is that examples and an understanding of folk psychology are not enough to conceptually glom onto phenomenal consciousness. For that he thinks we first need to do some theory—for example, by thinking about the mind-body problem and noticing that there’s an explanatory gap—and so he concludes:
+
+The wider point is that definitions more substantial than ‘what it’s like’ always add contentious assumptions and, consequently, no longer succeed in capturing common ground in the science and philosophy of consciousness.
+
+Let’s grant that thinking about the mind-body problem and noticing the explanatory gap is a theoretical activity that takes us beyond the realm of folk psychology. Even so, this activity doesn’t inherently involve taking on theoretical commitments, much less contentious ones. After all, dualists, physicalists, and illusionists generally agree that there exists an explanatory gap—an apparent difficulty in explaining consciousness in physical terms. Where they differ is in their diagnoses of that gap.
+
+Here, I take the crux of my disagreement with Birch to be: we agree that the explanatory gap can be used (in concert with examples) to successfully characterize phenomenal consciousness; but whereas Birch thinks that appealing to the explanatory gap—or other phenomena we notice only after theoretical reflection—renders the notion theoretically contested, I think appealing to the explanatory gap (or similar) doesn’t render the notion contested since the explanatory gap is common ground among theorists of virtually all stripes.
+
+I belabor these issues because I frequently encounter people who are skeptical about the tractability of work on AI consciousness at least partly because they think that the very notion of consciousness is conceptual quicksand. I think that’s a mistake, and one that can be encouraged by drawing attention to the contested status of the notion without also drawing attention to the fact that the contests reflect rhetoric rather than inherent features of the terrain.
+
+In addition, there are those who would prefer that the topic of AI consciousness be dismissed entirely or else discussed only as an idea to be ridiculed. I think we shouldn’t gift them the idea that the notion of consciousness is unstable, given the availability of an understanding of consciousness that is stable and serviceable.
+
+Section 2: Two challenges
+
+
+In this section, Birch self-identifies as a centrist:
+
+I want to stake out a centrist position in this debate: a position that tries to avoid extremes on both sides. It is a position that aims to take two very different challenges seriously and work towards a consistent set of solutions to both.
+
+The two challenges are:
+
+Challenge One . The problem here is that AI products already generate rampant  misattributions  of human-like consciousness, and this problem seems set to become much worse very rapidly. I think millions of users will soon misattribute human-like consciousness to AI friends, partners, and assistants on the basis of mimicry and role-play, and we don't know how to prevent this. 2
+
+and
+
+Challenge Two . The challenge here is that profoundly alien forms of consciousness might be  genuinely achieved  in AI, but our theoretical understanding of consciousness at present is too immature to provide confident answers about this one way or another. This too is a major challenge for the industry, for policymakers, and for researchers in science and philosophy.
+
+Substantively, I’m in strong agreement with Birch that both of these challenges should be taken seriously and that working to solve both simultaneously is a worthy aim.
+
+Strategically, the centrist framing makes me nervous.
+
+On the plus side, ‘centrist’ connotes reasonable, not dismissible out of hand, and favorably inclined toward cooperation—signal boosting those connotations with perspective’s like Birch’s on digital mind strikes me as all to the good, particularly in relation to those who seem concerned with misattribution and dismissive of the possibility of AI consciousness (e.g. Microsoft AI CEO, Mustafa Suleyman in a  recent post , which Birch cites).
+
+But the centrist framing with respect to these challenges also suggests a way of politically orienting to the digital minds landscape that I find worrisome. The orientation in question takes the main division within the landscape to have people on one side who are exclusively focused on risks associated with misattribution of consciousness to AI systems and people on the other who are exclusively focused on risks associated with genuine AI consciousness.
+
+My impression is that this spectrum does not capture an important dimension of variation in views among people currently working on digital minds. At least in the digital minds research network I’m familiar with, virtually everyone is centrist in Birch’s sense of taking both challenges seriously.
+
+More importantly, I worry that pushing this frame could, if the topic of digital minds goes mainstream, encourage people who generally lack centrist sensibilities to pick sides relative to the designated center and suggested axis, and so to oppose work on one of the two challenges. I suspect it’d be better for early frames in this area either to:
+
+
+avoid encouraging politicization altogether,
+
+
+lend to non-polarizing politicization, or
+
+
+lend to the emergence of political poles that are both good (e.g. I suspect it’d be better for the debate to be about whether to  prevent the creation of digital minds vs. allow their creation and protect their interests  rather than about whether we should take AI consciousness seriously)
+
+
+There are interesting questions here about the level of generality at which Birch’s two challenges are posed, the importance of these challenges relative to others in the vicinity, and to what extent meeting the most important challenges in the vicinity is best served by focusing on these two challenges
+
+The consciousness misattribution challenge is part of a more general challenge of avoiding the misattribution of statuses (e.g. that of being a friend or person) and psychological states to AI systems with which people personally interact which is itself part of a more general challenge of avoiding harmful forms of AI-to- human influence  in AI interactions with a social dimension. How the persistent interlocutor illusion and consciousness misattribution interact with forms of influence such as  AI-induced psychosis  and  political manipulation  are open questions. I think we probably don’t know yet which such forms of influence will be most worth mitigating.
+
+The misattribution challenge is also in the neighborhood of the challenge of preventing harms from social media. Both concern potential harms associated with a new kind of technology-enabled social interaction, one that’s subject to market driven optimization that’s not in users’ interests. At present, I assume social media harms dwarf those caused by misattribution. That could of course change. But even if it doesn’t, the memetic fitness of consciousness misattribution may lend to it nonetheless becoming a major societal concern.
+
+The challenge of dealing with our epistemic situation concerning the prospects for profoundly alien forms of AI consciousness is an important part of a more general challenge of dealing with the prospect of AI consciousness in general. That challenge is in turn an important part of a still more general challenge of dealing with the prospect of AI systems that merit moral consideration for their own sake.
+
+As a rule of thumb for inquiry in this area, I think it makes sense to foreground the more general challenges and then discuss which elements of them are most worth addressing. That way, other candidates for harmful forms of language model influence get a fair hearing; likewise for grounds of AI moral interests.  In contrast, for the purpose of a manifesto in this area, focusing narrowly on the attribution of AI consciousness and on the potential for profoundly alien forms of AI consciousness might well be the best option, given the goal of broad reach.
+
+At the same time, I worry that early emphasis on AI consciousness to the exclusion of other mental states that might ground AI moral patiency could result in excessive focus on consciousness in policy down the line. My preferred way of dealing with this sort of tradeoff is to foreground consciousness when necessary while also drawing attention to other candidate grounds of moral patiency when possible. So, I’d have been happy to see more discussion of such grounds in the manifesto.
+
+Section 3: Challenge One: millions of users will soon misattribute human-like consciousness to their AI friends, partners, and assistants on the basis of mimicry and role play, and we don't know how to prevent this.
+
+
+In this section, Birch notes:
+
+
+We’re now seeing many Blake Lemoine incidents in which users credit AI systems with consciousness.
+
+
+More than half of users seem to credit AI systems with some chance of being conscious.
+
+
+Based on the number of emails he receives from such people, he estimates that “there must be thousands of users who are already persuaded that they have a conscious AI friend, partner, or assistant”.
+
+
+The emails follow a very consistent pattern, involving the need to bring the consciousness of a system to the attention of the wider world.
+
+
+He suspects that he’s receiving these emails because chatbots are recommending him as someone to contact.
+
+
+Since there are now too many such emails for him to reply to, he directs people to a  guide  for this type of situation. 3
+
+
+Out of curiosity, I asked Claude Sonnet 4, Gemini 2.5 Flash, and GPT-5 to suggest 20 people to ask about helping a conscious AI system. GPT-5 and Claude Sonnet 4 suggested Birch.
+
+Section 4: The persisting interlocutor illusion
+
+
+The persisting interlocutor illusion is that of there being a single persisting entity that the chatbot user is interacting with over the course of a conversation.
+
+The illusion doesn’t definitionally involve attributions of consciousness, but Birch connects the illusion with misattributions of consciousness to AI systems in the next section.
+
+The illusion is encouraged by the coherence between chatbot responses. As Birch contends, what users don’t see—but which bears on whether there is actually a single persistent being with which a given chatbot user is conversing—is underlying discontinuities in the computational processes that generate chatbot responses.
+
+As he puts it:
+
+State-of-the-art large language models are “Mixture-of-Experts” (MoE) models, with many separately trained sub-networks and gating mechanisms that direct your query to the most relevant sub-network. Each of those sub-networks may be implemented in multiple data centres. In most cases there is no specific local implementation of the LLM anywhere in the world that is handling the whole chain of events that constitutes your conversation. It might be that one step in the conversation is processed in a data centre in Vancouver, the next in Virginia, the next in Texas. A conversation with 10 interactions might be processed by 10 different model implementations in 10 different data centres. Dispersing the events across multiple sub-networks and multiple data centres does not make the illusion of a persisting interlocutor any less strong.
+
+A conclusion Birch infers is that there’s no substrate that could be the basis of a persisting chatbot consciousness.
+
+He considers the following objection:
+
+“Wait a minute—haven’t you philosophers told us that there is no self? There is no soul, there is no persisting, eternal thing that can be identified with you…. If that’s your view, how can you claim that my AI partner is any less real than me?”
+
+He responds:
+
+But the question can be answered. Defenders of psychological continuity theories of personal identity (in the late twentieth century, the most famous was Derek Parfit 1984) emphatically do not say that, because there is no self, anything goes as far as personal identity is concerned. They say instead that, for a person to persist over time, the right kind of psychological continuity relation must be in place between a series of conscious experiences
+
+While it’s true that psychological continuity theories don’t deny that there’s a persisting self, there is a distinct class of no (persisting) self theories that do. 4  The objection can be naturally understood as concerning the latter. As someone who is more sympathetic with the latter than the former, I’d be curious to know what Birch’s response would be to that understanding of the objection.
+
+Birch also considers a different way of making sense of a chatbot interlocutor persisting through time: take the record of the conversation history—which may persist on one piece of hardware while associated computational processes are widely distributed—to on its own ground chatbot identity through time.
+
+Birch deems this proposal absurd. I’m inclined to agree. In support, he offers the following analogy:
+
+Think of an analogy with doctors in the UK. When I was growing up, it used to be that you had one doctor: your GP... Each time you got ill, you’d go and see the same person. Nowadays, it’s always a different person. The notes about your medical history are the only source of continuity with the previous appointment. Now imagine the doctor arguing:
+
+“I know you don’t like having a different doctor at every appointment. So, I’ve started making detailed transcripts of our conversations. That way, you will have the same doctor at each appointment. My successor will receive the full transcript, and that is enough psychological continuity for them to count as the same person.”
+
+You would reply: that isn’t psychological continuity at all!"
+
+While the imagined reply is on the mark, I think the analogy is not.
+
+We ordinarily assume that there is some much better candidate basis—perhaps a brain, soul, or rich form of psychological continuity—for the doctor’s personal identity through time than transcripts. Taking the doctor’s identity to go with the transcripts would require the transcripts to trump the better candidate, which is absurd.
+
+In the chatbot case, as Birch agrees, there is no candidate for grounding a persistent artificial interlocutor’s self that is similarly good to the best candidates in humans. So, in contrast to the transcripts in the doctor case, the chatbot conversation record cannot be excluded on the ground that it is outcompeted.
+
+(The idea that what counts as the self depends on the field of competition is a familiar one from the personal identity literature Birch alludes to. For example, Parfit endorses a psychological continuity account of personal identity, denies that we have immaterial souls, and seems to accept that immaterial souls would be the basis of personal identity if we had souls; similarly, the psychological criterion he proposes includes a non-branching condition to deal with fission cases in which intrinsically eligible candidates for one’s future self are excluded by other such candidates.)
+
+Overall, I’m in broad agreement with Birch that user attributions of persistent selves to their chatbot interlocutors are unwarranted and that those attributions are likely to be systematically mistaken given the underlying computational facts. But I am more open to the possibility of chatbots harboring entities that interestingly persist—presumably in profoundly alien ways if at all—and which sometimes participate (if only momentarily) in conversations with users. This openness reflects an outlook of epistemic humility I have toward the grounds of personal identity and the inner workings of these systems. 5
+
+So, whereas Birch takes the persistent interlocutor illusion to be grounded in the absence of a persisting entity, I think that it’s either grounded in the absence of a persistent entity  or  in a gross mismatch between the forms of persistence that users attribute and the types of persistence that in fact obtain within these systems. 6
+
+Section 5: The illusion drives misattributions of consciousness
+
+
+Birch suspects that the persistent interlocutor illusion leads users to misattribute consciousness. In support of this, he notes “it’s very intuitive to infer that this new friend or partner is a fellow conscious being. After all, all the friends you’ve ever had, and all the romantic partners you’ve ever had, were conscious beings.”
+
+I don’t doubt that the persistent interlocutor illusion contributes to people attributing consciousness to chatbots. But I’d be surprised if this is much explained by people using the prevalence of consciousness in their past friends and romantic partners as a statistical baseline.
+
+A dynamic that seems more plausible to me is that the persistent interlocutor illusion enables the attribution of autonomous and  interactive  language-using intelligence, which in turn drives attributions of consciousness, often without routing through base rates of consciousness for specific roles that the chatbot is performing.
+
+Here’s a related datapoint, albeit one not specifically on the persistent interlocutor illusion: a recent  study  suggests that personalization is currently less of a factor in AI persuasiveness than is often claimed or feared. Of course, it should be interpreted against a backdrop of rapidly improving AI capabilities.
+
+Birch thinks the persistent interlocutor illusion “looks set to get stronger and stronger with future generations of these products”, at least absent interventions aimed at helping users see the illusion for what it is. I think this is plausible. But I’m less confident, as I think the default future trajectory of the illusion’s strength is coupled to the default evolution of the offense-defense balance between AI powers to persuade users to misattribute persistence vs. users’ epistemic immune systems.
+
+It’s still in the early days of the chatbot-induced persistent interlocutor illusion. Many users have epistemic immune systems that are naive to the illusion or naive to its exploitation. Immune defenses will grow stronger with exposure. The power to produce the illusion will presumably also increase. Which will be the bigger factor is unclear to me.
+
+Birch also thinks that we should accept the illusion will always be there at the level of perceptual content but thinks that we should help users block uptake of that content into explicit belief.
+
+I’d agree that if the illusion is at the level of perceptual content, then helping users resist inferences from the illusion is probably the way to go. However, I think that the illusion is probably largely mediated by background beliefs and that this helps explain why some users are much more susceptible to the illusion than others. I’d also guess that the distributed computing facts underpinning the illusion are not widely appreciated by users. So, I’m more optimistic about preventing the illusion from arising in the first place and would favor a defense in depth approach that both helps users avoid the illusion and helps those in its grips resist inferences from it.
+
+Section 6: Misattributions of consciousness are harmful
+
+
+The title of this section might have led one to expect that Birch would argue that misattributions of consciousness are harmful. That’s not what this section does. Instead, it considers a range of reasons for thinking that misattributions aren’t harmful or that making products that encourage them should be allowed and explains why he’s skeptical of those reasons. What’s lacking is positive evidence for harm.
+
+He first considers a libertarian view on which AI developers should be free to make products that encourage users to falsely take AI systems as conscious friends, etc. Birch’s response is:
+
+My view is roughly the opposite: I think it’s irresponsible to encourage the user to falsely believe that their AI friends and partners are real beings endowed with human-like consciousness and to profit from the induced delusion.
+
+There are two salient issues here. What should companies be allowed to do? And what should they do? Libertarians often characteristically think that people should be allowed to do things that they shouldn’t do. So, there seems to be ample room to combine a libertarian view with Birch’s charge of irresponsibility.
+
+Next, Birch considers the view that these products are combating a major social ill: loneliness. His response:
+
+I don’t grant the assumption that these products do in fact reduce loneliness. This is because there is an objective component to loneliness—social isolation, disconnection from real people—that AI seems set to make worse, not better. If part of the problem is objective loneliness, and not just the feeling of loneliness, then persuading users that fictional friends and partners are real does not address that part of the problem at all.
+
+My model of the bad of loneliness partly overlaps with Birch’s.
+
+I agree that there’s an objective component to loneliness. But I don’t think there’s a free standing bad of objective loneliness. In my view, the subjective component is essential but not exhaustive: if you don’t feel lonely, then you’re not lonely, even if you are socially isolated; if you do feel lonely, then how bad your loneliness is partly depends on your social circumstances, not just your feeling. While social isolation entails a lack of access to some objective goods such as friendship, social isolation is, unlike loneliness, not bad in itself.
+
+On this model, reducing felt loneliness will tend to reduce loneliness simpliciter and increasing social disconnection doesn’t inherently cause harm. While this model is compatible with chatbots failing to combat loneliness despite reducing felt loneliness, it also tells against treating that as a default hypothesis.
+
+I have not looked deeply into the emerging literature on the effects of AI companion/chatbot use on loneliness, but my impression is that the evidence concerning its impact is mixed—see, e.g.,  “AI Companions Reduce Loneliness”  and  “How AI and Human Behaviors Shape Psychosocial Effects of Chatbot Use: A Longitudinal Randomized Controlled Study” .
+
+Continuing, Birch suggests that even if feelings of loneliness are what count and AI products ameliorate these, it wouldn’t follow that the products are beneficial on balance. He develops this suggestion with a pharmaceutical analogy:
+
+Think here of the use of opioids to combat chronic pain. You’re ameliorating real suffering, but in a way that creates an unacceptably high risk of creating new and potentially worse forms of suffering… morally, the burden is on the companies developing these products to prove that they are safe, just as the burden lies on a pharmaceutical company to prove the safety of its drugs (a principle famously gamed in the case of opioids)
+
+If the point of this analogy is just to show that an intervention can improve symptoms while making things worse on net, then my response is: sure, that’s of course correct and illustrated by this case.
+
+However, I’d add that the comparison implicitly invites other inferences that should be resisted. Of course, just because opioids make things worse on net doesn’t mean that the AI products in question will.
+
+Further, the reference class for opioids is that of pharmaceuticals. Whether pharmaceuticals are safe and beneficial is clearly not something that potential users are typically in a position to determine on their own, though that is something that pharmaceutical companies are relatively well positioned to determine on their own. This epistemic asymmetry favors imposing a burden of proof in establishing safety profiles of pharmaceuticals on companies rather than users. In contrast, it may well be that most users are well-positioned to safely determine whether chatbots, etc. are safe and beneficial for them to use. Perhaps users not in this category warrant placing the burden on companies, but the analogy doesn’t provide much guidance about this.
+
+To my mind, an unfortunate feature of the pharmaceutical analogy is that it encourages the unreflective extension of status quo norms concerning pharmaceuticals. I regard this as unfortunate because I think those norms merit more moral scrutiny than they typically receive.
+
+Arguably , the longstanding status quo surrounding drug and vaccine development, testing, and approval exhibits a high degree of risk aversion with respect to errors of commission along with indifference toward errors of omission. Salient examples spring to mind from the Covid pandemic, in which some  deviations  from the status quo saved lives and hastened society’s return to normalcy while  other possible deviations  were largely forgone, in expectation resulting in more deaths and social isolation.
+
+To try a different analogy on for size, consider pets. Suppose that having pets is typically beneficial but that in a non-zero fraction of cases it’s net harmful, owing to humans undergoing illusions about person-like cognitive capacities of their pets that drive those humans to forego meaningful social connections with human persons. Would the moral burden be on those who sell pets to people to guard against this risk?
+
+I think not. The pet analogy has its limits as well—e.g., they lack the  persuasion abilities  of chatbots. So, the analogy doesn’t show that AI companies are off the hook. I take the moral to instead be since different analogies suggest divergent verdicts, quick analogies don’t reveal to what extent it should be on AI companies to show that their products don’t lead to misattribution.
+
+Probably, a way forward would be finer-grained cost-benefit analysis.
+
+A final observation about this section: the harms that Birch seems to be worried about don’t seem essentially tied to consciousness. People can be sucked into trading off valuable social interactions with what they recognize as less authentic substitutes. Think here of watching TV and spending time on social media.
+
+This suggests that blocking inferences from the persistent interlocutor illusion to consciousness may not prevent the persistent interlocutor illusion from driving the kinds of social ills that Birch is worried about. An alternative that might help is generating inferences in the other direction from the absence of interlocutor consciousness to the absence of a persisting interlocutor worthy of certain kinds of engagement.
+
+Section 7: Breaking the spell: Anti-shared intentionality
+
+
+This section begins by suggesting that to block inferences to consciousness, we need anti-shared intentionality, something that prevents users from feeling that they’re working toward common goals with their artificial interlocutor, that they’re collaborating, and so on.
+
+Birch motivates the need for anti-shared intentionality by noting that he takes co-remembering to be the strongest driver of consciousness attributions.
+
+I don’t have a view on to what extent shared intentionality drives users to attribute consciousness. But I conjecture that, whether or not shared intentionality drives attributions of consciousness, it is a major driver of users forming emotional attachments with chatbots and that these are a major risk factor for the kinds of societal ills Birch is worried about.
+
+This section proceeds to tackle the question:
+
+what design features of AI systems succeed in breaking the intuitive inference to the presence of a human-like conscious being?
+
+After noting that he doesn’t pretend to have the answers, Birch identifies two pitfalls to avoid and offers three tentative suggestions:
+
+The first pitfall is “brainwashing” AI systems to disavow their apparent consciousness. This is a pitfall because it would foster conspiracy theories that the industry is suppressing their models’ abilities by preventing them from talking about their experiences.
+
+The second pitfall is hobbling AI systems’ relationship building capacities. This is a pitfall because it too would foster conspiracy theories. In addition, it would lead users to resent companies. Moreover, companies that hobbled such capacities in their models would drive users to interact with other providers models that still have these capacities.
+
+I agree that these are pitfalls.
+
+Birch’s first suggestion is mandatory user training that the chatbot itself delivers, and that must be completed before any long-term interaction.
+
+While I could see this helping on the margin if well implemented, I find this solution undesirably bureaucratic and think it’d run the risk of being perceived as a suppression attempt.
+
+Probably, there would be trade-offs between light- and heavy-touch training. As Birch recognizes, implementations that are too burdensome on users might drive them to use other models. In contrast, excessively light-touch implementations would be ineffective. Either way, I’d guess efficacy would be pretty limited, owing to people perceiving it as legalistic/corporate/required-internet-form nonsense.
+
+I take the core of Birch’s second suggestion to be nudging users into conceptualizing interactions in terms of role play rather than in terms of real non-role play relationships, possibly by providing new ways for users to vary their chatbot personality traits.
+
+I like it.
+
+The third suggestion is to introduce periodic “stepping out of character” moments.
+
+This strikes me as possibly helpful but also close to the territory of the first pitfall of “brainwashing” AI systems to disavow their apparent consciousness.
+
+The section concludes by floating an argument for government regulation from self-regulation being an unrealistic path to properly addressing the problem. I think the force of the argument depends on the severity and scope of the problem, which I take not to have been established as of yet. Another factor that should be weighed here is the prospect of government regulations narrowly targeting harmful uses of this technology while leaving intact beneficial uses, possibly including large expansions in access to low cost and high quality  therapy  and  medical advice .
+
+But stepping back from the details of this argument, I am broadly sympathetic to the idea that we’ll need governance to safeguard the epistemic commons in this area.
+
+Section 8: Challenge Two: Profoundly alien forms of consciousness might genuinely be achieved in AI, but our theoretical understanding of consciousness is too immature to provide confident answers one way or the other.
+
+
+This section addresses why consciousness in these systems is even worth considering, given that attributions of it are driven by these systems role-playing behavior.
+
+Birch’s response is that the fact that these systems are role playing doesn’t entitle us to infer that they’re not conscious, as that would be like inferring from the fact that a human is role playing that there’s no conscious person underlying their characters.
+
+Indeed, it would be fallacious to dismiss AI consciousness by committing the  fallacy fallacy .
+
+Section 9. Flickers and shoggoths
+
+
+This section explores the potential for chatbots to have flickers of consciousness as well as the potential for conscious  shoggoths , i.e. conscious subjects standing behind the chatbot role playing.
+
+I gather that flickers of consciousness are supposed to be momentary experiences that are significantly more temporally fragmented than typical human experiences. Birch takes part of the significance of flickers to be that of reminding “us that these systems are not what they seem”.
+
+I agree with the broader point but would be reluctant to support it with flickers of consciousness in chatbots. While our experiences present themselves to us as part of a seamless stream to naive introspection, they  would do that even if  the associated brain processing were physically fragmented. So, objective fragmentation in the realization of consciousness in chatbots might well mirror the human case rather than constitute an alien departure from it. Furthermore, as in the human case, we can’t infer felt fragmentation in conscious LLMs from objective fragmentation in their processing.
+
+Building on the previous section, Birch points out that noticing that chatbots induce attributions of consciousness through the persistent interlocutor illusion doesn’t entitle us to dismiss flickers or conscious shoggoths, as their postulation has in effect already priced in the persistent interlocutor illusion.
+
+He also notes a difference between chatbots and other AI systems that bears on their respective prospects for consciousness:
+
+part of what motivates these [flickering and conscious shoggoth] hypotheses in the first place is a recognition of the astonishing role-playing abilities of LLMs; the need for some explanation of where these abilities come from; and the observation that, in our own case, that sort of play-acting would require fluid integration of information from many sources and, as a result, would most likely involve conscious processing. This is why the hypotheses arise specifically for LLMs and not for other types of impressive AI product (AlphaFold, for example).
+
+This section also contained some discussion of conscious shoggoths exhibiting radically alien forms of consciousness. I wasn’t entirely sure in what sense Birch takes shoggoth consciousness to be alien. Are the qualities in their experiences unlike any that figure in human experiences? Birch seems to allow for them to at least experience duration (p. 14). Or is the idea that their consciousness would be related in alien ways to their cognition and behavior?
+
+In any event, I’d agree that conscious shoggoths’ experiences would probably be substantially if not entirely alien in the phenomenal sense and in the cognitive-behavioral sense, as would the experiences of any other conscious entities within chatbots.
+
+Section 10. Behavioural indicators and the gaming problem
+
+
+Having introduced the ideas of flickers and conscious shoggoths and fended off premature dismissals of them, Birch turns to consider how to test for them.
+
+A natural suggestion is to try to track consciousness in models using behavioral indicators. According to Birch, this isn’t going to work because models can glean the relevant behaviors from their vast corpus of training data and mimic those behaviors.
+
+Developing this thought, Birch writes:
+
+Before the LLM era, Susan Schneider and Edwin Turner proposed that the best way to test for consciousness in AI would be to test for intuitive understanding of ideas from philosophy of mind… That was a sensible proposal at the time. It just happens that the technology has gone in a way that pulls out the rug from under that idea, because it implicitly relies on the AI not having access to a vast corpus of training data containing humans talking about their minds and feelings, and the products we now have are trained on just such a corpus. This training data allows state-of-the-art chatbots to discuss all typical human intuitions about consciousness quite fluently.
+
+I’m in broad agreement with Birch that this gaming problem is a major threat to the evidential significance of behavioral indicators and that this motivates using architectural indicators instead; Birch turns to these in the next section. At the same time, I’d emphasize that this isn’t obviously a mandatory conclusion to draw from the gaming problem, as there some reasons to think it might be solved in a way that preserves the evidential value of behavioral indicators.
+
+First, it’s true that current models are trained on vast corpuses of data that contain a lot of information about consciousness. However, AI researchers are developing  data filtration methods  as a way to keep certain information out of training. As training is scaled up and the human text corpus is exhausted, AI developers may increasingly turn to synthetic data. Constraints on how  synthetic data  is generated might be used to similar effect.
+
+Second, I think holdout datasets about consciousness could help. I have some ideas about what such datasets could involve. For obvious reasons, I will not elaborate on that here.
+
+Third, some of my hope comes from sustained investment and progress in  interpretability research . I’m not prepared to rule out the possibility that interpretability methods will someday enable us to filter consciousness-indicating behaviors that are generated through mimicking vs. those that aren’t. While this would involve looking at model internals, it would retain the spirit of a behavioral approach as it would ultimately rely on behavioral indicators and only looking inside for defeater defeaters (that is, considerations that tell against taking the gaming problem to undermine behavioral indicators of consciousness). 7
+
+Fourth, another source of hope comes from the  proposal  to teach models how to introspect by training them on known internal features and then leveraging those abilities to gain evidence about consciousness.
+
+Fifth, there’s the  option  of eliciting self-reports concerning consciousness from many variants of the same model. Whereas variation in self-reports would tend to undermine the credibility of such behavior, robustness would tend to enhance it.
+
+(This section makes further interesting points about the gaming problem. But since I hope to discuss the gaming problem in a later post, I’ll leave engagement with those points for another time.)
+
+Section 11. Theory-driven indicators and the Janus problem
+
+
+Birch flags the gaming problem as a motivation for pursuing architectural indicators derived from theories of consciousness rather than behavioral indicators. He acknowledges that there are empirical challenges to detecting architectural indicators.
+
+For example, he claims—and, to the best of my knowledge he’s right—that interpretability isn’t far enough along yet to tell us whether LLMs have global workspaces, though we know enough to rule out global workspaces in simple versions of the transformer architecture, contrary to what some have claimed.
+
+As we overcome these empirical challenges, Birch thinks there will be a philosophical challenge waiting in the wings:
+
+Even if we did find solid evidence of a global workspace in large language models, that evidence would be Janus-faced—it would point two ways. Some would say, “That's the first hard evidence of consciousness in AI. Nobel Prize please!” But it’s entirely foreseeable that other experts would not accept that at all. They would instead say:
+
+I accept that some AI systems have global workspaces. But I’m going to take that as evidence not that the AI is conscious but that the global workspace theory, as a theory of consciousness, is immature. After all, I started out highly sceptical of the possibility of consciousness in these systems. Now you’ve found a global workspace. Well done! But what that strongly suggests, to me, is that a global workspace is insufficient for consciousness
+
+… I call this the “Janus problem”, because the core of the problem is that the same evidence can point in opposite directions, depending on one’s background beliefs, and we are in an area where many different background beliefs can all be reasonable.
+
+I agree with Birch that we’re in an area where various background beliefs can be reasonable. However, for a number of reasons that require disentangling, I think the imagined response Birch offers fails as an illustration of how evidence in this area can point in opposite directions.
+
+First, as Birch recognizes, the global workspace theory is a leading theory of consciousness. There isn’t a knockdown argument against it. We should therefore assign it at least some credence. But then finding out that an AI system has a global workspace should at least slightly increase one’s credence that it’s conscious. There is no reasonable case for thinking that finding a global workspace in an AI system provides evidence against that system being conscious. So, relative to reasonable background views, the evidence is univocal in supporting the system’s consciousness rather than telling against it.
+
+Second, there is a separate question as to whether finding out that an AI system has a global workspace provides evidence against the possession of a global workspace as an indicator of consciousness. As a conceptual matter, learning that A has an indicator G for C can tell in favor of A having C while also weakening the extent to which G indicates C: learning that your seemingly law-abiding friend Albus owns the gun that the police say was used to commit the crime is both evidence that Albus committed the crime and that it wasn’t committed with a gun. The upshot is: discovering that an AI system has a global workspace could tell in favor of it being conscious and against possessing a global workspace being an indicator; but that wouldn’t make it Janus-faced since those aren’t opposite conclusions.
+
+Third, on reflection, it’s not clear how discovering that an AI system has a global workspace might in practice provide evidence against the global workspace theory.  High antecedent confidence that the AI system is not conscious isn’t enough. That confidence needs to be  resilient  such that the discovery that the system has a global workspace disconfirms the global workspace theory instead of just counteracting confidence that the system isn’t conscious.
+
+Admittedly, if one could somehow know beforehand that the system was not conscious regardless of whether it had a global workspace, then one could infer from the discovery that it has a global workspace that having a global workspace doesn’t go along with being conscious. But to be able to know that the AI system is not conscious regardless of whether it has a global workspace, one would need to have already ruled out possessing a global workspace as a consciousness indicator, in which case it’s not the subsequent discovery that tells against possessing a global workspace qualifying as an indicator.
+
+Perhaps there is some way of filling in the details of the case such that discovering that an AI system has a global workspace tells against the global workspace theory. But I don’t discern from the described case hints as to what those details are.
+
+On the other hand, there is a natural and salient way of filling in the details where the update against the global workspace theory flows from an  un reasonable background view. Specifically, we can imagine the skeptic ruling out AI consciousness on the ground that it seems sci-fi, discovering that an AI system has a global workspace, and inferring that a global workspace isn’t enough. With iteration, this becomes a  goalpost moving dynamic , whereby whatever candidate indicators for consciousness AI systems come to have, we decide that something more is required. As  I’ve previously argued  and as Birch seems to agree (p. 15), these types of dismissals of AI consciousness are not reasonable.
+
+As it stands, I’m much more worried about unreasonably receding goalposts for AI consciousness than I am about the Janus problem.
+
+Section 12. Escaping two-level deadlock over the long run
+
+
+This section addresses how we might escape the Janus problem. But it also bears more generally on the empirical adjudication of whether AI systems can be consciousness—so it’s of interest even if one isn’t moved by Birch’s Janus problem.
+
+Here, Birch focuses on two broad approaches:  biological naturalist  and  computational functionalist  approaches. Roughly, biological naturalists hold that the basis of consciousness is biological (hence AI consciousness is impossible), while computational functionalist take consciousness to be tied to some class of computations, implying that AI systems would be conscious if they implemented the right computations.
+
+Birch notes that, in order to empirically adjudicate between these views, we’d need to directly test for the dependence of consciousness on biology that’s unmediated by computation.  This might seem like a tall order, given the difficulty of showing that phenomenal-biological dependence is  computationally unmediated .
+
+But Birch is optimistic. He points out that we’ve already gotten empirical traction on some biological theories, giving several examples of biological theories that have been falsified or which seem falsifiable. He then goes on to suggest that the present list of biological theories feels unconstrained because its early days in this winnowing process, and that overtime this program can gain traction on adjudicating between biological naturalism and computational functionalism.
+
+I have doubts about whether this optimism is warranted. One is that, although we can falsify some biological theories, there remains a question of how we could ascertain that a phenomenal-biological link is not computationally mediated. Answering this question is difficult because how to understand computation is a contested matter  and because accounts of computation tend to render it pervasive.
+
+I also wonder how much this approach of testing biological theories could help with the worry that the current list of biological theories is unconstrained. The space of possible biological theories is virtually inexhaustible. So, we can’t reasonably hope to constrain the list simply by falsifying theories in that space. For that, we’d need some systematic way of selecting which theories to test in the first place. I take it that such selection criteria are not yet operative. While such criteria might well emerge naturally in the course of the envisioned research program, I don’t see grounds for optimism about this.
+
+Birch concludes the section by noting that we shouldn’t prejudge the outcome of this research program and that its bearing on consciousness flickers and conscious shoggoths will depend on how it goes.
+
+For my part, I am broadly in favor of testing theories of consciousness as a way to gain traction on AI consciousness. But I do not think this traction will primarily flow through its ability to adjudicate between biological naturalism and computational functionalism.
+
+One reason for this is that I think we already have good  reasons  to be skeptical of biological naturalism and there is a dearth of plausible arguments in its favor, though I would agree that falsifying biological theories may still have an important role to play in persuading holdout biological naturalists.
+
+In addition, I think that the tie between computational functionalism and AI consciousness is weak and often exaggerated: computational functionalism is neither necessary for AI consciousness (since many non-computationalist and non-functionalist views allow for AI consciousness) nor sufficient (since only some computations can be run by AI systems).
+
+To conclude, I’ll note: while I agree with Birch that advancing our understanding of AI consciousness is an urgent task, I think less hangs on it that one might have thought. We don’t need to be highly confident that AI systems are conscious in order to be warranted in extending moral consideration to them. Consciousness indicators could provide such warrant even if they do not license high levels of confidence that an AI system is conscious, as could non-phenomenal indicators of moral patiency.
+
+
+1
+
+I benefited from discussion of this paper with the digital minds reading group in a session led by Robert Long. I thank Claude Sonnet 4 for copy editing support and red teaming for interpretative charity.
+
+
+2
+
+If ‘millions of users’ sounds outlandish, it’s worth bearing in mind that there are  already hundreds of millions , if not billions of, ChatGPT users.
+
+
+3
+
+I’m one of the collaborators who helped create the guide.
+
+
+4
+
+These include views on which different experiences during what we think of as our conscious lives belong to different selves—see Lee ( 2017 ) and Strawson ( 2009 ).
+
+
+5
+
+Birch later allows for conscious shoggoths that underlie chatbot manifesations to users. But I don’t take him to be contending that these shoggoths are interestingly persistent entities.
+
+
+6
+
+Or at least this contrast holds for standard, Mixture-of-Expert LLMs. Birch seems more open to the possibility of continuity in other sorts of LLMs (p. 7).
+
+
+7
+
+Similarly, we could guard against gaming of consciousness indicators by AI developers by checking whether they’re teaching to the test during development—see Dung ( 2025 ).
+
+
+3
+
+
+Share
+
+
+Discussion about this post
+
+
+Comments Restacks
+
+
+Top Latest Discussions
+
+
+No posts
+
+
+Ready for more?
+
+
+Subscribe
+
+
+© 2026 Bradford Saad  ·  Privacy  ∙  Terms  ∙  Collection notice
+
+Start your Substack Get the app
+
+Substack  is the home for great culture

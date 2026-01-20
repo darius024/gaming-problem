@@ -1,0 +1,104 @@
+Towards Safety Cases For AI Scheming – Apollo Research
+
+
+Team
+
+Research
+
+Blog
+
+Press
+
+Careers
+
+Contact
+
+
+31/10/2024
+
+
+Towards Safety Cases For AI Scheming
+
+
+Contents
+
+
+Read the full paper  here .
+
+Developers of frontier AI systems will face increasingly challenging decisions about whether their AI systems are safe enough to develop and deploy. One reason why systems may not be safe is if they engage in  scheming , where AI systems hide their true capabilities and objectives and covertly pursue misaligned goals.
+
+In our new report,  “Towards evaluations-based safety cases for AI scheming” , written in collaboration with researchers from the UK AI Safety Institute, METR, Redwood Research, and UC Berkeley, we sketch how developers of AI systems could make a structured rationale – ‘a safety case’ – that an AI system is unlikely to cause catastrophic outcomes through scheming.
+
+This work should be seen as an early step in advancing the state of the field. We think it currently lacks crucial details that would be required to make a strong safety case.
+Figure 1.
+A condensed version of an example safety case sketch, included in the report. Provided for illustration.
+Scheming and safety cases
+
+We use  scheming  as an umbrella term for cases when AI systems pursue misaligned goals covertly, hiding their true capabilities and objectives. For example, an AI system might act helpful during testing, while secretly engaging in harmful actions such as sabotage once deployed. Scheming has not been observed “in the wild” yet, however publicly available AI systems have behaved egregiously misaligned ( Mowshowitz, 2023 ) and research has shown examples of AI systems engaging in deception, including pretending to be less capable than they are ( Sheurer et al, 2023 ,  Järviniemi & Hubinger, 2024 ). We think that as AI systems become more capable, scheming will be a particularly risky behavior that could lead to loss of control over AI systems.
+
+The present work is part of an emerging approach to justifying safety of general-purpose AI systems:  safety cases , which provide structured arguments that deploying an AI system is unlikely to cause significant harm ( Clymer et al, 2024 ,  Irving, 2024 ,  Buhl et al, 2024 ). Similar to how nuclear power plant and aircraft developers make safety cases before deploying their systems, developers of highly-capable AI systems could use safety cases to demonstrate that their systems won’t cause catastrophic harm — whether through misuse, misalignment or scheming specifically. Making safety cases for general-purpose AI systems is nascent and presents numerous open research problems. We find that the possibility of scheming makes it even harder.
+
+Core arguments and challenges
+
+Our report proposes three core arguments that could be used in safety cases:
+
+Scheming Inability:  Showing that AI systems are not capable of scheming, for example because they do not realize that scheming can be strategically beneficial, or they make obvious mistakes when attempting to scheme.
+
+Harm Inability:  Showing that AI systems are not capable of causing harm through scheming, such as sabotaging their developers’ organizations, even without any attempts to control them.
+
+Harm Control:  Demonstrating that control measures would prevent unacceptable outcomes even if systems intentionally attempted to subvert them.
+
+We also discuss how safety cases might be supported by evidence that an AI system is reasonably aligned with its developers, by using alignment evaluations or arguing that the training process itself is unlikely to lead to scheming.
+
+To illustrate how these arguments work in practice, our report includes an example safety case sketch for a hypothetical AI system deployed internally by an AI developer organization.
+
+Making these arguments requires evidence of satisfying multiple challenging assumptions – from showing that AI systems do not strategically underperform in capability evaluations, to showing that control measures remain effective over time. We provide initial ideas for how developers may try to satisfy these assumptions, but ultimately many of them are open problems that require significant additional research progress.
+
+Safety cases in the near future
+
+Our evaluation of frontier models like OpenAI’s o1-preview, described in its  model card , shows that some publicly available AI systems are now capable of basic scheming. However, this scheming is visible directly in model outputs and legible to humans (even if not shown to users) and thus could be monitored by AI developers.
+
+We think near-future safety cases for frontier models will rely on three key pillars:
+
+Monitoring for scheming in model outputs, proven via red-teaming to be accurate and robust even if the AI systems intentionally try to evade it.
+
+Demonstrating inability for scheming in an illegible way: showing that models are not capable of obfuscating their scheming reasoning to look benign and not capable of extensive latent reasoning without any intermediate legible outputs.
+
+Demonstrating inability to cause harm while scheming. This includes standard dangerous capability evaluations like CBRN, cyber, autonomy, as well as behaviors unique to scheming, such as sabotage ( Benton et al, 2024 ).
+
+If models become capable of scheming illegibly, safety cases would need interpretability techniques to be good enough to monitor scheming reasoning within model internals. Developing interpretability techniques for this purpose is an active but neglected area of research. As of yet, none of the existing techniques have been demonstrated to be robust enough to rest a safety case on.
+
+At Apollo, we are working on evaluations and basic science that could help enable such safety cases.
+
+
+Apollo Research
+
+EIN 93-4310599
+
+EU Transparency Register #837878591690-80
+
+
+Privacy Policy
+
+Cookie Policy
+
+
+Team
+
+Research
+
+Blog
+
+Press
+
+Careers
+
+Contact
+
+
+Privacy Policy
+
+Cookie Policy
+
+
+Designed by  And–Now
