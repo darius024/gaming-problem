@@ -9,4 +9,5 @@ Guidelines:
 - Add new log files here in week order (`w01`, `w02`, ...), newest at bottom.
 
 - `research/w01_setup.md`
+- `research/w02_experiments.md`
 

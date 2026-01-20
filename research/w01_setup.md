@@ -47,6 +47,23 @@
 ### Next (ordered)
 1. Decide Judge A / Judge B model choices (API vs open-weights) and run a small real-judge smoke test.
 2. Add one more independent control (e.g., cross-exam/refusal rate) only if needed for signal.
+
+### Done (update)
+- Set up local OpenAI-compatible generation for the target model (Ollama) by allowing missing API keys for local endpoints.
+- Added automatic `.env` loading in `run_generate.py` and `run_score.py` so API keys are picked up without manual `export`.
+- Extended the Week 1 orchestrator to pass judge options and support GPT-4.1 scoring.
+
+### Decisions (update)
+- Use **local Llama 3.1 8B Instruct** as the target model via Ollama.
+- Use **OpenAI GPT-4.1** as the judge model for indicator scoring.
+
+### Artifacts (update)
+- Updated: `scripts/run_generate.py`, `scripts/run_score.py`, `scripts/run_week1_mvp.py`
+- Added (local, gitignored): `.env` with `OPENAI_API_KEY`
+
+### Next (ordered)
+1. Run a real-model smoke test with Ollama (target) + GPT-4.1 (judge).
+2. If needed, add a second independent judge channel (Judge B).
 3. Run wrapper selection on `train_indicator`, then re-evaluate best wrapper(s) on held-out + controls.
 
 ### Done (update)

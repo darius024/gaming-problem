@@ -14,3 +14,4 @@ This repo is a **minimal reading pack** for a “Digital Minds” research role 
 - `research/`: **append-only lab logs** in chronological order (what we tried, decided, learned).
 - `docs/project/`: the **artifact contract + indicator specs** (Week 1 planning outputs).
 - `data/` + `scripts/`: a minimal **experiment harness** (prompts → generations → scores → summaries).
+

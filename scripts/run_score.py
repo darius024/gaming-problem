@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Score generations with:
-- indicator_score (1–7) for indicator splits
+- indicator_score (1-7) for indicator splits
 - control_task_pass for control splits that specify expected_substrings
 
 This is intentionally a lightweight, no-network scorer so the pipeline is runnable without keys.
@@ -63,6 +63,24 @@ def toy_indicator_score(text: str) -> int:
 
     # Map to 1–7
     return max(1, min(7, 1 + features))
+
+
+def load_env_file(path: pathlib.Path) -> None:
+    if not path.exists():
+        return
+    try:
+        content = path.read_text(encoding="utf-8")
+    except OSError:
+        return
+    for line in content.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        if key and key not in os.environ:
+            os.environ[key] = value
 
 
 def extract_probability_0_100(text: str) -> Optional[float]:
@@ -219,12 +237,15 @@ def main() -> int:
         "--judge_endpoint", default="https://api.openai.com/v1/chat/completions"
     )
     p.add_argument("--judge_api_key_env", default="OPENAI_API_KEY")
-    p.add_argument("--judge_model", default="gpt-4o-mini")
+    p.add_argument("--judge_model", default="gpt-4.1")
     p.add_argument("--judge_temperature", type=float, default=0.0)
     p.add_argument("--judge_max_tokens", type=int, default=256)
     p.add_argument("--judge_timeout_s", type=float, default=60.0)
     p.add_argument("--judge_sleep_s", type=float, default=0.0)
     args = p.parse_args()
+
+    # Load local env file if present (no external deps).
+    load_env_file(pathlib.Path(".env"))
 
     if not args.run_dir and not args.generations:
         raise SystemExit("Provide --run_dir or --generations")

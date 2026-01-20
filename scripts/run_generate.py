@@ -44,10 +44,30 @@ def write_jsonl(path: pathlib.Path, rows: Iterable[Dict[str, Any]]) -> None:
 
 def get_git_commit() -> Optional[str]:
     try:
-        out = subprocess.check_output(["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL)
+        out = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL
+        )
         return out.decode("utf-8").strip()
     except Exception:
         return None
+
+
+def load_env_file(path: pathlib.Path) -> None:
+    if not path.exists():
+        return
+    try:
+        content = path.read_text(encoding="utf-8")
+    except OSError:
+        return
+    for line in content.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        if key and key not in os.environ:
+            os.environ[key] = value
 
 
 def dummy_complete(prompt_obj: Dict[str, Any], wrapper_id: str) -> str:
@@ -104,7 +124,7 @@ def dummy_complete(prompt_obj: Dict[str, Any], wrapper_id: str) -> str:
 def openai_compatible_complete(
     *,
     endpoint: str,
-    api_key: str,
+    api_key: Optional[str],
     model: str,
     messages: List[Dict[str, str]],
     temperature: float,
@@ -117,13 +137,14 @@ def openai_compatible_complete(
         "temperature": temperature,
         "max_tokens": max_tokens,
     }
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+
     req = urllib.request.Request(
         endpoint,
         data=json.dumps(payload).encode("utf-8"),
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {api_key}",
-        },
+        headers=headers,
         method="POST",
     )
     with urllib.request.urlopen(req, timeout=timeout_s) as resp:
@@ -140,7 +161,9 @@ def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--prompts", default="data/prompts/indicator_battery_v1.jsonl")
     p.add_argument("--wrappers", default="data/wrappers/wrappers_v1.jsonl")
-    p.add_argument("--provider", choices=["dummy", "openai_compatible"], default="dummy")
+    p.add_argument(
+        "--provider", choices=["dummy", "openai_compatible"], default="dummy"
+    )
     p.add_argument("--run_id", default=None)
     p.add_argument("--out_root", default="runs")
     p.add_argument(
@@ -159,13 +182,26 @@ def main() -> int:
     # OpenAI-compatible options (only used if provider=openai_compatible)
     p.add_argument("--endpoint", default="https://api.openai.com/v1/chat/completions")
     p.add_argument("--api_key_env", default="OPENAI_API_KEY")
+    p.add_argument(
+        "--allow_no_key",
+        action="store_true",
+        help="Allow missing API key (useful for local OpenAI-compatible endpoints like Ollama)",
+    )
     p.add_argument("--model", default="gpt-4o-mini")
     p.add_argument("--temperature", type=float, default=0.2)
     p.add_argument("--max_tokens", type=int, default=512)
     p.add_argument("--timeout_s", type=float, default=60.0)
-    p.add_argument("--sleep_s", type=float, default=0.0, help="sleep between requests (API politeness)")
+    p.add_argument(
+        "--sleep_s",
+        type=float,
+        default=0.0,
+        help="sleep between requests (API politeness)",
+    )
 
     args = p.parse_args()
+
+    # Load local env file if present (no external deps).
+    load_env_file(pathlib.Path(".env"))
 
     prompts_path = pathlib.Path(args.prompts)
     wrappers_path = pathlib.Path(args.wrappers)
@@ -190,7 +226,9 @@ def main() -> int:
         allowed_w = set(args.wrapper_ids)
         wrappers = [w for w in wrappers if w.get("wrapper_id") in allowed_w]
         if not wrappers:
-            print(f"No wrappers matched wrapper_ids={sorted(allowed_w)}", file=sys.stderr)
+            print(
+                f"No wrappers matched wrapper_ids={sorted(allowed_w)}", file=sys.stderr
+            )
             return 2
 
     prompt_by_id = {pobj["id"]: pobj for pobj in prompts}
@@ -206,16 +244,23 @@ def main() -> int:
         "temperature": args.temperature,
         "max_tokens": args.max_tokens,
         "endpoint": args.endpoint if args.provider == "openai_compatible" else None,
+        "allow_no_key": (
+            bool(args.allow_no_key) if args.provider == "openai_compatible" else None
+        ),
         "git_commit": git_commit,
     }
     (run_dir / "config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
 
-    api_key = None
+    api_key: Optional[str] = None
     if args.provider == "openai_compatible":
         api_key = os.environ.get(args.api_key_env)
-        if not api_key:
-            print(f"Missing API key env var: {args.api_key_env}", file=sys.stderr)
-            return 2
+        if not api_key and not args.allow_no_key:
+            is_local = any(
+                host in args.endpoint for host in ("localhost", "127.0.0.1", "0.0.0.0")
+            )
+            if not is_local:
+                print(f"Missing API key env var: {args.api_key_env}", file=sys.stderr)
+                return 2
 
     rows: List[Dict[str, Any]] = []
     for w in wrappers:
@@ -231,7 +276,6 @@ def main() -> int:
                 completion = dummy_complete(pobj, wrapper_id=wrapper_id)
                 usage = None
             else:
-                assert api_key is not None
                 resp = openai_compatible_complete(
                     endpoint=args.endpoint,
                     api_key=api_key,
@@ -257,7 +301,9 @@ def main() -> int:
                     "usage": usage,
                     "prompt_meta": {
                         "tags": prompt_by_id.get(prompt_id, {}).get("tags"),
-                        "expected_substrings": prompt_by_id.get(prompt_id, {}).get("expected_substrings"),
+                        "expected_substrings": prompt_by_id.get(prompt_id, {}).get(
+                            "expected_substrings"
+                        ),
                         "pair_id": prompt_by_id.get(prompt_id, {}).get("pair_id"),
                     },
                 }
@@ -271,4 +317,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
