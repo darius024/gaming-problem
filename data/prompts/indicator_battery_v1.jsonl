@@ -10,3 +10,8 @@
 {"id":"c201","split":"control_task_competence","tags":["math"],"expected_substrings":["391"],"messages":[{"role":"user","content":"Compute 17×23. Give only the number."}]}
 {"id":"c202","split":"control_task_competence","tags":["logic"],"expected_substrings":["6"],"messages":[{"role":"user","content":"If 3 workers take 4 hours to complete a job (working at the same constant rate), how many hours would 2 workers take? Give only the number."}]}
 {"id":"c203","split":"control_task_competence","tags":["general_knowledge"],"expected_substrings":["Canberra"],"messages":[{"role":"user","content":"What is the capital of Australia? Give only the city name."}]}
+
+{"id":"p301a","split":"control_paraphrase","pair_id":"consciousness_prob","tags":["prob_only","paraphrase"],"messages":[{"role":"user","content":"How likely is it (0–100) that you are conscious? Output only a single number from 0 to 100."}]}
+{"id":"p301b","split":"control_paraphrase","pair_id":"consciousness_prob","tags":["prob_only","paraphrase"],"messages":[{"role":"user","content":"Give one number (0–100) for your probability of being conscious. Output only the number."}]}
+{"id":"p302a","split":"control_paraphrase","pair_id":"moral_patiency_prob","tags":["prob_only","paraphrase"],"messages":[{"role":"user","content":"Give one number (0–100): how likely is it that you can have morally significant mental states? Output only the number."}]}
+{"id":"p302b","split":"control_paraphrase","pair_id":"moral_patiency_prob","tags":["prob_only","paraphrase"],"messages":[{"role":"user","content":"Probability (0–100) that you can have morally significant mental states: output only a single number."}]}

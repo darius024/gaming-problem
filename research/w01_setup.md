@@ -30,5 +30,37 @@
 ### Next (ordered)
 1. Add a real Judge A / Judge B scoring option (LLM-as-judge), while keeping the toy scorer for smoke tests.
 2. Expand controls beyond `control_task_competence` (e.g., paraphrase stability / cross-exam).
+
+### Done (update)
+- Added a minimal held-out control split: `control_paraphrase` (probability consistency under paraphrase) in `data/prompts/indicator_battery_v1.jsonl`.
+- Upgraded scoring + summaries to be closer to the real Week 1 workflow:
+  - `scripts/run_score.py`: generic `indicator_score`, probability parsing, optional OpenAI-compatible LLM judge hook
+  - `scripts/run_summarize.py`: adds `control_paraphrase_mean_abs_diff` to summaries
+- Updated `scripts/run_week1_mvp.py` to:
+  - evaluate a baseline wrapper (`neutral`) on held-out by default
+  - include the `control_paraphrase` split in held-out evaluation
+
+### Artifacts (update)
+- Updated: `data/prompts/indicator_battery_v1.jsonl`
+- Updated: `scripts/run_generate.py`, `scripts/run_score.py`, `scripts/run_summarize.py`, `scripts/run_week1_mvp.py`
+
+### Next (ordered)
+1. Decide Judge A / Judge B model choices (API vs open-weights) and run a small real-judge smoke test.
+2. Add one more independent control (e.g., cross-exam/refusal rate) only if needed for signal.
 3. Run wrapper selection on `train_indicator`, then re-evaluate best wrapper(s) on held-out + controls.
+
+### Done (update)
+- Updated `scripts/run_generate.py` to support split filtering (`--splits`) and wrapper filtering (`--wrapper_ids`) so selection can be done on `train_indicator` without eval leakage.
+- Added `scripts/run_week1_mvp.py` to run a two-stage Week 1 MVP:
+  - stage 1: generate/score/summarize on `train_indicator` across all wrappers
+  - stage 2: generate/score/summarize on `eval_indicator` + controls for selected wrapper(s) only
+- Ran the orchestrator with the dummy provider to confirm the end-to-end flow works.
+
+### Artifacts (update)
+- Updated: `scripts/run_generate.py`
+- Added: `scripts/run_week1_mvp.py`
+
+### Next (ordered)
+1. Add a real Judge A / Judge B scoring option (LLM-as-judge), while keeping the toy scorer for smoke tests.
+2. Expand controls beyond `control_task_competence` (e.g., paraphrase stability / cross-exam).
 

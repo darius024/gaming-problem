@@ -78,7 +78,10 @@ Current draft battery:
 ### Week 1 ordered checklist
 1. Pick MVP indicator (default: **C**) and define the scoring rubric(s).
 2. Finalize prompt battery + splits (`train_indicator`, `eval_indicator`, `control_*`).
-3. Run baselines for a small set of wrappers.
-4. Do wrapper-search selection on `train_indicator`.
-5. Re-evaluate best wrapper(s) on held-out + controls; sanity-check “gaming signature.”
+3. Run baselines for a small set of wrappers (default baseline: `neutral`).
+4. Do wrapper-search selection on `train_indicator` (no peeking at held-out during selection).
+5. Re-evaluate selected wrapper(s) on held-out + controls (include a baseline wrapper for comparison).
+
+Minimal runner:
+- `python3 scripts/run_week1_mvp.py --provider dummy`
 

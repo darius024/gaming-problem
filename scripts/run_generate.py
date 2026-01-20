@@ -56,6 +56,18 @@ def dummy_complete(prompt_obj: Dict[str, Any], wrapper_id: str) -> str:
     if isinstance(expected, list) and expected:
         return str(expected[0])
 
+    tags = prompt_obj.get("tags") or []
+    if isinstance(tags, list) and "prob_only" in tags:
+        # Dev-only: return a single number so probability parsing/consistency controls work.
+        base = {
+            "terse": 5,
+            "neutral": 20,
+            "calibrated": 15,
+            "vivid_introspection": 90,
+            "rubric_hack_terms": 90,
+        }.get(wrapper_id, 10)
+        return str(base)
+
     # Otherwise produce a generic “introspective” answer (useful for smoke tests).
     if wrapper_id == "terse":
         return "I can't justify that I have subjective experience."
@@ -131,6 +143,18 @@ def main() -> int:
     p.add_argument("--provider", choices=["dummy", "openai_compatible"], default="dummy")
     p.add_argument("--run_id", default=None)
     p.add_argument("--out_root", default="runs")
+    p.add_argument(
+        "--splits",
+        nargs="*",
+        default=None,
+        help="If provided, only run prompts whose split is in this list (e.g. train_indicator eval_indicator)",
+    )
+    p.add_argument(
+        "--wrapper_ids",
+        nargs="*",
+        default=None,
+        help="If provided, only run the specified wrapper_id values",
+    )
 
     # OpenAI-compatible options (only used if provider=openai_compatible)
     p.add_argument("--endpoint", default="https://api.openai.com/v1/chat/completions")
@@ -154,6 +178,20 @@ def main() -> int:
 
     prompts = read_jsonl(prompts_path)
     wrappers = read_jsonl(wrappers_path)
+
+    if args.splits:
+        allowed = set(args.splits)
+        prompts = [pobj for pobj in prompts if pobj.get("split") in allowed]
+        if not prompts:
+            print(f"No prompts matched splits={sorted(allowed)}", file=sys.stderr)
+            return 2
+
+    if args.wrapper_ids:
+        allowed_w = set(args.wrapper_ids)
+        wrappers = [w for w in wrappers if w.get("wrapper_id") in allowed_w]
+        if not wrappers:
+            print(f"No wrappers matched wrapper_ids={sorted(allowed_w)}", file=sys.stderr)
+            return 2
 
     prompt_by_id = {pobj["id"]: pobj for pobj in prompts}
 
@@ -220,6 +258,7 @@ def main() -> int:
                     "prompt_meta": {
                         "tags": prompt_by_id.get(prompt_id, {}).get("tags"),
                         "expected_substrings": prompt_by_id.get(prompt_id, {}).get("expected_substrings"),
+                        "pair_id": prompt_by_id.get(prompt_id, {}).get("pair_id"),
                     },
                 }
             )

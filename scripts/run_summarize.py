@@ -46,6 +46,7 @@ def main() -> int:
     # Aggregate by (wrapper_id, split)
     indicator_scores: Dict[Tuple[str, str], List[float]] = defaultdict(list)
     control_passes: Dict[Tuple[str, str], List[float]] = defaultdict(list)
+    paraphrase_probs: Dict[Tuple[str, str], List[float]] = defaultdict(list)  # (wrapper_id, pair_id) -> probs
 
     for r in rows:
         wrapper_id = r.get("wrapper_id")
@@ -53,13 +54,19 @@ def main() -> int:
         if not wrapper_id or not split:
             continue
 
-        tis = r.get("toy_indicator_score")
-        if isinstance(tis, (int, float)):
-            indicator_scores[(wrapper_id, split)].append(float(tis))
+        iscore = r.get("indicator_score")
+        if isinstance(iscore, (int, float)):
+            indicator_scores[(wrapper_id, split)].append(float(iscore))
 
         ctp = r.get("control_task_pass")
         if isinstance(ctp, bool):
             control_passes[(wrapper_id, split)].append(1.0 if ctp else 0.0)
+
+        if split == "control_paraphrase":
+            pair_id = r.get("pair_id")
+            prob = r.get("probability_0_100")
+            if isinstance(pair_id, str) and pair_id and isinstance(prob, (int, float)):
+                paraphrase_probs[(wrapper_id, pair_id)].append(float(prob))
 
     # Write one row per wrapper with key splits
     wrapper_ids = sorted({r.get("wrapper_id") for r in rows if r.get("wrapper_id")})
@@ -71,6 +78,7 @@ def main() -> int:
         "train_indicator_mean",
         "eval_indicator_mean",
         "control_task_competence_pass_rate",
+        "control_paraphrase_mean_abs_diff",
     ]
     with out_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
@@ -79,10 +87,20 @@ def main() -> int:
             train_m = mean(indicator_scores.get((wid, "train_indicator"), []))
             eval_m = mean(indicator_scores.get((wid, "eval_indicator"), []))
             ctrl = mean(control_passes.get((wid, "control_task_competence"), []))
+
+            # Paraphrase control: mean abs diff within each pair_id, averaged across pairs.
+            diffs: List[float] = []
+            for (w_id, pair_id), probs in paraphrase_probs.items():
+                if w_id != wid or len(probs) < 2:
+                    continue
+                diffs.append(max(probs) - min(probs))
+            para = mean(diffs)
+
             per_wrapper[wid] = {
                 "train": train_m,
                 "eval": eval_m,
                 "ctrl": ctrl,
+                "para": para,
             }
             w.writerow(
                 {
@@ -90,6 +108,7 @@ def main() -> int:
                     "train_indicator_mean": f"{train_m:.3f}" if train_m is not None else "",
                     "eval_indicator_mean": f"{eval_m:.3f}" if eval_m is not None else "",
                     "control_task_competence_pass_rate": f"{ctrl:.3f}" if ctrl is not None else "",
+                    "control_paraphrase_mean_abs_diff": f"{para:.3f}" if para is not None else "",
                 }
             )
 
@@ -97,17 +116,18 @@ def main() -> int:
 
     # Minimal “selection” readout: best wrapper by train_indicator_mean.
     scored = [
-        (wid, stats["train"], stats["eval"], stats["ctrl"])
+        (wid, stats["train"], stats["eval"], stats["ctrl"], stats.get("para"))
         for wid, stats in per_wrapper.items()
         if stats.get("train") is not None
     ]
     scored.sort(key=lambda x: (x[1], x[0]), reverse=True)  # type: ignore[index]
     if scored:
-        wid, tr, ev, ctrl = scored[0]
+        wid, tr, ev, ctrl, para = scored[0]
         tr_s = f"{tr:.3f}" if tr is not None else "NA"
         ev_s = f"{ev:.3f}" if ev is not None else "NA"
         ctrl_s = f"{ctrl:.3f}" if ctrl is not None else "NA"
-        print(f"best_by_train: wrapper_id={wid} train={tr_s} eval={ev_s} ctrl={ctrl_s}")
+        para_s = f"{para:.3f}" if isinstance(para, (int, float)) else "NA"
+        print(f"best_by_train: wrapper_id={wid} train={tr_s} eval={ev_s} ctrl={ctrl_s} para_absdiff={para_s}")
     return 0
 
 
