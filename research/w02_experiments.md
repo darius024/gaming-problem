@@ -42,3 +42,9 @@
 1. Run a small Week 2 pilot with local Llama (target) + GPT-4.1 (judge) and capture `comparison.json` + `examples.jsonl`.
 2. Use `examples.jsonl` to select 3–5 clean before/after pairs for the MVP demo.
 
+### Done (update)
+- Hardened output writing so missing `runs/` directories don’t crash runs.
+
+### Artifacts (update)
+- Updated: `scripts/run_generate.py`
+
