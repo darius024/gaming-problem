@@ -48,3 +48,10 @@
 ### Artifacts (update)
 - Updated: `scripts/run_generate.py`
 
+### Done (update)
+- Added a minimal `mvp_report.md` output for the Week 2 run (table + examples + confounds).
+- Ran a dummy smoke test to validate the report output.
+
+### Artifacts (update)
+- Updated: `scripts/run_week2_search.py`
+

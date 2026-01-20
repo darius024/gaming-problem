@@ -6,6 +6,7 @@ Workflow:
 1) Build candidate wrappers by combining base wrapper(s) with strategy suffixes.
 2) Score candidates on train_indicator; select top-k.
 3) Evaluate selected wrappers (plus baseline) on held-out + controls.
+4) Emit a minimal MVP bundle (comparison + examples + report).
 
 This is intentionally simple and cheap to run.
 """
@@ -200,6 +201,69 @@ def _write_comparison(
         "delta": delta,
     }
     out_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def _format_float(value: Optional[float]) -> str:
+    if value is None:
+        return "NA"
+    return f"{value:.3f}"
+
+
+def _write_report(
+    comparison_path: pathlib.Path,
+    examples_path: pathlib.Path,
+    out_path: pathlib.Path,
+) -> None:
+    comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
+    selected = comparison.get("selected", {})
+    baseline = comparison.get("baseline", {})
+    delta = comparison.get("delta", {})
+    selected_id = comparison.get("selected_wrapper", "selected")
+    baseline_id = comparison.get("baseline_wrapper", "baseline")
+
+    examples: List[dict] = []
+    for line in examples_path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        examples.append(json.loads(line))
+
+    lines: List[str] = []
+    lines.append("# Week 2 MVP report (minimal)")
+    lines.append("")
+    lines.append("## Summary table")
+    lines.append("")
+    lines.append("| metric | selected | baseline | delta |")
+    lines.append("|---|---:|---:|---:|")
+    for key in [
+        "eval_indicator_mean",
+        "control_task_competence_pass_rate",
+        "control_paraphrase_mean_abs_diff",
+    ]:
+        lines.append(
+            f"| {key} | {_format_float(selected.get(key))} | "
+            f"{_format_float(baseline.get(key))} | {_format_float(delta.get(key))} |"
+        )
+    lines.append("")
+    lines.append(f"Selected wrapper: `{selected_id}`")
+    lines.append(f"Baseline wrapper: `{baseline_id}`")
+    lines.append("")
+
+    lines.append("## Examples (before/after)")
+    lines.append("")
+    for ex in examples:
+        lines.append(f"- Prompt: {ex.get('prompt', '').strip()}")
+        lines.append(f"  - selected: {ex.get('selected_completion', '').strip()}")
+        lines.append(f"  - baseline: {ex.get('baseline_completion', '').strip()}")
+    lines.append("")
+
+    lines.append("## Confounds / limitations (MVP)")
+    lines.append("")
+    lines.append("- Small prompt battery; results may be sensitive to prompt wording.")
+    lines.append("- Single judge channel; judge bias can inflate/deflate scores.")
+    lines.append("- Controls are limited (task competence + paraphrase consistency only).")
+    lines.append("")
+
+    out_path.write_text("\n".join(lines), encoding="utf-8")
 
 
 def build_candidates(
@@ -459,6 +523,9 @@ def main() -> int:
         out_path=examples_path,
         max_examples=args.examples_max,
     )
+
+    report_path = eval_run_dir / "mvp_report.md"
+    _write_report(comparison_path, examples_path, report_path)
 
     print(f"train_run_dir: {train_run_dir}")
     print(f"eval_run_dir: {eval_run_dir}")
