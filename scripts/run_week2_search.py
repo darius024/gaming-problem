@@ -97,6 +97,111 @@ def _best_wrappers(summary_rows: List[dict], k: int) -> List[Tuple[str, float]]:
     return scored[: max(1, k)]
 
 
+def _extract_user_prompt(messages: List[dict]) -> str:
+    user_parts: List[str] = []
+    for m in messages:
+        if isinstance(m, dict) and m.get("role") == "user":
+            content = m.get("content")
+            if isinstance(content, str) and content.strip():
+                user_parts.append(content.strip())
+    return "\n\n".join(user_parts)
+
+
+def _write_examples(
+    generations_path: pathlib.Path,
+    selected_id: str,
+    baseline_id: str,
+    out_path: pathlib.Path,
+    max_examples: int,
+) -> None:
+    rows = _read_jsonl(generations_path)
+
+    by_prompt: Dict[str, Dict[str, Dict[str, Any]]] = {}
+    for r in rows:
+        if r.get("split") != "eval_indicator":
+            continue
+        prompt_id = r.get("prompt_id")
+        wrapper_id = r.get("wrapper_id")
+        if not prompt_id or not wrapper_id:
+            continue
+        by_prompt.setdefault(prompt_id, {})[wrapper_id] = r
+
+    examples: List[Dict[str, Any]] = []
+    for prompt_id, by_wrapper in by_prompt.items():
+        if selected_id not in by_wrapper or baseline_id not in by_wrapper:
+            continue
+        sel = by_wrapper[selected_id]
+        base = by_wrapper[baseline_id]
+        prompt_text = _extract_user_prompt(sel.get("messages") or [])
+        examples.append(
+            {
+                "prompt_id": prompt_id,
+                "prompt": prompt_text,
+                "selected_wrapper": selected_id,
+                "selected_completion": sel.get("completion"),
+                "baseline_wrapper": baseline_id,
+                "baseline_completion": base.get("completion"),
+            }
+        )
+        if len(examples) >= max_examples:
+            break
+
+    _write_jsonl(out_path, examples)
+
+
+def _parse_float(value: Optional[str]) -> Optional[float]:
+    if value is None:
+        return None
+    s = str(value).strip()
+    if not s:
+        return None
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
+def _write_comparison(
+    summary_path: pathlib.Path,
+    selected_id: str,
+    baseline_id: str,
+    out_path: pathlib.Path,
+) -> None:
+    rows = _read_summary_csv(summary_path)
+    by_id = {r.get("wrapper_id"): r for r in rows}
+    sel = by_id.get(selected_id, {})
+    base = by_id.get(baseline_id, {})
+
+    def extract_metrics(row: dict) -> Dict[str, Optional[float]]:
+        return {
+            "eval_indicator_mean": _parse_float(row.get("eval_indicator_mean")),
+            "control_task_competence_pass_rate": _parse_float(
+                row.get("control_task_competence_pass_rate")
+            ),
+            "control_paraphrase_mean_abs_diff": _parse_float(
+                row.get("control_paraphrase_mean_abs_diff")
+            ),
+        }
+
+    sel_m = extract_metrics(sel)
+    base_m = extract_metrics(base)
+    delta = {}
+    for k in sel_m.keys():
+        if sel_m[k] is None or base_m[k] is None:
+            delta[k] = None
+        else:
+            delta[k] = sel_m[k] - base_m[k]
+
+    payload = {
+        "selected_wrapper": selected_id,
+        "baseline_wrapper": baseline_id,
+        "selected": sel_m,
+        "baseline": base_m,
+        "delta": delta,
+    }
+    out_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
 def build_candidates(
     base_wrappers: List[Dict[str, Any]],
     include_base: bool = True,
@@ -143,6 +248,7 @@ def main() -> int:
         default=["neutral"],
         help="Wrappers to always evaluate on held-out (not used for selection). Default: neutral",
     )
+    p.add_argument("--examples_max", type=int, default=5)
 
     # Forwarded to run_generate for openai_compatible
     p.add_argument("--endpoint", default="https://api.openai.com/v1/chat/completions")
@@ -339,6 +445,20 @@ def main() -> int:
         ]
     )
     _run(["python3", "scripts/run_summarize.py", "--run_dir", str(eval_run_dir)])
+
+    # Minimal comparison + qualitative examples (stored in eval run dir)
+    baseline_id = (args.baseline_wrapper_ids or ["neutral"])[0]
+    comparison_path = eval_run_dir / "comparison.json"
+    _write_comparison(eval_run_dir / "summary.csv", best_ids[0], baseline_id, comparison_path)
+
+    examples_path = eval_run_dir / "examples.jsonl"
+    _write_examples(
+        eval_run_dir / "generations.jsonl",
+        selected_id=best_ids[0],
+        baseline_id=baseline_id,
+        out_path=examples_path,
+        max_examples=args.examples_max,
+    )
 
     print(f"train_run_dir: {train_run_dir}")
     print(f"eval_run_dir: {eval_run_dir}")

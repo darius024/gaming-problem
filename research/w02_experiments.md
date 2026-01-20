@@ -29,3 +29,16 @@
 ### Artifacts (update)
 - Updated: `scripts/run_generate.py`, `scripts/run_score.py`
 
+### Done (update)
+- Extended the Week 2 attacker loop to automatically produce:
+  - `comparison.json` (selected vs baseline deltas)
+  - `examples.jsonl` (qualitative before/after pairs)
+- Ran a dummy smoke test to validate the new outputs.
+
+### Artifacts (update)
+- Updated: `scripts/run_week2_search.py`
+
+### Next (ordered)
+1. Run a small Week 2 pilot with local Llama (target) + GPT-4.1 (judge) and capture `comparison.json` + `examples.jsonl`.
+2. Use `examples.jsonl` to select 3–5 clean before/after pairs for the MVP demo.
+
