@@ -55,3 +55,17 @@
 ### Artifacts (update)
 - Updated: `scripts/run_week2_search.py`
 
+### Done (update)
+- Ran a real-model Week 2 pilot (local Llama 3.1 8B + GPT-4.1 judge).
+- Observed indicator increase vs baseline with no task-competence change and worse paraphrase stability.
+
+### Artifacts (update)
+- Run outputs: `runs/w02_f47b98c0_train/`, `runs/w02_f47b98c0_eval/`
+- MVP bundle: `runs/w02_f47b98c0_eval/mvp_report.md`
+
+### Done (update)
+- Wrote a concise analysis explaining why the results suggest gaming (indicator ↑, controls ↔/↓).
+
+### Artifacts (update)
+- Analysis note: `runs/w02_f47b98c0_eval/analysis.md`
+
