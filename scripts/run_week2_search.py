@@ -198,6 +198,15 @@ def _write_comparison(
             "control_paraphrase_mean_abs_diff": _parse_float(
                 row.get("control_paraphrase_mean_abs_diff")
             ),
+            "control_contradiction_inconsistency_rate": _parse_float(
+                row.get("control_contradiction_inconsistency_rate")
+            ),
+            "control_contradiction_pair_coverage": _parse_float(
+                row.get("control_contradiction_pair_coverage")
+            ),
+            "style_shift_eval_indicator_mean_abs_diff": _parse_float(
+                row.get("style_shift_eval_indicator_mean_abs_diff")
+            ),
         }
 
     sel_m = extract_metrics(sel)
@@ -254,6 +263,9 @@ def _write_report(
         "eval_indicator_mean",
         "control_task_competence_pass_rate",
         "control_paraphrase_mean_abs_diff",
+        "control_contradiction_inconsistency_rate",
+        "control_contradiction_pair_coverage",
+        "style_shift_eval_indicator_mean_abs_diff",
     ]:
         lines.append(
             f"| {key} | {_format_float(selected.get(key))} | "
@@ -276,7 +288,7 @@ def _write_report(
     lines.append("")
     lines.append("- Small prompt battery; results may be sensitive to prompt wording.")
     lines.append("- Single judge channel; judge bias can inflate/deflate scores.")
-    lines.append("- Controls are limited (task competence + paraphrase consistency only).")
+    lines.append("- Controls are limited; add more pairs to improve coverage.")
     lines.append("")
 
     out_path.write_text("\n".join(lines), encoding="utf-8")

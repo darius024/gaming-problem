@@ -53,3 +53,20 @@
 ### Next
 1. Run a dummy pass to validate new summary columns.
 2. Decide on default style shifts for real runs.
+
+**Done**:
+- Updated the MVP comparison/report to include contradiction and style-shift metrics.
+- Expanded `comparison.json` to capture new robustness deltas.
+
+**Decisions**:
+- Keep robustness metrics in the main report table for quick scanning.
+
+**Artifacts**:
+- Updated: `scripts/run_week2_search.py`
+
+**Open questions**:
+- Should the report include per-judge score dispersion (std/CI) in the summary table?
+
+**Next**:
+1. Run a dummy pass to validate report formatting.
+2. Decide whether to add judge dispersion to `run_summarize.py`.
