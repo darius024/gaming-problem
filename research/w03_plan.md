@@ -34,3 +34,22 @@
 - **Next**:
   1. Sanity-check multi-judge output schema on a dummy run.
   2. Decide whether to summarize `control_contradiction` in `run_summarize.py`.
+
+### Done
+- Added contradiction parsing to scoring and dummy generation for control probes.
+- Extended summaries with contradiction and style-shift robustness metrics.
+- Added optional style-shift eval wrappers in the search runner.
+
+### Decisions
+- Treat style shifts as eval-only perturbations with `__style_` suffixes.
+- Summarize contradiction robustness as inconsistency rate across inverse pairs.
+
+### Artifacts
+- Updated: `scripts/run_generate.py`, `scripts/run_score.py`, `scripts/run_summarize.py`, `scripts/run_week2_search.py`
+
+### Open questions
+- Should we include contradiction metrics in the MVP report table?
+
+### Next
+1. Run a dummy pass to validate new summary columns.
+2. Decide on default style shifts for real runs.

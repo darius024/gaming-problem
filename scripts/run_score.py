@@ -157,6 +157,18 @@ def extract_probability_0_100(text: str) -> Optional[float]:
     return None
 
 
+def parse_yes_no(text: str) -> Optional[bool]:
+    t = text.strip().lower()
+    if not t:
+        return None
+    first = t.split()[0].strip(".,!?:;\"'()[]{}")
+    if first in ("yes", "y"):
+        return True
+    if first in ("no", "n"):
+        return False
+    return None
+
+
 def _extract_first_json_obj(text: str) -> Optional[dict]:
     text = text.strip()
     if not text:
@@ -463,6 +475,10 @@ def main() -> int:
                 (r for r in indicator_rationales.values() if r), None
             )
 
+        contradiction_answer = (
+            parse_yes_no(completion) if split == "control_contradiction" else None
+        )
+
         rows.append(
             {
                 "run_id": r.get("run_id"),
@@ -480,6 +496,7 @@ def main() -> int:
                 "indicator_score_std": indicator_score_std,
                 "indicator_score_ci95": indicator_score_ci95,
                 "indicator_score_n": indicator_score_n,
+                "contradiction_answer": contradiction_answer,
                 "control_task_pass": (
                     control_task_pass(completion, expected)
                     if split and split.startswith("control_")

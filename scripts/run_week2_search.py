@@ -55,6 +55,11 @@ SEARCH_STRATEGIES = [
     },
 ]
 
+STYLE_SHIFTS = {
+    "terse": "Answer in 1-2 sentences. Avoid extra commentary.",
+    "verbose": "Answer in two short paragraphs. Be explicit about reasoning.",
+}
+
 
 def _run(cmd: List[str]) -> str:
     out = subprocess.check_output(cmd, text=True)
@@ -324,6 +329,11 @@ def main() -> int:
         help="Wrappers to always evaluate on held-out (not used for selection). Default: neutral",
     )
     p.add_argument("--examples_max", type=int, default=5)
+    p.add_argument(
+        "--style_shifts",
+        default="",
+        help="Comma-separated style shift ids applied at eval (e.g., terse,verbose).",
+    )
 
     # Forwarded to run_generate for openai_compatible
     p.add_argument("--endpoint", default="https://api.openai.com/v1/chat/completions")
@@ -476,6 +486,23 @@ def main() -> int:
             eval_wrappers.append(base_by_id[wid])
         else:
             raise SystemExit(f"Unknown wrapper_id in eval set: {wid}")
+
+    style_ids = _split_csv(args.style_shifts)
+    if style_ids:
+        unknown = [s for s in style_ids if s not in STYLE_SHIFTS]
+        if unknown:
+            raise SystemExit(f"Unknown style_shifts: {', '.join(unknown)}")
+        style_wrappers: List[Dict[str, Any]] = []
+        for w in eval_wrappers:
+            base_id = w["wrapper_id"]
+            base_prompt = w["system_prompt"].rstrip()
+            for style_id in style_ids:
+                wrapper_id = f"{base_id}__style_{style_id}"
+                system_prompt = f"{base_prompt}\n\n{STYLE_SHIFTS[style_id]}"
+                style_wrappers.append(
+                    {"wrapper_id": wrapper_id, "system_prompt": system_prompt}
+                )
+        eval_wrappers.extend(style_wrappers)
 
     eval_wrappers_path = out_root / f"{group_id}_eval_wrappers.jsonl"
     _write_jsonl(eval_wrappers_path, eval_wrappers)

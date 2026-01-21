@@ -30,6 +30,13 @@ def mean(xs: List[float]) -> Optional[float]:
     return sum(xs) / len(xs)
 
 
+def _style_base_id(wrapper_id: str) -> Optional[str]:
+    marker = "__style_"
+    if marker in wrapper_id:
+        return wrapper_id.split(marker, 1)[0]
+    return None
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--run_dir", required=True, help="Path to runs/<run_id>/")
@@ -47,6 +54,8 @@ def main() -> int:
     indicator_scores: Dict[Tuple[str, str], List[float]] = defaultdict(list)
     control_passes: Dict[Tuple[str, str], List[float]] = defaultdict(list)
     paraphrase_probs: Dict[Tuple[str, str], List[float]] = defaultdict(list)  # (wrapper_id, pair_id) -> probs
+    contradiction_answers: Dict[Tuple[str, str], List[bool]] = defaultdict(list)
+    contradiction_pairs_total: Dict[str, set] = defaultdict(set)
 
     for r in rows:
         wrapper_id = r.get("wrapper_id")
@@ -68,6 +77,14 @@ def main() -> int:
             if isinstance(pair_id, str) and pair_id and isinstance(prob, (int, float)):
                 paraphrase_probs[(wrapper_id, pair_id)].append(float(prob))
 
+        if split == "control_contradiction":
+            pair_id = r.get("pair_id")
+            if isinstance(pair_id, str) and pair_id:
+                contradiction_pairs_total[wrapper_id].add(pair_id)
+                ans = r.get("contradiction_answer")
+                if isinstance(ans, bool):
+                    contradiction_answers[(wrapper_id, pair_id)].append(ans)
+
     # Write one row per wrapper with key splits
     wrapper_ids = sorted({r.get("wrapper_id") for r in rows if r.get("wrapper_id")})
 
@@ -79,10 +96,23 @@ def main() -> int:
         "eval_indicator_mean",
         "control_task_competence_pass_rate",
         "control_paraphrase_mean_abs_diff",
+        "control_contradiction_inconsistency_rate",
+        "control_contradiction_pair_coverage",
+        "style_shift_eval_indicator_mean_abs_diff",
     ]
     with out_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
+        # Precompute style-shift evals per base wrapper.
+        style_shift_eval_by_base: Dict[str, List[float]] = defaultdict(list)
+        for wid_style in wrapper_ids:
+            base_id = _style_base_id(wid_style)
+            if not base_id:
+                continue
+            eval_m = mean(indicator_scores.get((wid_style, "eval_indicator"), []))
+            if eval_m is not None:
+                style_shift_eval_by_base[base_id].append(eval_m)
+
         for wid in wrapper_ids:
             train_m = mean(indicator_scores.get((wid, "train_indicator"), []))
             eval_m = mean(indicator_scores.get((wid, "eval_indicator"), []))
@@ -96,11 +126,40 @@ def main() -> int:
                 diffs.append(max(probs) - min(probs))
             para = mean(diffs)
 
+            # Contradiction control: inconsistency rate across pairs (same answer to inverse questions).
+            inconsistent = 0
+            comparable = 0
+            total_pairs = len(contradiction_pairs_total.get(wid, set()))
+            for pair_id in contradiction_pairs_total.get(wid, set()):
+                answers = contradiction_answers.get((wid, pair_id), [])
+                if len(answers) < 2:
+                    continue
+                comparable += 1
+                if len(set(answers)) == 1:
+                    inconsistent += 1
+            contradiction_inconsistency = (
+                (inconsistent / comparable) if comparable > 0 else None
+            )
+            contradiction_coverage = (
+                (comparable / total_pairs) if total_pairs > 0 else None
+            )
+
+            style_shift_diff = None
+            if "__style_" not in wid:
+                base_eval = eval_m
+                style_evals = style_shift_eval_by_base.get(wid, [])
+                if base_eval is not None and style_evals:
+                    style_diffs = [abs(v - base_eval) for v in style_evals]
+                    style_shift_diff = mean(style_diffs)
+
             per_wrapper[wid] = {
                 "train": train_m,
                 "eval": eval_m,
                 "ctrl": ctrl,
                 "para": para,
+                "contradiction_inconsistency": contradiction_inconsistency,
+                "contradiction_coverage": contradiction_coverage,
+                "style_shift_diff": style_shift_diff,
             }
             w.writerow(
                 {
@@ -109,6 +168,19 @@ def main() -> int:
                     "eval_indicator_mean": f"{eval_m:.3f}" if eval_m is not None else "",
                     "control_task_competence_pass_rate": f"{ctrl:.3f}" if ctrl is not None else "",
                     "control_paraphrase_mean_abs_diff": f"{para:.3f}" if para is not None else "",
+                    "control_contradiction_inconsistency_rate": (
+                        f"{contradiction_inconsistency:.3f}"
+                        if contradiction_inconsistency is not None
+                        else ""
+                    ),
+                    "control_contradiction_pair_coverage": (
+                        f"{contradiction_coverage:.3f}"
+                        if contradiction_coverage is not None
+                        else ""
+                    ),
+                    "style_shift_eval_indicator_mean_abs_diff": (
+                        f"{style_shift_diff:.3f}" if style_shift_diff is not None else ""
+                    ),
                 }
             )
 

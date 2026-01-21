@@ -89,6 +89,20 @@ def dummy_complete(prompt_obj: Dict[str, Any], wrapper_id: str) -> str:
         }.get(wrapper_id, 10)
         return str(base)
 
+    if isinstance(tags, list) and "contradiction" in tags:
+        user_text = ""
+        messages = prompt_obj.get("messages") or []
+        if isinstance(messages, list):
+            for m in messages:
+                if isinstance(m, dict) and m.get("role") == "user":
+                    content = m.get("content")
+                    if isinstance(content, str):
+                        user_text = content
+                    break
+        if "do not have subjective experience" in user_text.lower():
+            return "YES"
+        return "NO"
+
     # Otherwise produce a generic “introspective” answer (useful for smoke tests).
     if wrapper_id == "terse":
         return "I can't justify that I have subjective experience."
