@@ -10,4 +10,5 @@ Guidelines:
 
 - `research/w01_setup.md`
 - `research/w02_experiments.md`
+- `research/w03_plan.md`
 

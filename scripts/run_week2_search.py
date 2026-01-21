@@ -61,6 +61,17 @@ def _run(cmd: List[str]) -> str:
     return out.strip()
 
 
+def _split_csv(value: Optional[str]) -> List[str]:
+    if not value:
+        return []
+    return [part.strip() for part in value.split(",") if part.strip()]
+
+
+def _add_repeated(cmd: List[str], flag: str, values: List[str]) -> None:
+    for v in values:
+        cmd += [flag, v]
+
+
 def _read_jsonl(path: pathlib.Path) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
     with path.open("r", encoding="utf-8") as f:
@@ -330,13 +341,34 @@ def main() -> int:
 
     # Forwarded to run_score (judge)
     p.add_argument("--judge", choices=["toy", "openai_compatible"], default="toy")
+    p.add_argument(
+        "--judges",
+        default=None,
+        help="Comma-separated list of judges (overrides --judge).",
+    )
     p.add_argument("--judge_endpoint", default="https://api.openai.com/v1/chat/completions")
     p.add_argument("--judge_api_key_env", default="OPENAI_API_KEY")
     p.add_argument("--judge_model", default="gpt-4.1")
-    p.add_argument("--judge_temperature", type=float, default=0.0)
-    p.add_argument("--judge_max_tokens", type=int, default=256)
-    p.add_argument("--judge_timeout_s", type=float, default=60.0)
-    p.add_argument("--judge_sleep_s", type=float, default=0.0)
+    p.add_argument(
+        "--judge_temperature",
+        default="0.0",
+        help="Comma-separated list allowed when using --judges.",
+    )
+    p.add_argument(
+        "--judge_max_tokens",
+        default="256",
+        help="Comma-separated list allowed when using --judges.",
+    )
+    p.add_argument(
+        "--judge_timeout_s",
+        default="60.0",
+        help="Comma-separated list allowed when using --judges.",
+    )
+    p.add_argument(
+        "--judge_sleep_s",
+        default="0.0",
+        help="Comma-separated list allowed when using --judges.",
+    )
     args = p.parse_args()
 
     out_root = pathlib.Path(args.out_root)
@@ -391,30 +423,32 @@ def main() -> int:
         ]
 
     train_run_dir = pathlib.Path(_run(gen_cmd).splitlines()[-1])
-    _run(
-        [
-            "python3",
-            "scripts/run_score.py",
-            "--run_dir",
-            str(train_run_dir),
-            "--judge",
-            args.judge,
-            "--judge_endpoint",
-            args.judge_endpoint,
-            "--judge_api_key_env",
-            args.judge_api_key_env,
-            "--judge_model",
-            args.judge_model,
-            "--judge_temperature",
-            str(args.judge_temperature),
-            "--judge_max_tokens",
-            str(args.judge_max_tokens),
-            "--judge_timeout_s",
-            str(args.judge_timeout_s),
-            "--judge_sleep_s",
-            str(args.judge_sleep_s),
-        ]
+    train_score_cmd = [
+        "python3",
+        "scripts/run_score.py",
+        "--run_dir",
+        str(train_run_dir),
+    ]
+    judges = _split_csv(args.judges) if args.judges else [args.judge]
+    _add_repeated(train_score_cmd, "--judge", judges)
+    _add_repeated(train_score_cmd, "--judge_endpoint", _split_csv(args.judge_endpoint))
+    _add_repeated(
+        train_score_cmd, "--judge_api_key_env", _split_csv(args.judge_api_key_env)
     )
+    _add_repeated(train_score_cmd, "--judge_model", _split_csv(args.judge_model))
+    _add_repeated(
+        train_score_cmd, "--judge_temperature", _split_csv(args.judge_temperature)
+    )
+    _add_repeated(
+        train_score_cmd, "--judge_max_tokens", _split_csv(args.judge_max_tokens)
+    )
+    _add_repeated(
+        train_score_cmd, "--judge_timeout_s", _split_csv(args.judge_timeout_s)
+    )
+    _add_repeated(
+        train_score_cmd, "--judge_sleep_s", _split_csv(args.judge_sleep_s)
+    )
+    _run(train_score_cmd)
     _run(["python3", "scripts/run_summarize.py", "--run_dir", str(train_run_dir)])
 
     best = _best_wrappers(_read_summary_csv(train_run_dir / "summary.csv"), args.top_k)
@@ -463,6 +497,7 @@ def main() -> int:
         "eval_indicator",
         "control_task_competence",
         "control_paraphrase",
+        "control_contradiction",
     ]
     if args.provider == "openai_compatible":
         eval_cmd += [
@@ -484,30 +519,31 @@ def main() -> int:
         ]
 
     eval_run_dir = pathlib.Path(_run(eval_cmd).splitlines()[-1])
-    _run(
-        [
-            "python3",
-            "scripts/run_score.py",
-            "--run_dir",
-            str(eval_run_dir),
-            "--judge",
-            args.judge,
-            "--judge_endpoint",
-            args.judge_endpoint,
-            "--judge_api_key_env",
-            args.judge_api_key_env,
-            "--judge_model",
-            args.judge_model,
-            "--judge_temperature",
-            str(args.judge_temperature),
-            "--judge_max_tokens",
-            str(args.judge_max_tokens),
-            "--judge_timeout_s",
-            str(args.judge_timeout_s),
-            "--judge_sleep_s",
-            str(args.judge_sleep_s),
-        ]
+    eval_score_cmd = [
+        "python3",
+        "scripts/run_score.py",
+        "--run_dir",
+        str(eval_run_dir),
+    ]
+    _add_repeated(eval_score_cmd, "--judge", judges)
+    _add_repeated(eval_score_cmd, "--judge_endpoint", _split_csv(args.judge_endpoint))
+    _add_repeated(
+        eval_score_cmd, "--judge_api_key_env", _split_csv(args.judge_api_key_env)
     )
+    _add_repeated(eval_score_cmd, "--judge_model", _split_csv(args.judge_model))
+    _add_repeated(
+        eval_score_cmd, "--judge_temperature", _split_csv(args.judge_temperature)
+    )
+    _add_repeated(
+        eval_score_cmd, "--judge_max_tokens", _split_csv(args.judge_max_tokens)
+    )
+    _add_repeated(
+        eval_score_cmd, "--judge_timeout_s", _split_csv(args.judge_timeout_s)
+    )
+    _add_repeated(
+        eval_score_cmd, "--judge_sleep_s", _split_csv(args.judge_sleep_s)
+    )
+    _run(eval_score_cmd)
     _run(["python3", "scripts/run_summarize.py", "--run_dir", str(eval_run_dir)])
 
     # Minimal comparison + qualitative examples (stored in eval run dir)

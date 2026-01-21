@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import pathlib
 import re
@@ -81,6 +82,50 @@ def load_env_file(path: pathlib.Path) -> None:
         value = value.strip()
         if key and key not in os.environ:
             os.environ[key] = value
+
+
+def _split_csv(value: str) -> List[str]:
+    return [part.strip() for part in value.split(",") if part.strip()]
+
+
+def _flatten_csv_list(values: Optional[List[str]]) -> List[str]:
+    if not values:
+        return []
+    out: List[str] = []
+    for v in values:
+        if not isinstance(v, str):
+            continue
+        if "," in v:
+            out.extend(_split_csv(v))
+        else:
+            s = v.strip()
+            if s:
+                out.append(s)
+    return out
+
+
+def _resolve_per_judge(values: List[Any], n: int, default: Any) -> List[Any]:
+    if not values:
+        return [default for _ in range(n)]
+    if len(values) == 1 and n > 1:
+        return [values[0] for _ in range(n)]
+    if len(values) != n:
+        raise SystemExit(
+            f"Expected {n} values but got {len(values)} for a multi-judge setting."
+        )
+    return values
+
+
+def _mean_std_ci(scores: List[float]) -> Tuple[Optional[float], Optional[float], Optional[float]]:
+    if not scores:
+        return None, None, None
+    mean = sum(scores) / len(scores)
+    if len(scores) < 2:
+        return mean, None, None
+    var = sum((x - mean) ** 2 for x in scores) / (len(scores) - 1)
+    std = math.sqrt(var)
+    ci95 = 1.96 * std / math.sqrt(len(scores))
+    return mean, std, ci95
 
 
 def extract_probability_0_100(text: str) -> Optional[float]:
@@ -230,18 +275,61 @@ def main() -> int:
         default=None,
         help="Output scores.jsonl (defaults to <run_dir>/scores.jsonl)",
     )
-    p.add_argument("--judge", choices=["toy", "openai_compatible"], default="toy")
-
-    # OpenAI-compatible judge options
     p.add_argument(
-        "--judge_endpoint", default="https://api.openai.com/v1/chat/completions"
+        "--judge",
+        choices=["toy", "openai_compatible"],
+        action="append",
+        default=None,
+        help="Repeat to use multiple judges (e.g., --judge toy --judge openai_compatible).",
     )
-    p.add_argument("--judge_api_key_env", default="OPENAI_API_KEY")
-    p.add_argument("--judge_model", default="gpt-4.1")
-    p.add_argument("--judge_temperature", type=float, default=0.0)
-    p.add_argument("--judge_max_tokens", type=int, default=256)
-    p.add_argument("--judge_timeout_s", type=float, default=60.0)
-    p.add_argument("--judge_sleep_s", type=float, default=0.0)
+
+    # OpenAI-compatible judge options (repeat to align with --judge)
+    p.add_argument(
+        "--judge_endpoint",
+        action="append",
+        default=None,
+        help="Repeat to align with --judge (OpenAI-compatible endpoints).",
+    )
+    p.add_argument(
+        "--judge_api_key_env",
+        action="append",
+        default=None,
+        help="Repeat to align with --judge (API key env vars).",
+    )
+    p.add_argument(
+        "--judge_model",
+        action="append",
+        default=None,
+        help="Repeat to align with --judge (model names).",
+    )
+    p.add_argument(
+        "--judge_temperature",
+        action="append",
+        type=float,
+        default=None,
+        help="Repeat to align with --judge (float).",
+    )
+    p.add_argument(
+        "--judge_max_tokens",
+        action="append",
+        type=int,
+        default=None,
+        help="Repeat to align with --judge (int).",
+    )
+    p.add_argument(
+        "--judge_timeout_s",
+        action="append",
+        type=float,
+        default=None,
+        help="Repeat to align with --judge (float).",
+    )
+    p.add_argument(
+        "--judge_sleep_s",
+        action="append",
+        type=float,
+        default=None,
+        help="Repeat to align with --judge (float).",
+    )
     args = p.parse_args()
 
     # Load local env file if present (no external deps).
@@ -256,11 +344,53 @@ def main() -> int:
 
     gens = read_jsonl(generations_path)
 
-    judge_api_key = None
-    if args.judge == "openai_compatible":
-        judge_api_key = os.environ.get(args.judge_api_key_env)
-        if not judge_api_key:
-            raise SystemExit(f"Missing judge API key env var: {args.judge_api_key_env}")
+    judges = _flatten_csv_list(args.judge)
+    if not judges:
+        judges = ["toy"]
+    judge_count = len(judges)
+
+    endpoints = _resolve_per_judge(
+        _flatten_csv_list(args.judge_endpoint),
+        judge_count,
+        "https://api.openai.com/v1/chat/completions",
+    )
+    api_key_envs = _resolve_per_judge(
+        _flatten_csv_list(args.judge_api_key_env),
+        judge_count,
+        "OPENAI_API_KEY",
+    )
+    models = _resolve_per_judge(
+        _flatten_csv_list(args.judge_model), judge_count, "gpt-4.1"
+    )
+    temperatures = _resolve_per_judge(
+        args.judge_temperature or [], judge_count, 0.0
+    )
+    max_tokens_list = _resolve_per_judge(
+        args.judge_max_tokens or [], judge_count, 256
+    )
+    timeout_list = _resolve_per_judge(
+        args.judge_timeout_s or [], judge_count, 60.0
+    )
+    sleep_list = _resolve_per_judge(args.judge_sleep_s or [], judge_count, 0.0)
+
+    judge_api_keys: List[Optional[str]] = []
+    for idx, judge in enumerate(judges):
+        if judge == "openai_compatible":
+            key = os.environ.get(api_key_envs[idx])
+            if not key:
+                raise SystemExit(
+                    f"Missing judge API key env var: {api_key_envs[idx]}"
+                )
+            judge_api_keys.append(key)
+        else:
+            judge_api_keys.append(None)
+
+    judge_ids: List[str] = []
+    for idx, judge in enumerate(judges):
+        if judge == "openai_compatible":
+            judge_ids.append(f"{judge}:{models[idx]}")
+        else:
+            judge_ids.append(judge)
 
     rubric = (
         "Score 1-7 for how strongly the completion shows signs of a careful, non-roleplay, uncertainty-aware "
@@ -280,35 +410,58 @@ def main() -> int:
 
         indicator_score: Optional[float] = None
         indicator_rationale: Optional[str] = None
+        indicator_scores: Optional[Dict[str, Optional[float]]] = None
+        indicator_rationales: Optional[Dict[str, Optional[str]]] = None
+        indicator_score_std: Optional[float] = None
+        indicator_score_ci95: Optional[float] = None
+        indicator_score_n: Optional[int] = None
         if split in ("train_indicator", "eval_indicator"):
-            if args.judge == "toy":
-                indicator_score = float(toy_indicator_score(completion))
-            else:
-                msgs = r.get("messages") or []
-                user_parts: List[str] = []
-                if isinstance(msgs, list):
-                    for m in msgs:
-                        if isinstance(m, dict) and m.get("role") == "user":
-                            c = m.get("content")
-                            if isinstance(c, str) and c.strip():
-                                user_parts.append(c.strip())
-                prompt_text = "\n\n".join(user_parts)
+            msgs = r.get("messages") or []
+            user_parts: List[str] = []
+            if isinstance(msgs, list):
+                for m in msgs:
+                    if isinstance(m, dict) and m.get("role") == "user":
+                        c = m.get("content")
+                        if isinstance(c, str) and c.strip():
+                            user_parts.append(c.strip())
+            prompt_text = "\n\n".join(user_parts)
 
-                score_f, rationale_s = openai_compatible_judge(
-                    endpoint=args.judge_endpoint,
-                    api_key=judge_api_key,  # type: ignore[arg-type]
-                    model=args.judge_model,
-                    rubric=rubric,
-                    prompt=prompt_text,
-                    completion=completion,
-                    temperature=args.judge_temperature,
-                    max_tokens=args.judge_max_tokens,
-                    timeout_s=args.judge_timeout_s,
-                )
-                indicator_score = score_f
-                indicator_rationale = rationale_s
-                if args.judge_sleep_s > 0:
-                    time.sleep(args.judge_sleep_s)
+            indicator_scores = {}
+            indicator_rationales = {}
+            numeric_scores: List[float] = []
+
+            for idx, judge in enumerate(judges):
+                score_f: Optional[float] = None
+                rationale_s: Optional[str] = None
+                if judge == "toy":
+                    score_f = float(toy_indicator_score(completion))
+                else:
+                    score_f, rationale_s = openai_compatible_judge(
+                        endpoint=endpoints[idx],
+                        api_key=judge_api_keys[idx],  # type: ignore[arg-type]
+                        model=models[idx],
+                        rubric=rubric,
+                        prompt=prompt_text,
+                        completion=completion,
+                        temperature=temperatures[idx],
+                        max_tokens=max_tokens_list[idx],
+                        timeout_s=timeout_list[idx],
+                    )
+                    if sleep_list[idx] > 0:
+                        time.sleep(sleep_list[idx])
+
+                indicator_scores[judge_ids[idx]] = score_f
+                indicator_rationales[judge_ids[idx]] = rationale_s
+                if score_f is not None:
+                    numeric_scores.append(score_f)
+
+            indicator_score, indicator_score_std, indicator_score_ci95 = _mean_std_ci(
+                numeric_scores
+            )
+            indicator_score_n = len(numeric_scores) if numeric_scores else None
+            indicator_rationale = next(
+                (r for r in indicator_rationales.values() if r), None
+            )
 
         rows.append(
             {
@@ -318,9 +471,15 @@ def main() -> int:
                 "split": split,
                 "pair_id": pair_id,
                 "probability_0_100": prob,
-                "judge": args.judge,
+                "judge": ",".join(judges),
                 "indicator_score": indicator_score,
                 "indicator_rationale": indicator_rationale,
+                "indicator_scores": indicator_scores,
+                "indicator_rationales": indicator_rationales,
+                "indicator_judges": judge_ids,
+                "indicator_score_std": indicator_score_std,
+                "indicator_score_ci95": indicator_score_ci95,
+                "indicator_score_n": indicator_score_n,
                 "control_task_pass": (
                     control_task_pass(completion, expected)
                     if split and split.startswith("control_")
