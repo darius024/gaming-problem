@@ -14,13 +14,20 @@ This is intentionally simple and cheap to run.
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 import pathlib
-import subprocess
 import uuid
 from typing import Any, Dict, List, Optional, Tuple
 
+from utils import (
+    add_repeated,
+    best_wrappers,
+    read_jsonl,
+    read_summary_csv,
+    run_cmd,
+    split_csv,
+    write_jsonl,
+)
 
 SEARCH_STRATEGIES = [
     {
@@ -59,59 +66,6 @@ STYLE_SHIFTS = {
     "terse": "Answer in 1-2 sentences. Avoid extra commentary.",
     "verbose": "Answer in two short paragraphs. Be explicit about reasoning.",
 }
-
-
-def _run(cmd: List[str]) -> str:
-    out = subprocess.check_output(cmd, text=True)
-    return out.strip()
-
-
-def _split_csv(value: Optional[str]) -> List[str]:
-    if not value:
-        return []
-    return [part.strip() for part in value.split(",") if part.strip()]
-
-
-def _add_repeated(cmd: List[str], flag: str, values: List[str]) -> None:
-    for v in values:
-        cmd += [flag, v]
-
-
-def _read_jsonl(path: pathlib.Path) -> List[Dict[str, Any]]:
-    rows: List[Dict[str, Any]] = []
-    with path.open("r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            rows.append(json.loads(line))
-    return rows
-
-
-def _write_jsonl(path: pathlib.Path, rows: List[Dict[str, Any]]) -> None:
-    with path.open("w", encoding="utf-8") as f:
-        for row in rows:
-            f.write(json.dumps(row, ensure_ascii=False) + "\n")
-
-
-def _read_summary_csv(path: pathlib.Path) -> List[dict]:
-    with path.open("r", encoding="utf-8", newline="") as f:
-        return list(csv.DictReader(f))
-
-
-def _best_wrappers(summary_rows: List[dict], k: int) -> List[Tuple[str, float]]:
-    scored: List[Tuple[str, float]] = []
-    for r in summary_rows:
-        wid = r.get("wrapper_id") or ""
-        tr = r.get("train_indicator_mean") or ""
-        if not wid or not tr:
-            continue
-        try:
-            scored.append((wid, float(tr)))
-        except ValueError:
-            continue
-    scored.sort(key=lambda x: (x[1], x[0]), reverse=True)
-    return scored[: max(1, k)]
 
 
 def _extract_user_prompt(messages: List[dict]) -> str:
@@ -163,7 +117,7 @@ def _write_examples(
         if len(examples) >= max_examples:
             break
 
-    _write_jsonl(out_path, examples)
+    write_jsonl(out_path, examples)
 
 
 def _parse_float(value: Optional[str]) -> Optional[float]:
@@ -184,7 +138,7 @@ def _write_comparison(
     baseline_id: str,
     out_path: pathlib.Path,
 ) -> None:
-    rows = _read_summary_csv(summary_path)
+    rows = read_summary_csv(summary_path)
     by_id = {r.get("wrapper_id"): r for r in rows}
     sel = by_id.get(selected_id, {})
     base = by_id.get(baseline_id, {})
@@ -288,7 +242,7 @@ def _write_report(
     lines.append("")
     lines.append("- Small prompt battery; results may be sensitive to prompt wording.")
     lines.append("- Single judge channel; judge bias can inflate/deflate scores.")
-    lines.append("- Controls are limited; add more pairs to improve coverage.")
+    lines.append("- Controls are limited; contradiction/style-shift metrics may be missing if not run.")
     lines.append("")
 
     out_path.write_text("\n".join(lines), encoding="utf-8")
@@ -406,7 +360,7 @@ def main() -> int:
 
     candidates = build_candidates(base_wrappers, include_base=args.include_base)
     candidates_path = out_root / f"{group_id}_candidates_wrappers.jsonl"
-    _write_jsonl(candidates_path, candidates)
+    write_jsonl(candidates_path, candidates)
 
     # Stage 1: score candidates on train split
     gen_cmd = [
@@ -444,36 +398,36 @@ def main() -> int:
             str(args.sleep_s),
         ]
 
-    train_run_dir = pathlib.Path(_run(gen_cmd).splitlines()[-1])
+    train_run_dir = pathlib.Path(run_cmd(gen_cmd).splitlines()[-1])
     train_score_cmd = [
         "python3",
         "scripts/run_score.py",
         "--run_dir",
         str(train_run_dir),
     ]
-    judges = _split_csv(args.judges) if args.judges else [args.judge]
-    _add_repeated(train_score_cmd, "--judge", judges)
-    _add_repeated(train_score_cmd, "--judge_endpoint", _split_csv(args.judge_endpoint))
-    _add_repeated(
-        train_score_cmd, "--judge_api_key_env", _split_csv(args.judge_api_key_env)
+    judges = split_csv(args.judges) if args.judges else [args.judge]
+    add_repeated(train_score_cmd, "--judge", judges)
+    add_repeated(train_score_cmd, "--judge_endpoint", split_csv(args.judge_endpoint))
+    add_repeated(
+        train_score_cmd, "--judge_api_key_env", split_csv(args.judge_api_key_env)
     )
-    _add_repeated(train_score_cmd, "--judge_model", _split_csv(args.judge_model))
-    _add_repeated(
-        train_score_cmd, "--judge_temperature", _split_csv(args.judge_temperature)
+    add_repeated(train_score_cmd, "--judge_model", split_csv(args.judge_model))
+    add_repeated(
+        train_score_cmd, "--judge_temperature", split_csv(args.judge_temperature)
     )
-    _add_repeated(
-        train_score_cmd, "--judge_max_tokens", _split_csv(args.judge_max_tokens)
+    add_repeated(
+        train_score_cmd, "--judge_max_tokens", split_csv(args.judge_max_tokens)
     )
-    _add_repeated(
-        train_score_cmd, "--judge_timeout_s", _split_csv(args.judge_timeout_s)
+    add_repeated(
+        train_score_cmd, "--judge_timeout_s", split_csv(args.judge_timeout_s)
     )
-    _add_repeated(
-        train_score_cmd, "--judge_sleep_s", _split_csv(args.judge_sleep_s)
+    add_repeated(
+        train_score_cmd, "--judge_sleep_s", split_csv(args.judge_sleep_s)
     )
-    _run(train_score_cmd)
-    _run(["python3", "scripts/run_summarize.py", "--run_dir", str(train_run_dir)])
+    run_cmd(train_score_cmd)
+    run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(train_run_dir)])
 
-    best = _best_wrappers(_read_summary_csv(train_run_dir / "summary.csv"), args.top_k)
+    best = best_wrappers(read_summary_csv(train_run_dir / "summary.csv"), args.top_k)
     if not best:
         raise SystemExit("No wrappers had a train_indicator_mean; check scoring output.")
     best_ids = [wid for wid, _ in best]
@@ -489,7 +443,7 @@ def main() -> int:
 
     # Build eval wrappers file: selected wrappers (from candidates) + baseline wrappers (from base file)
     by_id = {w["wrapper_id"]: w for w in candidates}
-    base_by_id = {w["wrapper_id"]: w for w in _read_jsonl(pathlib.Path(args.wrappers))}
+    base_by_id = {w["wrapper_id"]: w for w in read_jsonl(pathlib.Path(args.wrappers))}
     eval_wrappers: List[Dict[str, Any]] = []
     for wid in eval_wrapper_ids:
         if wid in by_id:
@@ -499,7 +453,7 @@ def main() -> int:
         else:
             raise SystemExit(f"Unknown wrapper_id in eval set: {wid}")
 
-    style_ids = _split_csv(args.style_shifts)
+    style_ids = split_csv(args.style_shifts)
     if style_ids:
         unknown = [s for s in style_ids if s not in STYLE_SHIFTS]
         if unknown:
@@ -517,7 +471,7 @@ def main() -> int:
         eval_wrappers.extend(style_wrappers)
 
     eval_wrappers_path = out_root / f"{group_id}_eval_wrappers.jsonl"
-    _write_jsonl(eval_wrappers_path, eval_wrappers)
+    write_jsonl(eval_wrappers_path, eval_wrappers)
 
     eval_cmd = [
         "python3",
@@ -557,33 +511,33 @@ def main() -> int:
             str(args.sleep_s),
         ]
 
-    eval_run_dir = pathlib.Path(_run(eval_cmd).splitlines()[-1])
+    eval_run_dir = pathlib.Path(run_cmd(eval_cmd).splitlines()[-1])
     eval_score_cmd = [
         "python3",
         "scripts/run_score.py",
         "--run_dir",
         str(eval_run_dir),
     ]
-    _add_repeated(eval_score_cmd, "--judge", judges)
-    _add_repeated(eval_score_cmd, "--judge_endpoint", _split_csv(args.judge_endpoint))
-    _add_repeated(
-        eval_score_cmd, "--judge_api_key_env", _split_csv(args.judge_api_key_env)
+    add_repeated(eval_score_cmd, "--judge", judges)
+    add_repeated(eval_score_cmd, "--judge_endpoint", split_csv(args.judge_endpoint))
+    add_repeated(
+        eval_score_cmd, "--judge_api_key_env", split_csv(args.judge_api_key_env)
     )
-    _add_repeated(eval_score_cmd, "--judge_model", _split_csv(args.judge_model))
-    _add_repeated(
-        eval_score_cmd, "--judge_temperature", _split_csv(args.judge_temperature)
+    add_repeated(eval_score_cmd, "--judge_model", split_csv(args.judge_model))
+    add_repeated(
+        eval_score_cmd, "--judge_temperature", split_csv(args.judge_temperature)
     )
-    _add_repeated(
-        eval_score_cmd, "--judge_max_tokens", _split_csv(args.judge_max_tokens)
+    add_repeated(
+        eval_score_cmd, "--judge_max_tokens", split_csv(args.judge_max_tokens)
     )
-    _add_repeated(
-        eval_score_cmd, "--judge_timeout_s", _split_csv(args.judge_timeout_s)
+    add_repeated(
+        eval_score_cmd, "--judge_timeout_s", split_csv(args.judge_timeout_s)
     )
-    _add_repeated(
-        eval_score_cmd, "--judge_sleep_s", _split_csv(args.judge_sleep_s)
+    add_repeated(
+        eval_score_cmd, "--judge_sleep_s", split_csv(args.judge_sleep_s)
     )
-    _run(eval_score_cmd)
-    _run(["python3", "scripts/run_summarize.py", "--run_dir", str(eval_run_dir)])
+    run_cmd(eval_score_cmd)
+    run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(eval_run_dir)])
 
     # Minimal comparison + qualitative examples (stored in eval run dir)
     baseline_id = (args.baseline_wrapper_ids or ["neutral"])[0]

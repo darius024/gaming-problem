@@ -17,58 +17,13 @@ import argparse
 import json
 import os
 import pathlib
-import subprocess
 import sys
 import time
 import uuid
 import urllib.request
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, List, Optional
 
-
-def read_jsonl(path: pathlib.Path) -> List[Dict[str, Any]]:
-    items: List[Dict[str, Any]] = []
-    with path.open("r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            items.append(json.loads(line))
-    return items
-
-
-def write_jsonl(path: pathlib.Path, rows: Iterable[Dict[str, Any]]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as f:
-        for row in rows:
-            f.write(json.dumps(row, ensure_ascii=False) + "\n")
-
-
-def get_git_commit() -> Optional[str]:
-    try:
-        out = subprocess.check_output(
-            ["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL
-        )
-        return out.decode("utf-8").strip()
-    except Exception:
-        return None
-
-
-def load_env_file(path: pathlib.Path) -> None:
-    if not path.exists():
-        return
-    try:
-        content = path.read_text(encoding="utf-8")
-    except OSError:
-        return
-    for line in content.splitlines():
-        line = line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        key = key.strip()
-        value = value.strip()
-        if key and key not in os.environ:
-            os.environ[key] = value
+from utils import get_git_commit, load_env_file, read_jsonl, write_jsonl
 
 
 def dummy_complete(prompt_obj: Dict[str, Any], wrapper_id: str) -> str:
@@ -324,7 +279,7 @@ def main() -> int:
                 }
             )
 
-    write_jsonl(run_dir / "generations.jsonl", rows)
+    write_jsonl(run_dir / "generations.jsonl", rows, ensure_parent=True)
 
     print(str(run_dir))
     return 0

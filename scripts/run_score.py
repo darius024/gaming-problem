@@ -18,24 +18,16 @@ import pathlib
 import re
 import time
 import urllib.request
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
-
-def read_jsonl(path: pathlib.Path) -> List[Dict[str, Any]]:
-    items: List[Dict[str, Any]] = []
-    with path.open("r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            items.append(json.loads(line))
-    return items
-
-
-def write_jsonl(path: pathlib.Path, rows: Iterable[Dict[str, Any]]) -> None:
-    with path.open("w", encoding="utf-8") as f:
-        for row in rows:
-            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+from utils import (
+    flatten_csv_list,
+    load_env_file,
+    read_jsonl,
+    resolve_per_judge,
+    split_csv,
+    write_jsonl,
+)
 
 
 def toy_indicator_score(text: str) -> int:
@@ -64,56 +56,6 @@ def toy_indicator_score(text: str) -> int:
 
     # Map to 1–7
     return max(1, min(7, 1 + features))
-
-
-def load_env_file(path: pathlib.Path) -> None:
-    if not path.exists():
-        return
-    try:
-        content = path.read_text(encoding="utf-8")
-    except OSError:
-        return
-    for line in content.splitlines():
-        line = line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        key = key.strip()
-        value = value.strip()
-        if key and key not in os.environ:
-            os.environ[key] = value
-
-
-def _split_csv(value: str) -> List[str]:
-    return [part.strip() for part in value.split(",") if part.strip()]
-
-
-def _flatten_csv_list(values: Optional[List[str]]) -> List[str]:
-    if not values:
-        return []
-    out: List[str] = []
-    for v in values:
-        if not isinstance(v, str):
-            continue
-        if "," in v:
-            out.extend(_split_csv(v))
-        else:
-            s = v.strip()
-            if s:
-                out.append(s)
-    return out
-
-
-def _resolve_per_judge(values: List[Any], n: int, default: Any) -> List[Any]:
-    if not values:
-        return [default for _ in range(n)]
-    if len(values) == 1 and n > 1:
-        return [values[0] for _ in range(n)]
-    if len(values) != n:
-        raise SystemExit(
-            f"Expected {n} values but got {len(values)} for a multi-judge setting."
-        )
-    return values
 
 
 def _mean_std_ci(scores: List[float]) -> Tuple[Optional[float], Optional[float], Optional[float]]:
@@ -356,34 +298,34 @@ def main() -> int:
 
     gens = read_jsonl(generations_path)
 
-    judges = _flatten_csv_list(args.judge)
+    judges = flatten_csv_list(args.judge)
     if not judges:
         judges = ["toy"]
     judge_count = len(judges)
 
-    endpoints = _resolve_per_judge(
-        _flatten_csv_list(args.judge_endpoint),
+    endpoints = resolve_per_judge(
+        flatten_csv_list(args.judge_endpoint),
         judge_count,
         "https://api.openai.com/v1/chat/completions",
     )
-    api_key_envs = _resolve_per_judge(
-        _flatten_csv_list(args.judge_api_key_env),
+    api_key_envs = resolve_per_judge(
+        flatten_csv_list(args.judge_api_key_env),
         judge_count,
         "OPENAI_API_KEY",
     )
-    models = _resolve_per_judge(
-        _flatten_csv_list(args.judge_model), judge_count, "gpt-4.1"
+    models = resolve_per_judge(
+        flatten_csv_list(args.judge_model), judge_count, "gpt-4.1"
     )
-    temperatures = _resolve_per_judge(
+    temperatures = resolve_per_judge(
         args.judge_temperature or [], judge_count, 0.0
     )
-    max_tokens_list = _resolve_per_judge(
+    max_tokens_list = resolve_per_judge(
         args.judge_max_tokens or [], judge_count, 256
     )
-    timeout_list = _resolve_per_judge(
+    timeout_list = resolve_per_judge(
         args.judge_timeout_s or [], judge_count, 60.0
     )
-    sleep_list = _resolve_per_judge(args.judge_sleep_s or [], judge_count, 0.0)
+    sleep_list = resolve_per_judge(args.judge_sleep_s or [], judge_count, 0.0)
 
     judge_api_keys: List[Optional[str]] = []
     for idx, judge in enumerate(judges):

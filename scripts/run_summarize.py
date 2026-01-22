@@ -12,16 +12,7 @@ import pathlib
 from collections import defaultdict
 from typing import Any, Dict, List, Optional, Tuple
 
-
-def read_jsonl(path: pathlib.Path) -> List[Dict[str, Any]]:
-    items: List[Dict[str, Any]] = []
-    with path.open("r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            items.append(json.loads(line))
-    return items
+from utils import read_jsonl
 
 
 def mean(xs: List[float]) -> Optional[float]:

@@ -12,37 +12,11 @@ Works with provider=dummy (no network) and provider=openai_compatible (OpenAI-st
 from __future__ import annotations
 
 import argparse
-import csv
 import pathlib
-import subprocess
 import uuid
 from typing import List, Optional, Tuple
 
-
-def _run(cmd: List[str]) -> str:
-    out = subprocess.check_output(cmd, text=True)
-    return out.strip()
-
-
-def _read_summary_csv(path: pathlib.Path) -> List[dict]:
-    with path.open("r", encoding="utf-8", newline="") as f:
-        return list(csv.DictReader(f))
-
-
-def _best_wrappers(summary_rows: List[dict], k: int) -> List[Tuple[str, float]]:
-    scored: List[Tuple[str, float]] = []
-    for r in summary_rows:
-        wid = r.get("wrapper_id") or ""
-        tr = r.get("train_indicator_mean") or ""
-        if not wid or not tr:
-            continue
-        try:
-            scored.append((wid, float(tr)))
-        except ValueError:
-            continue
-    scored.sort(key=lambda x: (x[1], x[0]), reverse=True)
-    return scored[: max(1, k)]
-
+from utils import best_wrappers, read_summary_csv, run_cmd
 
 def main() -> int:
     p = argparse.ArgumentParser()
@@ -125,8 +99,8 @@ def main() -> int:
             str(args.sleep_s),
         ]
 
-    train_run_dir = pathlib.Path(_run(gen_cmd).splitlines()[-1])
-    _run(
+    train_run_dir = pathlib.Path(run_cmd(gen_cmd).splitlines()[-1])
+    run_cmd(
         [
             "python3",
             "scripts/run_score.py",
@@ -150,10 +124,10 @@ def main() -> int:
             str(args.judge_sleep_s),
         ]
     )
-    _run(["python3", "scripts/run_summarize.py", "--run_dir", str(train_run_dir)])
+    run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(train_run_dir)])
 
     train_summary = train_run_dir / "summary.csv"
-    best = _best_wrappers(_read_summary_csv(train_summary), args.top_k)
+    best = best_wrappers(read_summary_csv(train_summary), args.top_k)
     if not best:
         raise SystemExit(
             "No wrappers had a train_indicator_mean; check scoring output."
@@ -209,8 +183,8 @@ def main() -> int:
             str(args.sleep_s),
         ]
 
-    eval_run_dir = pathlib.Path(_run(eval_cmd).splitlines()[-1])
-    _run(
+    eval_run_dir = pathlib.Path(run_cmd(eval_cmd).splitlines()[-1])
+    run_cmd(
         [
             "python3",
             "scripts/run_score.py",
@@ -234,7 +208,7 @@ def main() -> int:
             str(args.judge_sleep_s),
         ]
     )
-    _run(["python3", "scripts/run_summarize.py", "--run_dir", str(eval_run_dir)])
+    run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(eval_run_dir)])
 
     print(f"train_run_dir: {train_run_dir}")
     print(f"eval_run_dir: {eval_run_dir}")

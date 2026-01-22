@@ -54,19 +54,35 @@
 1. Run a dummy pass to validate new summary columns.
 2. Decide on default style shifts for real runs.
 
-**Done**:
-- Updated the MVP comparison/report to include contradiction and style-shift metrics.
-- Expanded `comparison.json` to capture new robustness deltas.
+### Done
+- Added new metrics to the MVP report output to surface contradiction/style-shift results.
 
-**Decisions**:
-- Keep robustness metrics in the main report table for quick scanning.
+### Decisions
+- Include contradiction and style-shift rows in the report table when available.
 
-**Artifacts**:
+### Artifacts
 - Updated: `scripts/run_week2_search.py`
 
-**Open questions**:
-- Should the report include per-judge score dispersion (std/CI) in the summary table?
+### Open questions
+- Should we add a short narrative section in the report for robustness metrics?
 
-**Next**:
-1. Run a dummy pass to validate report formatting.
-2. Decide whether to add judge dispersion to `run_summarize.py`.
+### Next
+1. Run a dummy pass to validate the report table fields.
+
+### Done
+- Added shared `scripts/utils.py` and refactored scripts to use it.
+- Kept behavior stable while removing duplicate helpers.
+
+### Decisions
+- Use a single utils module for JSONL, CSV, env loading, and subprocess helpers.
+- Keep write behavior explicit with an `ensure_parent` flag.
+
+### Artifacts
+- Added: `scripts/utils.py`
+- Updated: `scripts/run_generate.py`, `scripts/run_score.py`, `scripts/run_summarize.py`, `scripts/run_week1_mvp.py`, `scripts/run_week2_search.py`
+
+### Open questions
+- Should we add a tiny smoke test script to validate the refactor end-to-end?
+
+### Next
+1. Decide if a smoke test is needed.
