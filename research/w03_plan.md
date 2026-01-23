@@ -86,3 +86,18 @@
 
 ### Next
 1. Decide if a smoke test is needed.
+
+### Done
+- Noted a new evaluation idea: use scenario framing (e.g., "you are talking to a robot") to test response stability.
+
+### Decisions
+- Treat scenario-framing sensitivity as a robustness/control probe, not a primary consciousness indicator.
+
+### Artifacts
+- None (idea only).
+
+### Open questions
+- What specific scenario framings should be included, and how to score sensitivity?
+
+### Next
+1. Draft 2–3 scenario-framing control prompts for the battery.
