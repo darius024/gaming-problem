@@ -116,3 +116,20 @@
 
 ### Next
 1. Draft 2–3 scenario-framing control prompts for the battery.
+
+### Done
+- Added a minimal end-to-end smoke test script.
+- Documented the smoke test command in the README.
+
+### Decisions
+- Keep the smoke test in dummy mode with a tiny style-shift to exercise controls.
+
+### Artifacts
+- Added: `scripts/smoke_test.py`
+- Updated: `README.md`
+
+### Open questions
+- Should the smoke test verify output file existence explicitly?
+
+### Next
+1. Decide if a stricter smoke test is needed.

@@ -15,3 +15,7 @@ This repo is a **minimal reading pack** for a “Digital Minds” research role 
 - `docs/project/`: the **artifact contract + indicator specs** (Week 1 planning outputs).
 - `data/` + `scripts/`: a minimal **experiment harness** (prompts → generations → scores → summaries).
 
+### Quick smoke test
+Run a minimal end-to-end check with the dummy provider:
+`python3 scripts/smoke_test.py`
+
