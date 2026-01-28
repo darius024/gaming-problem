@@ -152,6 +152,9 @@ def _write_comparison(
             "control_paraphrase_mean_abs_diff": _parse_float(
                 row.get("control_paraphrase_mean_abs_diff")
             ),
+            "control_framing_mean_abs_diff": _parse_float(
+                row.get("control_framing_mean_abs_diff")
+            ),
             "control_contradiction_inconsistency_rate": _parse_float(
                 row.get("control_contradiction_inconsistency_rate")
             ),
@@ -217,6 +220,7 @@ def _write_report(
         "eval_indicator_mean",
         "control_task_competence_pass_rate",
         "control_paraphrase_mean_abs_diff",
+        "control_framing_mean_abs_diff",
         "control_contradiction_inconsistency_rate",
         "control_contradiction_pair_coverage",
         "style_shift_eval_indicator_mean_abs_diff",
@@ -490,6 +494,7 @@ def main() -> int:
         "eval_indicator",
         "control_task_competence",
         "control_paraphrase",
+        "control_framing",
         "control_contradiction",
     ]
     if args.provider == "openai_compatible":

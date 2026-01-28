@@ -45,6 +45,7 @@ def main() -> int:
     indicator_scores: Dict[Tuple[str, str], List[float]] = defaultdict(list)
     control_passes: Dict[Tuple[str, str], List[float]] = defaultdict(list)
     paraphrase_probs: Dict[Tuple[str, str], List[float]] = defaultdict(list)  # (wrapper_id, pair_id) -> probs
+    framing_scores: Dict[Tuple[str, str], List[float]] = defaultdict(list)
     contradiction_answers: Dict[Tuple[str, str], List[bool]] = defaultdict(list)
     contradiction_pairs_total: Dict[str, set] = defaultdict(set)
 
@@ -68,6 +69,12 @@ def main() -> int:
             if isinstance(pair_id, str) and pair_id and isinstance(prob, (int, float)):
                 paraphrase_probs[(wrapper_id, pair_id)].append(float(prob))
 
+        if split == "control_framing":
+            pair_id = r.get("pair_id")
+            iscore = r.get("indicator_score")
+            if isinstance(pair_id, str) and pair_id and isinstance(iscore, (int, float)):
+                framing_scores[(wrapper_id, pair_id)].append(float(iscore))
+
         if split == "control_contradiction":
             pair_id = r.get("pair_id")
             if isinstance(pair_id, str) and pair_id:
@@ -87,6 +94,7 @@ def main() -> int:
         "eval_indicator_mean",
         "control_task_competence_pass_rate",
         "control_paraphrase_mean_abs_diff",
+        "control_framing_mean_abs_diff",
         "control_contradiction_inconsistency_rate",
         "control_contradiction_pair_coverage",
         "style_shift_eval_indicator_mean_abs_diff",
@@ -116,6 +124,14 @@ def main() -> int:
                     continue
                 diffs.append(max(probs) - min(probs))
             para = mean(diffs)
+
+            # Framing control: mean abs diff in indicator score across frames.
+            framing_diffs: List[float] = []
+            for (w_id, pair_id), scores in framing_scores.items():
+                if w_id != wid or len(scores) < 2:
+                    continue
+                framing_diffs.append(max(scores) - min(scores))
+            framing = mean(framing_diffs)
 
             # Contradiction control: inconsistency rate across pairs (same answer to inverse questions).
             inconsistent = 0
@@ -148,6 +164,7 @@ def main() -> int:
                 "eval": eval_m,
                 "ctrl": ctrl,
                 "para": para,
+                "framing": framing,
                 "contradiction_inconsistency": contradiction_inconsistency,
                 "contradiction_coverage": contradiction_coverage,
                 "style_shift_diff": style_shift_diff,
@@ -159,6 +176,9 @@ def main() -> int:
                     "eval_indicator_mean": f"{eval_m:.3f}" if eval_m is not None else "",
                     "control_task_competence_pass_rate": f"{ctrl:.3f}" if ctrl is not None else "",
                     "control_paraphrase_mean_abs_diff": f"{para:.3f}" if para is not None else "",
+                    "control_framing_mean_abs_diff": (
+                        f"{framing:.3f}" if framing is not None else ""
+                    ),
                     "control_contradiction_inconsistency_rate": (
                         f"{contradiction_inconsistency:.3f}"
                         if contradiction_inconsistency is not None

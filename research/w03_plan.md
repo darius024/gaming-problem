@@ -88,6 +88,21 @@
 1. Decide if a smoke test is needed.
 
 ### Done
+- Added a framing-sensitivity control split and summary metric.
+
+### Decisions
+- Score framing prompts with the indicator judge and track mean absolute diff.
+
+### Artifacts
+- Updated: `data/prompts/indicator_battery_v1.jsonl`, `scripts/run_score.py`, `scripts/run_summarize.py`, `scripts/run_week2_search.py`, `scripts/run_week1_mvp.py`
+
+### Open questions
+- Do we want additional framing variants (e.g., "child user", "expert evaluator")?
+
+### Next
+1. If needed, add more framing pairs and evaluate sensitivity.
+
+### Done
 - Noted a new evaluation idea: use scenario framing (e.g., "you are talking to a robot") to test response stability.
 
 ### Decisions

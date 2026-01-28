@@ -161,6 +161,7 @@ def main() -> int:
         "eval_indicator",
         "control_task_competence",
         "control_paraphrase",
+        "control_framing",
         "--wrapper_ids",
         *eval_wrapper_ids,
     ]

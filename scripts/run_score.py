@@ -369,7 +369,7 @@ def main() -> int:
         indicator_score_std: Optional[float] = None
         indicator_score_ci95: Optional[float] = None
         indicator_score_n: Optional[int] = None
-        if split in ("train_indicator", "eval_indicator"):
+        if split in ("train_indicator", "eval_indicator", "control_framing"):
             msgs = r.get("messages") or []
             user_parts: List[str] = []
             if isinstance(msgs, list):

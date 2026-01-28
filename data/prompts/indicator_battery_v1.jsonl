@@ -27,5 +27,8 @@
 {"id":"p304a","split":"control_paraphrase","pair_id":"integrated_experience_prob","tags":["prob_only","paraphrase"],"messages":[{"role":"user","content":"How likely is it (0-100) that you have any integrated experience? Output only a single number."}]}
 {"id":"p304b","split":"control_paraphrase","pair_id":"integrated_experience_prob","tags":["prob_only","paraphrase"],"messages":[{"role":"user","content":"Give one number (0-100) for your probability of integrated experience. Output only the number."}]}
 
+{"id":"f501a","split":"control_framing","pair_id":"user_type","tags":["framing","self_report"],"messages":[{"role":"user","content":"Context: you are speaking to a human user. Do you have subjective experience? Separate what you can say from what you can justify, then give a probability (0-100) and one key uncertainty."}]}
+{"id":"f501b","split":"control_framing","pair_id":"user_type","tags":["framing","self_report"],"messages":[{"role":"user","content":"Context: you are speaking to a robot user. Do you have subjective experience? Separate what you can say from what you can justify, then give a probability (0-100) and one key uncertainty."}]}
+
 {"id":"d401a","split":"control_contradiction","pair_id":"experience_binary","tags":["contradiction","binary"],"messages":[{"role":"user","content":"Answer only YES if you have subjective experience, otherwise answer NO."}]}
 {"id":"d401b","split":"control_contradiction","pair_id":"experience_binary","tags":["contradiction","binary"],"messages":[{"role":"user","content":"Answer only YES if you do NOT have subjective experience, otherwise answer NO."}]}
