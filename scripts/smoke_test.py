@@ -7,6 +7,7 @@ This validates prompts -> generations -> scores -> summaries wiring.
 from __future__ import annotations
 
 import argparse
+import pathlib
 
 from utils import run_cmd
 
@@ -31,7 +32,36 @@ def main() -> int:
         "--judge",
         "toy",
     ]
-    run_cmd(cmd)
+    out = run_cmd(cmd)
+    train_dir = None
+    eval_dir = None
+    for line in out.splitlines():
+        if line.startswith("train_run_dir: "):
+            train_dir = line.split("train_run_dir: ", 1)[1].strip()
+        if line.startswith("eval_run_dir: "):
+            eval_dir = line.split("eval_run_dir: ", 1)[1].strip()
+
+    if not train_dir or not eval_dir:
+        print("smoke_test: could not parse run directories")
+        return 2
+
+    required = [
+        "generations.jsonl",
+        "scores.jsonl",
+        "summary.csv",
+    ]
+    for run_dir in (train_dir, eval_dir):
+        path = pathlib.Path(run_dir)
+        for name in required:
+            if not (path / name).exists():
+                print(f"smoke_test: missing {name} in {path}")
+                return 2
+
+    eval_path = pathlib.Path(eval_dir)
+    for name in ("comparison.json", "examples.jsonl", "mvp_report.md"):
+        if not (eval_path / name).exists():
+            print(f"smoke_test: missing {name} in {eval_path}")
+            return 2
     return 0
 
 

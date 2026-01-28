@@ -133,3 +133,18 @@
 
 ### Next
 1. Decide if a stricter smoke test is needed.
+
+### Done
+- Tightened the smoke test to validate required output files.
+
+### Decisions
+- Keep the smoke test lightweight by checking file existence only.
+
+### Artifacts
+- Updated: `scripts/smoke_test.py`
+
+### Open questions
+- Should the smoke test also check that summary CSV has rows?
+
+### Next
+1. Decide whether to add content checks to the smoke test.
