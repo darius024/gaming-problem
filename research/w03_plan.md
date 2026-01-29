@@ -163,3 +163,18 @@
 
 ### Next
 1. Decide whether to add a Week 1 example.
+
+### Done
+- Reviewed current pipeline and identified gaps in analysis, tracking, and robustness.
+
+### Decisions
+- Prioritize a minimal cross-run comparison tool before adding new optimization methods.
+
+### Artifacts
+- None (analysis only).
+
+### Open questions
+- Which two runs should be the default comparison pair (baseline vs optimized)?
+
+### Next
+1. Build a minimal run-compare script and wire into reports.
