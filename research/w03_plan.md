@@ -178,3 +178,19 @@
 
 ### Next
 1. Build a minimal run-compare script and wire into reports.
+
+### Done
+- Added a minimal run-compare script and README usage.
+
+### Decisions
+- Compare runs via summary CSV intersection, defaulting to shared wrapper_ids.
+
+### Artifacts
+- Added: `scripts/run_compare.py`
+- Updated: `README.md`
+
+### Open questions
+- Should we include `train_indicator_mean` in comparisons by default?
+
+### Next
+1. Decide whether to expand the compare metrics list.
