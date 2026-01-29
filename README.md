@@ -19,3 +19,7 @@ This repo is a **minimal reading pack** for a “Digital Minds” research role 
 Run a minimal end-to-end check with the dummy provider:
 `python3 scripts/smoke_test.py`
 
+### Example runs
+- Baseline search (dummy): `python3 scripts/run_week2_search.py --provider dummy --include_base`
+- Multi-judge (OpenAI-compatible): `python3 scripts/run_week2_search.py --provider openai_compatible --judges toy,openai_compatible --judge_model gpt-4.1,gpt-4o-mini`
+

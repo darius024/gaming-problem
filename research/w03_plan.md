@@ -148,3 +148,18 @@
 
 ### Next
 1. Decide whether to add content checks to the smoke test.
+
+### Done
+- Added minimal example commands to the README.
+
+### Decisions
+- Keep examples short: one dummy run, one multi-judge run.
+
+### Artifacts
+- Updated: `README.md`
+
+### Open questions
+- Do we need a short example for `run_week1_mvp.py`?
+
+### Next
+1. Decide whether to add a Week 1 example.
