@@ -26,3 +26,6 @@ Run a minimal end-to-end check with the dummy provider:
 ### Compare two runs
 `python3 scripts/run_compare.py --baseline_run runs/<baseline_id> --candidate_run runs/<candidate_id>`
 
+### Validate a run
+`python3 scripts/run_validate.py --run_dir runs/<run_id>`
+

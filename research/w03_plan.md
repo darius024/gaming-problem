@@ -209,3 +209,19 @@
 
 ### Next
 1. Decide whether to make train metrics optional via a flag.
+
+### Done
+- Added a run validation script and README usage.
+
+### Decisions
+- Keep validation lightweight with file and schema checks only.
+
+### Artifacts
+- Added: `scripts/run_validate.py`
+- Updated: `README.md`
+
+### Open questions
+- Should validation optionally ignore length mismatches (e.g., partial runs)?
+
+### Next
+1. Decide whether to add a `--allow_partial` flag.
