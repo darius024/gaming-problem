@@ -194,3 +194,18 @@
 
 ### Next
 1. Decide whether to expand the compare metrics list.
+
+### Done
+- Included train split metrics in run comparison output.
+
+### Decisions
+- Surface `train_indicator_mean` alongside eval and control metrics.
+
+### Artifacts
+- Updated: `scripts/run_compare.py`
+
+### Open questions
+- Should we add an option to hide train metrics by default?
+
+### Next
+1. Decide whether to make train metrics optional via a flag.

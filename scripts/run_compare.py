@@ -15,6 +15,7 @@ from utils import read_summary_csv
 
 
 METRICS = [
+    "train_indicator_mean",
     "eval_indicator_mean",
     "control_task_competence_pass_rate",
     "control_paraphrase_mean_abs_diff",
