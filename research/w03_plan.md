@@ -225,3 +225,18 @@
 
 ### Next
 1. Decide whether to add a `--allow_partial` flag.
+
+### Done
+- Added `--allow_partial` validation mode and wired validation into the search runner and smoke test.
+
+### Decisions
+- Keep validation strict by default; allow partial runs via an explicit flag.
+
+### Artifacts
+- Updated: `scripts/run_validate.py`, `scripts/run_week2_search.py`, `scripts/smoke_test.py`, `README.md`
+
+### Open questions
+- Should we add a `--validate` flag to `run_week1_mvp.py` too?
+
+### Next
+1. Decide whether to add validation to the Week 1 runner.

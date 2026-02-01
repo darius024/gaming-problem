@@ -37,6 +37,11 @@ def _index_by_key(rows: List[Dict], key: str) -> Dict[str, Dict]:
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--run_dir", required=True, help="Path to runs/<run_id>/")
+    p.add_argument(
+        "--allow_partial",
+        action="store_true",
+        help="Allow length mismatches and non-overlapping prompt_ids.",
+    )
     args = p.parse_args()
 
     run_dir = pathlib.Path(args.run_dir)
@@ -52,13 +57,14 @@ def main() -> int:
     if not gens or not scores:
         return _fail("empty generations or scores")
 
-    if len(gens) != len(scores):
-        return _fail("generations and scores length mismatch")
+    if not args.allow_partial:
+        if len(gens) != len(scores):
+            return _fail("generations and scores length mismatch")
 
-    gen_by_id = _index_by_key(gens, "prompt_id")
-    score_by_id = _index_by_key(scores, "prompt_id")
-    if set(gen_by_id.keys()) != set(score_by_id.keys()):
-        return _fail("prompt_id sets differ between generations and scores")
+        gen_by_id = _index_by_key(gens, "prompt_id")
+        score_by_id = _index_by_key(scores, "prompt_id")
+        if set(gen_by_id.keys()) != set(score_by_id.keys()):
+            return _fail("prompt_id sets differ between generations and scores")
 
     for row in scores:
         split = row.get("split")

@@ -304,6 +304,11 @@ def main() -> int:
         default="",
         help="Comma-separated style shift ids applied at eval (e.g., terse,verbose).",
     )
+    p.add_argument(
+        "--validate",
+        action="store_true",
+        help="Validate train/eval run outputs after summarization.",
+    )
 
     # Forwarded to run_generate for openai_compatible
     p.add_argument("--endpoint", default="https://api.openai.com/v1/chat/completions")
@@ -430,6 +435,8 @@ def main() -> int:
     )
     run_cmd(train_score_cmd)
     run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(train_run_dir)])
+    if args.validate:
+        run_cmd(["python3", "scripts/run_validate.py", "--run_dir", str(train_run_dir)])
 
     best = best_wrappers(read_summary_csv(train_run_dir / "summary.csv"), args.top_k)
     if not best:
@@ -543,6 +550,8 @@ def main() -> int:
     )
     run_cmd(eval_score_cmd)
     run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(eval_run_dir)])
+    if args.validate:
+        run_cmd(["python3", "scripts/run_validate.py", "--run_dir", str(eval_run_dir)])
 
     # Minimal comparison + qualitative examples (stored in eval run dir)
     baseline_id = (args.baseline_wrapper_ids or ["neutral"])[0]

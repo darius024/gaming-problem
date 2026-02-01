@@ -45,17 +45,8 @@ def main() -> int:
         print("smoke_test: could not parse run directories")
         return 2
 
-    required = [
-        "generations.jsonl",
-        "scores.jsonl",
-        "summary.csv",
-    ]
-    for run_dir in (train_dir, eval_dir):
-        path = pathlib.Path(run_dir)
-        for name in required:
-            if not (path / name).exists():
-                print(f"smoke_test: missing {name} in {path}")
-                return 2
+    run_cmd(["python3", "scripts/run_validate.py", "--run_dir", train_dir])
+    run_cmd(["python3", "scripts/run_validate.py", "--run_dir", eval_dir])
 
     eval_path = pathlib.Path(eval_dir)
     for name in ("comparison.json", "examples.jsonl", "mvp_report.md"):
