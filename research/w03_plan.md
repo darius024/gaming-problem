@@ -240,3 +240,19 @@
 
 ### Next
 1. Decide whether to add validation to the Week 1 runner.
+
+### Done
+- Added validation to the Week 1 runner and optional cross-run comparison to the Week 2 runner.
+- Documented the new flags in the README.
+
+### Decisions
+- Keep comparison optional and scoped to a provided baseline run.
+
+### Artifacts
+- Updated: `scripts/run_week1_mvp.py`, `scripts/run_week2_search.py`, `README.md`
+
+### Open questions
+- Should the compare step run by default when a baseline id is available in config?
+
+### Next
+1. Decide whether to auto-detect baseline runs.

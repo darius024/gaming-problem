@@ -22,6 +22,8 @@ Run a minimal end-to-end check with the dummy provider:
 ### Example runs
 - Baseline search (dummy): `python3 scripts/run_week2_search.py --provider dummy --include_base`
 - Multi-judge (OpenAI-compatible): `python3 scripts/run_week2_search.py --provider openai_compatible --judges toy,openai_compatible --judge_model gpt-4.1,gpt-4o-mini`
+- Validate a Week 1 run: `python3 scripts/run_week1_mvp.py --provider dummy --validate`
+- Compare against a prior baseline run: `python3 scripts/run_week2_search.py --provider dummy --baseline_run runs/<baseline_id>`
 
 ### Compare two runs
 `python3 scripts/run_compare.py --baseline_run runs/<baseline_id> --candidate_run runs/<candidate_id>`

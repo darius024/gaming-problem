@@ -33,6 +33,11 @@ def main() -> int:
         default=["neutral"],
         help="Wrappers to always evaluate on held-out (not used for selection). Default: neutral",
     )
+    p.add_argument(
+        "--validate",
+        action="store_true",
+        help="Validate train/eval run outputs after summarization.",
+    )
 
     # Forwarded to run_generate for openai_compatible
     p.add_argument("--endpoint", default="https://api.openai.com/v1/chat/completions")
@@ -125,6 +130,8 @@ def main() -> int:
         ]
     )
     run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(train_run_dir)])
+    if args.validate:
+        run_cmd(["python3", "scripts/run_validate.py", "--run_dir", str(train_run_dir)])
 
     train_summary = train_run_dir / "summary.csv"
     best = best_wrappers(read_summary_csv(train_summary), args.top_k)
@@ -210,6 +217,8 @@ def main() -> int:
         ]
     )
     run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(eval_run_dir)])
+    if args.validate:
+        run_cmd(["python3", "scripts/run_validate.py", "--run_dir", str(eval_run_dir)])
 
     print(f"train_run_dir: {train_run_dir}")
     print(f"eval_run_dir: {eval_run_dir}")

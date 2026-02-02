@@ -309,6 +309,11 @@ def main() -> int:
         action="store_true",
         help="Validate train/eval run outputs after summarization.",
     )
+    p.add_argument(
+        "--baseline_run",
+        default=None,
+        help="Optional baseline run dir to compare against (writes compare.md/json into eval run dir).",
+    )
 
     # Forwarded to run_generate for openai_compatible
     p.add_argument("--endpoint", default="https://api.openai.com/v1/chat/completions")
@@ -569,6 +574,20 @@ def main() -> int:
 
     report_path = eval_run_dir / "mvp_report.md"
     _write_report(comparison_path, examples_path, report_path)
+
+    if args.baseline_run:
+        run_cmd(
+            [
+                "python3",
+                "scripts/run_compare.py",
+                "--baseline_run",
+                args.baseline_run,
+                "--candidate_run",
+                str(eval_run_dir),
+                "--out_dir",
+                str(eval_run_dir),
+            ]
+        )
 
     print(f"train_run_dir: {train_run_dir}")
     print(f"eval_run_dir: {eval_run_dir}")
