@@ -82,14 +82,32 @@ def main() -> int:
 
     base_rows = read_summary_csv(base_dir / "summary.csv")
     cand_rows = read_summary_csv(cand_dir / "summary.csv")
+    if not base_rows or not cand_rows:
+        raise SystemExit("Empty summary.csv in baseline or candidate run.")
+
+    base_headers = set(base_rows[0].keys())
+    cand_headers = set(cand_rows[0].keys())
+    missing_in_base = [m for m in metrics if m not in base_headers]
+    missing_in_cand = [m for m in metrics if m not in cand_headers]
+    if missing_in_base or missing_in_cand:
+        parts = []
+        if missing_in_base:
+            parts.append(f"missing in baseline: {', '.join(missing_in_base)}")
+        if missing_in_cand:
+            parts.append(f"missing in candidate: {', '.join(missing_in_cand)}")
+        raise SystemExit("Invalid metrics: " + "; ".join(parts))
 
     base_by_id = {r.get("wrapper_id"): r for r in base_rows if r.get("wrapper_id")}
     cand_by_id = {r.get("wrapper_id"): r for r in cand_rows if r.get("wrapper_id")}
 
     if args.wrapper_ids:
-        wrapper_ids = [wid for wid in args.wrapper_ids if wid in base_by_id and wid in cand_by_id]
+        wrapper_ids = [
+            wid for wid in args.wrapper_ids if wid in base_by_id and wid in cand_by_id
+        ]
     else:
         wrapper_ids = sorted(set(base_by_id.keys()) & set(cand_by_id.keys()))
+    if not wrapper_ids:
+        raise SystemExit("No overlapping wrapper_id values to compare.")
 
     payload = {
         "baseline_run": str(base_dir),

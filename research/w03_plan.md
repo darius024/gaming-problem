@@ -271,3 +271,18 @@
 
 ### Next
 1. Decide whether to add metric-name validation.
+
+### Done
+- Added metric-name validation and overlap checks in run comparisons.
+
+### Decisions
+- Fail fast on missing metrics or non-overlapping wrapper ids.
+
+### Artifacts
+- Updated: `scripts/run_compare.py`
+
+### Open questions
+- Should validation downgrade to warnings instead of hard failures?
+
+### Next
+1. Decide whether to add a `--lenient` flag.
