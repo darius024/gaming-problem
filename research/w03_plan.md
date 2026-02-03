@@ -256,3 +256,18 @@
 
 ### Next
 1. Decide whether to auto-detect baseline runs.
+
+### Done
+- Added a `--metrics` flag to customize run comparisons.
+
+### Decisions
+- Keep a small default metric set and allow opt-in overrides via comma-separated list.
+
+### Artifacts
+- Updated: `scripts/run_compare.py`, `README.md`
+
+### Open questions
+- Should we validate metric names against `summary.csv` headers?
+
+### Next
+1. Decide whether to add metric-name validation.

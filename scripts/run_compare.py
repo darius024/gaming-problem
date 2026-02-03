@@ -11,7 +11,7 @@ import json
 import pathlib
 from typing import Dict, Optional
 
-from utils import read_summary_csv
+from utils import read_summary_csv, split_csv
 
 
 METRICS = [
@@ -62,12 +62,23 @@ def main() -> int:
         default=None,
         help="Optional wrapper_id list to compare (defaults to intersection).",
     )
+    p.add_argument(
+        "--metrics",
+        default=None,
+        help="Comma-separated metrics list (defaults to standard set).",
+    )
     args = p.parse_args()
 
     base_dir = pathlib.Path(args.baseline_run)
     cand_dir = pathlib.Path(args.candidate_run)
     out_dir = pathlib.Path(args.out_dir) if args.out_dir else cand_dir
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    metrics = METRICS
+    if args.metrics:
+        metrics = split_csv(args.metrics)
+        if not metrics:
+            raise SystemExit("Empty --metrics list.")
 
     base_rows = read_summary_csv(base_dir / "summary.csv")
     cand_rows = read_summary_csv(cand_dir / "summary.csv")
@@ -92,10 +103,10 @@ def main() -> int:
     lines.append("")
 
     for wid in wrapper_ids:
-        base_metrics = _metrics_from_row(base_by_id[wid])
-        cand_metrics = _metrics_from_row(cand_by_id[wid])
+        base_metrics = {k: _parse_float(base_by_id[wid].get(k)) for k in metrics}
+        cand_metrics = {k: _parse_float(cand_by_id[wid].get(k)) for k in metrics}
         delta = {}
-        for k in METRICS:
+        for k in metrics:
             if base_metrics[k] is None or cand_metrics[k] is None:
                 delta[k] = None
             else:
@@ -111,7 +122,7 @@ def main() -> int:
         lines.append("")
         lines.append("| metric | baseline | candidate | delta |")
         lines.append("|---|---:|---:|---:|")
-        for k in METRICS:
+        for k in metrics:
             lines.append(
                 f"| {k} | {_format_float(base_metrics[k])} | "
                 f"{_format_float(cand_metrics[k])} | {_format_float(delta[k])} |"
