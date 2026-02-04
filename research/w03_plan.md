@@ -286,3 +286,18 @@
 
 ### Next
 1. Decide whether to add a `--lenient` flag.
+
+### Done
+- Added a `--lenient` flag to drop missing metrics in comparisons.
+
+### Decisions
+- In lenient mode, filter invalid metrics and proceed if any remain.
+
+### Artifacts
+- Updated: `scripts/run_compare.py`, `README.md`
+
+### Open questions
+- Should lenient mode also ignore missing wrapper overlaps?
+
+### Next
+1. Decide whether to make wrapper overlap checks lenient.

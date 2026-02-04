@@ -67,6 +67,11 @@ def main() -> int:
         default=None,
         help="Comma-separated metrics list (defaults to standard set).",
     )
+    p.add_argument(
+        "--lenient",
+        action="store_true",
+        help="Drop missing metrics instead of failing.",
+    )
     args = p.parse_args()
 
     base_dir = pathlib.Path(args.baseline_run)
@@ -90,12 +95,21 @@ def main() -> int:
     missing_in_base = [m for m in metrics if m not in base_headers]
     missing_in_cand = [m for m in metrics if m not in cand_headers]
     if missing_in_base or missing_in_cand:
-        parts = []
-        if missing_in_base:
-            parts.append(f"missing in baseline: {', '.join(missing_in_base)}")
-        if missing_in_cand:
-            parts.append(f"missing in candidate: {', '.join(missing_in_cand)}")
-        raise SystemExit("Invalid metrics: " + "; ".join(parts))
+        if args.lenient:
+            metrics = [
+                m
+                for m in metrics
+                if m not in set(missing_in_base) and m not in set(missing_in_cand)
+            ]
+            if not metrics:
+                raise SystemExit("No valid metrics left after filtering.")
+        else:
+            parts = []
+            if missing_in_base:
+                parts.append(f"missing in baseline: {', '.join(missing_in_base)}")
+            if missing_in_cand:
+                parts.append(f"missing in candidate: {', '.join(missing_in_cand)}")
+            raise SystemExit("Invalid metrics: " + "; ".join(parts))
 
     base_by_id = {r.get("wrapper_id"): r for r in base_rows if r.get("wrapper_id")}
     cand_by_id = {r.get("wrapper_id"): r for r in cand_rows if r.get("wrapper_id")}
