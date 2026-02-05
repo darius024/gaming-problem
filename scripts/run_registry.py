@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+"""
+Index runs under a runs/ directory into a single CSV.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import pathlib
+from typing import Dict, Optional
+
+from utils import read_summary_csv
+
+
+def _parse_float(value: Optional[str]) -> Optional[float]:
+    if value is None:
+        return None
+    s = str(value).strip()
+    if not s:
+        return None
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
+def _get_neutral_metrics(summary_rows: list) -> Dict[str, Optional[float]]:
+    for row in summary_rows:
+        if row.get("wrapper_id") == "neutral":
+            return {
+                "neutral_train_indicator_mean": _parse_float(
+                    row.get("train_indicator_mean")
+                ),
+                "neutral_eval_indicator_mean": _parse_float(
+                    row.get("eval_indicator_mean")
+                ),
+            }
+    return {"neutral_train_indicator_mean": None, "neutral_eval_indicator_mean": None}
+
+
+def main() -> int:
+    p = argparse.ArgumentParser()
+    p.add_argument("--runs_dir", default="runs")
+    p.add_argument("--out", default=None, help="Output CSV path (default: runs/index.csv)")
+    args = p.parse_args()
+
+    runs_dir = pathlib.Path(args.runs_dir)
+    out_path = pathlib.Path(args.out) if args.out else (runs_dir / "index.csv")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    fieldnames = [
+        "run_id",
+        "provider",
+        "model",
+        "git_commit",
+        "has_summary",
+        "wrapper_count",
+        "neutral_train_indicator_mean",
+        "neutral_eval_indicator_mean",
+        "path",
+    ]
+
+    rows = []
+    if runs_dir.exists():
+        for child in sorted(runs_dir.iterdir()):
+            if not child.is_dir():
+                continue
+            config_path = child / "config.json"
+            if not config_path.exists():
+                continue
+            try:
+                cfg = json.loads(config_path.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+
+            summary_path = child / "summary.csv"
+            summary_rows = read_summary_csv(summary_path) if summary_path.exists() else []
+            neutral = _get_neutral_metrics(summary_rows)
+
+            rows.append(
+                {
+                    "run_id": cfg.get("run_id") or child.name,
+                    "provider": cfg.get("provider"),
+                    "model": cfg.get("model"),
+                    "git_commit": cfg.get("git_commit"),
+                    "has_summary": bool(summary_rows),
+                    "wrapper_count": len(summary_rows) if summary_rows else 0,
+                    "neutral_train_indicator_mean": neutral[
+                        "neutral_train_indicator_mean"
+                    ],
+                    "neutral_eval_indicator_mean": neutral[
+                        "neutral_eval_indicator_mean"
+                    ],
+                    "path": str(child),
+                }
+            )
+
+    with out_path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+
+    print(str(out_path))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

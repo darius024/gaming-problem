@@ -34,3 +34,6 @@ Run a minimal end-to-end check with the dummy provider:
 `python3 scripts/run_validate.py --run_dir runs/<run_id>`
 `python3 scripts/run_validate.py --run_dir runs/<run_id> --allow_partial`
 
+### Index runs
+`python3 scripts/run_registry.py --runs_dir runs`
+
