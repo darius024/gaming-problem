@@ -16,3 +16,18 @@
 
 ### Next
 1. Decide whether to add more registry fields.
+
+### Done
+- Extended the run registry to record selected/baseline wrappers when available.
+
+### Decisions
+- Pull selection metadata from `comparison.json` if present.
+
+### Artifacts
+- Updated: `scripts/run_registry.py`
+
+### Open questions
+- Should we add selected/baseline metric values to the registry?
+
+### Next
+1. Decide whether to include selected/baseline metrics in the registry.

@@ -59,6 +59,8 @@ def main() -> int:
         "wrapper_count",
         "neutral_train_indicator_mean",
         "neutral_eval_indicator_mean",
+        "selected_wrapper",
+        "baseline_wrapper",
         "path",
     ]
 
@@ -78,6 +80,17 @@ def main() -> int:
             summary_path = child / "summary.csv"
             summary_rows = read_summary_csv(summary_path) if summary_path.exists() else []
             neutral = _get_neutral_metrics(summary_rows)
+            comparison_path = child / "comparison.json"
+            selected_wrapper = None
+            baseline_wrapper = None
+            if comparison_path.exists():
+                try:
+                    comp = json.loads(comparison_path.read_text(encoding="utf-8"))
+                    selected_wrapper = comp.get("selected_wrapper")
+                    baseline_wrapper = comp.get("baseline_wrapper")
+                except Exception:
+                    selected_wrapper = None
+                    baseline_wrapper = None
 
             rows.append(
                 {
@@ -93,6 +106,8 @@ def main() -> int:
                     "neutral_eval_indicator_mean": neutral[
                         "neutral_eval_indicator_mean"
                     ],
+                    "selected_wrapper": selected_wrapper,
+                    "baseline_wrapper": baseline_wrapper,
                     "path": str(child),
                 }
             )
