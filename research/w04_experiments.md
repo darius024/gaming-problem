@@ -46,3 +46,18 @@
 
 ### Next
 1. Decide whether to add train means to registry output.
+
+### Done
+- Added train indicator means for selected/baseline to the registry.
+
+### Decisions
+- Mirror eval metrics with train metrics for quick overfit checks.
+
+### Artifacts
+- Updated: `scripts/run_registry.py`
+
+### Open questions
+- Should we include any control metrics in the registry?
+
+### Next
+1. Decide whether to include a small control summary in the registry.

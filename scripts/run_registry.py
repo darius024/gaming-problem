@@ -66,7 +66,9 @@ def main() -> int:
         "neutral_eval_indicator_mean",
         "selected_wrapper",
         "baseline_wrapper",
+        "selected_train_indicator_mean",
         "selected_eval_indicator_mean",
+        "baseline_train_indicator_mean",
         "baseline_eval_indicator_mean",
         "path",
     ]
@@ -132,8 +134,14 @@ def main() -> int:
                     ],
                     "selected_wrapper": selected_wrapper,
                     "baseline_wrapper": baseline_wrapper,
+                    "selected_train_indicator_mean": selected_metrics[
+                        "selected_train_indicator_mean"
+                    ],
                     "selected_eval_indicator_mean": selected_metrics[
                         "selected_eval_indicator_mean"
+                    ],
+                    "baseline_train_indicator_mean": baseline_metrics[
+                        "baseline_train_indicator_mean"
                     ],
                     "baseline_eval_indicator_mean": baseline_metrics[
                         "baseline_eval_indicator_mean"
