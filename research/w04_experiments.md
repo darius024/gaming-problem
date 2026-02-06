@@ -31,3 +31,18 @@
 
 ### Next
 1. Decide whether to include selected/baseline metrics in the registry.
+
+### Done
+- Added selected and baseline eval indicator metrics to the run registry.
+
+### Decisions
+- Include eval indicator means to keep the registry small and useful.
+
+### Artifacts
+- Updated: `scripts/run_registry.py`
+
+### Open questions
+- Should we also include train indicator means for selected/baseline?
+
+### Next
+1. Decide whether to add train means to registry output.

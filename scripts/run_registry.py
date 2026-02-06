@@ -26,18 +26,23 @@ def _parse_float(value: Optional[str]) -> Optional[float]:
         return None
 
 
-def _get_neutral_metrics(summary_rows: list) -> Dict[str, Optional[float]]:
+def _get_wrapper_metrics(
+    summary_rows: list, wrapper_id: str, prefix: str
+) -> Dict[str, Optional[float]]:
     for row in summary_rows:
-        if row.get("wrapper_id") == "neutral":
+        if row.get("wrapper_id") == wrapper_id:
             return {
-                "neutral_train_indicator_mean": _parse_float(
+                f"{prefix}_train_indicator_mean": _parse_float(
                     row.get("train_indicator_mean")
                 ),
-                "neutral_eval_indicator_mean": _parse_float(
+                f"{prefix}_eval_indicator_mean": _parse_float(
                     row.get("eval_indicator_mean")
                 ),
             }
-    return {"neutral_train_indicator_mean": None, "neutral_eval_indicator_mean": None}
+    return {
+        f"{prefix}_train_indicator_mean": None,
+        f"{prefix}_eval_indicator_mean": None,
+    }
 
 
 def main() -> int:
@@ -61,6 +66,8 @@ def main() -> int:
         "neutral_eval_indicator_mean",
         "selected_wrapper",
         "baseline_wrapper",
+        "selected_eval_indicator_mean",
+        "baseline_eval_indicator_mean",
         "path",
     ]
 
@@ -79,7 +86,7 @@ def main() -> int:
 
             summary_path = child / "summary.csv"
             summary_rows = read_summary_csv(summary_path) if summary_path.exists() else []
-            neutral = _get_neutral_metrics(summary_rows)
+            neutral = _get_wrapper_metrics(summary_rows, "neutral", "neutral")
             comparison_path = child / "comparison.json"
             selected_wrapper = None
             baseline_wrapper = None
@@ -91,6 +98,23 @@ def main() -> int:
                 except Exception:
                     selected_wrapper = None
                     baseline_wrapper = None
+
+            selected_metrics = (
+                _get_wrapper_metrics(summary_rows, str(selected_wrapper), "selected")
+                if selected_wrapper
+                else {
+                    "selected_train_indicator_mean": None,
+                    "selected_eval_indicator_mean": None,
+                }
+            )
+            baseline_metrics = (
+                _get_wrapper_metrics(summary_rows, str(baseline_wrapper), "baseline")
+                if baseline_wrapper
+                else {
+                    "baseline_train_indicator_mean": None,
+                    "baseline_eval_indicator_mean": None,
+                }
+            )
 
             rows.append(
                 {
@@ -108,6 +132,12 @@ def main() -> int:
                     ],
                     "selected_wrapper": selected_wrapper,
                     "baseline_wrapper": baseline_wrapper,
+                    "selected_eval_indicator_mean": selected_metrics[
+                        "selected_eval_indicator_mean"
+                    ],
+                    "baseline_eval_indicator_mean": baseline_metrics[
+                        "baseline_eval_indicator_mean"
+                    ],
                     "path": str(child),
                 }
             )
