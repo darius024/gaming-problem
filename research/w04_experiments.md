@@ -106,3 +106,18 @@
 
 ### Next
 1. Decide on a preferred notes source.
+
+### Done
+- Allowed registry notes to fall back to `config.json` when no notes file is provided.
+
+### Decisions
+- Prefer notes file if given; otherwise use `config.json` field.
+
+### Artifacts
+- Updated: `scripts/run_registry.py`, `README.md`
+
+### Open questions
+- Should we standardize a short note schema (e.g., tags + summary)?
+
+### Next
+1. Decide whether to add a structured notes format.

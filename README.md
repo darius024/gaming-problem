@@ -37,4 +37,5 @@ Run a minimal end-to-end check with the dummy provider:
 ### Index runs
 `python3 scripts/run_registry.py --runs_dir runs`
 `python3 scripts/run_registry.py --runs_dir runs --notes_file runs/notes.json`
+You can also add a `notes` field to `runs/<run_id>/config.json` for inline annotations.
 

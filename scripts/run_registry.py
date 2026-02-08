@@ -157,6 +157,10 @@ def main() -> int:
                 else _get_wrapper_metrics([], "", "baseline")
             )
 
+            note_value = notes_map.get(cfg.get("run_id") or child.name)
+            if note_value is None:
+                note_value = cfg.get("notes")
+
             rows.append(
                 {
                     "run_id": cfg.get("run_id") or child.name,
@@ -215,7 +219,7 @@ def main() -> int:
                     "baseline_style_shift_eval_indicator_mean_abs_diff": baseline_metrics[
                         "baseline_style_shift_eval_indicator_mean_abs_diff"
                     ],
-                    "notes": notes_map.get(cfg.get("run_id") or child.name),
+                    "notes": note_value,
                     "path": str(child),
                 }
             )
