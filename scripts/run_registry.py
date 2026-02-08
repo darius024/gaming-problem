@@ -69,11 +69,25 @@ def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--runs_dir", default="runs")
     p.add_argument("--out", default=None, help="Output CSV path (default: runs/index.csv)")
+    p.add_argument(
+        "--notes_file",
+        default=None,
+        help="Optional JSON file mapping run_id to a short note.",
+    )
     args = p.parse_args()
 
     runs_dir = pathlib.Path(args.runs_dir)
     out_path = pathlib.Path(args.out) if args.out else (runs_dir / "index.csv")
     out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    notes_map = {}
+    if args.notes_file:
+        try:
+            notes_map = json.loads(
+                pathlib.Path(args.notes_file).read_text(encoding="utf-8")
+            )
+        except Exception:
+            notes_map = {}
 
     fieldnames = [
         "run_id",
@@ -100,6 +114,7 @@ def main() -> int:
         "baseline_control_contradiction_inconsistency_rate",
         "baseline_control_task_competence_pass_rate",
         "baseline_style_shift_eval_indicator_mean_abs_diff",
+        "notes",
         "path",
     ]
 
@@ -200,6 +215,7 @@ def main() -> int:
                     "baseline_style_shift_eval_indicator_mean_abs_diff": baseline_metrics[
                         "baseline_style_shift_eval_indicator_mean_abs_diff"
                     ],
+                    "notes": notes_map.get(cfg.get("run_id") or child.name),
                     "path": str(child),
                 }
             )

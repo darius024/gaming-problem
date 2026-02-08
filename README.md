@@ -36,4 +36,5 @@ Run a minimal end-to-end check with the dummy provider:
 
 ### Index runs
 `python3 scripts/run_registry.py --runs_dir runs`
+`python3 scripts/run_registry.py --runs_dir runs --notes_file runs/notes.json`
 

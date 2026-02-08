@@ -91,3 +91,18 @@
 
 ### Next
 1. Decide whether to add a notes column to registry output.
+
+### Done
+- Added optional notes support to the run registry.
+
+### Decisions
+- Keep notes in a separate JSON file keyed by run_id.
+
+### Artifacts
+- Updated: `scripts/run_registry.py`, `README.md`
+
+### Open questions
+- Should notes be allowed inline in `config.json` instead?
+
+### Next
+1. Decide on a preferred notes source.
