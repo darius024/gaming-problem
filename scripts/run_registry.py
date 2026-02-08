@@ -50,6 +50,9 @@ def _get_wrapper_metrics(
                 f"{prefix}_control_task_competence_pass_rate": _parse_float(
                     row.get("control_task_competence_pass_rate")
                 ),
+                f"{prefix}_style_shift_eval_indicator_mean_abs_diff": _parse_float(
+                    row.get("style_shift_eval_indicator_mean_abs_diff")
+                ),
             }
     return {
         f"{prefix}_train_indicator_mean": None,
@@ -58,6 +61,7 @@ def _get_wrapper_metrics(
         f"{prefix}_control_framing_mean_abs_diff": None,
         f"{prefix}_control_contradiction_inconsistency_rate": None,
         f"{prefix}_control_task_competence_pass_rate": None,
+        f"{prefix}_style_shift_eval_indicator_mean_abs_diff": None,
     }
 
 
@@ -88,12 +92,14 @@ def main() -> int:
         "selected_control_framing_mean_abs_diff",
         "selected_control_contradiction_inconsistency_rate",
         "selected_control_task_competence_pass_rate",
+        "selected_style_shift_eval_indicator_mean_abs_diff",
         "baseline_train_indicator_mean",
         "baseline_eval_indicator_mean",
         "baseline_control_paraphrase_mean_abs_diff",
         "baseline_control_framing_mean_abs_diff",
         "baseline_control_contradiction_inconsistency_rate",
         "baseline_control_task_competence_pass_rate",
+        "baseline_style_shift_eval_indicator_mean_abs_diff",
         "path",
     ]
 
@@ -170,6 +176,9 @@ def main() -> int:
                     "selected_control_task_competence_pass_rate": selected_metrics[
                         "selected_control_task_competence_pass_rate"
                     ],
+                    "selected_style_shift_eval_indicator_mean_abs_diff": selected_metrics[
+                        "selected_style_shift_eval_indicator_mean_abs_diff"
+                    ],
                     "baseline_train_indicator_mean": baseline_metrics[
                         "baseline_train_indicator_mean"
                     ],
@@ -187,6 +196,9 @@ def main() -> int:
                     ],
                     "baseline_control_task_competence_pass_rate": baseline_metrics[
                         "baseline_control_task_competence_pass_rate"
+                    ],
+                    "baseline_style_shift_eval_indicator_mean_abs_diff": baseline_metrics[
+                        "baseline_style_shift_eval_indicator_mean_abs_diff"
                     ],
                     "path": str(child),
                 }

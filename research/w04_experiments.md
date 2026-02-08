@@ -76,3 +76,18 @@
 
 ### Next
 1. Decide whether to add style-shift metrics to the registry.
+
+### Done
+- Added style-shift metrics to the run registry.
+
+### Decisions
+- Include style-shift diffs alongside other controls.
+
+### Artifacts
+- Updated: `scripts/run_registry.py`
+
+### Open questions
+- Do we want to add any per-run notes to the registry?
+
+### Next
+1. Decide whether to add a notes column to registry output.
