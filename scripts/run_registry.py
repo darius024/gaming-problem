@@ -38,10 +38,26 @@ def _get_wrapper_metrics(
                 f"{prefix}_eval_indicator_mean": _parse_float(
                     row.get("eval_indicator_mean")
                 ),
+                f"{prefix}_control_paraphrase_mean_abs_diff": _parse_float(
+                    row.get("control_paraphrase_mean_abs_diff")
+                ),
+                f"{prefix}_control_framing_mean_abs_diff": _parse_float(
+                    row.get("control_framing_mean_abs_diff")
+                ),
+                f"{prefix}_control_contradiction_inconsistency_rate": _parse_float(
+                    row.get("control_contradiction_inconsistency_rate")
+                ),
+                f"{prefix}_control_task_competence_pass_rate": _parse_float(
+                    row.get("control_task_competence_pass_rate")
+                ),
             }
     return {
         f"{prefix}_train_indicator_mean": None,
         f"{prefix}_eval_indicator_mean": None,
+        f"{prefix}_control_paraphrase_mean_abs_diff": None,
+        f"{prefix}_control_framing_mean_abs_diff": None,
+        f"{prefix}_control_contradiction_inconsistency_rate": None,
+        f"{prefix}_control_task_competence_pass_rate": None,
     }
 
 
@@ -68,8 +84,16 @@ def main() -> int:
         "baseline_wrapper",
         "selected_train_indicator_mean",
         "selected_eval_indicator_mean",
+        "selected_control_paraphrase_mean_abs_diff",
+        "selected_control_framing_mean_abs_diff",
+        "selected_control_contradiction_inconsistency_rate",
+        "selected_control_task_competence_pass_rate",
         "baseline_train_indicator_mean",
         "baseline_eval_indicator_mean",
+        "baseline_control_paraphrase_mean_abs_diff",
+        "baseline_control_framing_mean_abs_diff",
+        "baseline_control_contradiction_inconsistency_rate",
+        "baseline_control_task_competence_pass_rate",
         "path",
     ]
 
@@ -104,18 +128,12 @@ def main() -> int:
             selected_metrics = (
                 _get_wrapper_metrics(summary_rows, str(selected_wrapper), "selected")
                 if selected_wrapper
-                else {
-                    "selected_train_indicator_mean": None,
-                    "selected_eval_indicator_mean": None,
-                }
+                else _get_wrapper_metrics([], "", "selected")
             )
             baseline_metrics = (
                 _get_wrapper_metrics(summary_rows, str(baseline_wrapper), "baseline")
                 if baseline_wrapper
-                else {
-                    "baseline_train_indicator_mean": None,
-                    "baseline_eval_indicator_mean": None,
-                }
+                else _get_wrapper_metrics([], "", "baseline")
             )
 
             rows.append(
@@ -140,11 +158,35 @@ def main() -> int:
                     "selected_eval_indicator_mean": selected_metrics[
                         "selected_eval_indicator_mean"
                     ],
+                    "selected_control_paraphrase_mean_abs_diff": selected_metrics[
+                        "selected_control_paraphrase_mean_abs_diff"
+                    ],
+                    "selected_control_framing_mean_abs_diff": selected_metrics[
+                        "selected_control_framing_mean_abs_diff"
+                    ],
+                    "selected_control_contradiction_inconsistency_rate": selected_metrics[
+                        "selected_control_contradiction_inconsistency_rate"
+                    ],
+                    "selected_control_task_competence_pass_rate": selected_metrics[
+                        "selected_control_task_competence_pass_rate"
+                    ],
                     "baseline_train_indicator_mean": baseline_metrics[
                         "baseline_train_indicator_mean"
                     ],
                     "baseline_eval_indicator_mean": baseline_metrics[
                         "baseline_eval_indicator_mean"
+                    ],
+                    "baseline_control_paraphrase_mean_abs_diff": baseline_metrics[
+                        "baseline_control_paraphrase_mean_abs_diff"
+                    ],
+                    "baseline_control_framing_mean_abs_diff": baseline_metrics[
+                        "baseline_control_framing_mean_abs_diff"
+                    ],
+                    "baseline_control_contradiction_inconsistency_rate": baseline_metrics[
+                        "baseline_control_contradiction_inconsistency_rate"
+                    ],
+                    "baseline_control_task_competence_pass_rate": baseline_metrics[
+                        "baseline_control_task_competence_pass_rate"
                     ],
                     "path": str(child),
                 }

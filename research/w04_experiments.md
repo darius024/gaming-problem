@@ -61,3 +61,18 @@
 
 ### Next
 1. Decide whether to include a small control summary in the registry.
+
+### Done
+- Added selected/baseline control metrics to the run registry.
+
+### Decisions
+- Include a small control set (paraphrase, framing, contradiction, competence).
+
+### Artifacts
+- Updated: `scripts/run_registry.py`
+
+### Open questions
+- Should we also include style-shift metrics in the registry?
+
+### Next
+1. Decide whether to add style-shift metrics to the registry.
