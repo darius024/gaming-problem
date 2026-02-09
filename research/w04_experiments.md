@@ -121,3 +121,19 @@
 
 ### Next
 1. Decide whether to add a structured notes format.
+
+### Done
+- Added a minimal run report generator from summary.csv.
+
+### Decisions
+- Keep the report compact: best wrappers + summary table.
+
+### Artifacts
+- Added: `scripts/run_report.py`
+- Updated: `README.md`
+
+### Open questions
+- Should the report include a small delta section against a baseline run?
+
+### Next
+1. Decide whether to add baseline deltas to the report.
