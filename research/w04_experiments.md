@@ -137,3 +137,18 @@
 
 ### Next
 1. Decide whether to add baseline deltas to the report.
+
+### Done
+- Added optional baseline delta tables to run reports.
+
+### Decisions
+- Use shared wrapper_id intersection for delta rows.
+
+### Artifacts
+- Updated: `scripts/run_report.py`, `README.md`
+
+### Open questions
+- Should the report surface only a subset of deltas by default?
+
+### Next
+1. Decide whether to add a `--metrics` flag for reports.

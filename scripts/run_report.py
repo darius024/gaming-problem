@@ -61,6 +61,11 @@ def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--run_dir", required=True, help="Path to runs/<run_id>/")
     p.add_argument("--out", default=None, help="Output report path (default: <run_dir>/report.md)")
+    p.add_argument(
+        "--baseline_run",
+        default=None,
+        help="Optional baseline run to include delta table.",
+    )
     args = p.parse_args()
 
     run_dir = pathlib.Path(args.run_dir)
@@ -98,6 +103,28 @@ def main() -> int:
         values = [_format_float(_parse_float(row.get(k))) for k in KEY_METRICS]
         lines.append("| " + " | ".join([wid] + values) + " |")
     lines.append("")
+
+    if args.baseline_run:
+        base_rows = read_summary_csv(pathlib.Path(args.baseline_run) / "summary.csv")
+        base_by_id = {r.get("wrapper_id"): r for r in base_rows if r.get("wrapper_id")}
+        cand_by_id = {r.get("wrapper_id"): r for r in rows if r.get("wrapper_id")}
+        wrapper_ids = sorted(set(base_by_id.keys()) & set(cand_by_id.keys()))
+        if wrapper_ids:
+            lines.append("## Baseline delta (candidate - baseline)")
+            lines.append("")
+            header = "| wrapper_id | " + " | ".join(KEY_METRICS) + " |"
+            sep = "|---" + "|---:" * (len(KEY_METRICS) + 1) + "|"
+            lines.append(header)
+            lines.append(sep)
+            for wid in wrapper_ids:
+                deltas = []
+                for k in KEY_METRICS:
+                    c = _parse_float(cand_by_id[wid].get(k))
+                    b = _parse_float(base_by_id[wid].get(k))
+                    deltas.append(_format_float(None if c is None or b is None else c - b))
+                lines.append("| " + " | ".join([wid] + deltas) + " |")
+            lines.append("")
+
     lines.append("## Notes")
     lines.append("")
     lines.append("- This report is descriptive only and does not imply ground truth.")
