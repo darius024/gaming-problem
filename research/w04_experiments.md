@@ -152,3 +152,18 @@
 
 ### Next
 1. Decide whether to add a `--metrics` flag for reports.
+
+### Done
+- Added a `--metrics` flag to customize report tables.
+
+### Decisions
+- Use a comma-separated list to override the default metric set.
+
+### Artifacts
+- Updated: `scripts/run_report.py`, `README.md`
+
+### Open questions
+- Should we validate metric names against `summary.csv` headers?
+
+### Next
+1. Decide whether to add metric-name validation for reports.

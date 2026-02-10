@@ -42,4 +42,5 @@ You can also add a `notes` field to `runs/<run_id>/config.json` for inline annot
 ### Generate a run report
 `python3 scripts/run_report.py --run_dir runs/<run_id>`
 `python3 scripts/run_report.py --run_dir runs/<run_id> --baseline_run runs/<baseline_id>`
+`python3 scripts/run_report.py --run_dir runs/<run_id> --metrics eval_indicator_mean,control_paraphrase_mean_abs_diff`
 

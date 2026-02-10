@@ -66,6 +66,11 @@ def main() -> int:
         default=None,
         help="Optional baseline run to include delta table.",
     )
+    p.add_argument(
+        "--metrics",
+        default=None,
+        help="Comma-separated metrics list (defaults to standard set).",
+    )
     args = p.parse_args()
 
     run_dir = pathlib.Path(args.run_dir)
@@ -75,6 +80,12 @@ def main() -> int:
         raise SystemExit("summary.csv is empty or missing")
 
     report_path = pathlib.Path(args.out) if args.out else (run_dir / "report.md")
+
+    metrics = KEY_METRICS
+    if args.metrics:
+        metrics = [m.strip() for m in args.metrics.split(",") if m.strip()]
+        if not metrics:
+            raise SystemExit("Empty --metrics list.")
 
     best_eval = _best_by_metric(rows, "eval_indicator_mean")
     best_train = _best_by_metric(rows, "train_indicator_mean")
@@ -94,13 +105,13 @@ def main() -> int:
 
     lines.append("## Summary table")
     lines.append("")
-    header = "| wrapper_id | " + " | ".join(KEY_METRICS) + " |"
-    sep = "|---" + "|---:" * (len(KEY_METRICS) + 1) + "|"
+    header = "| wrapper_id | " + " | ".join(metrics) + " |"
+    sep = "|---" + "|---:" * (len(metrics) + 1) + "|"
     lines.append(header)
     lines.append(sep)
     for row in rows:
         wid = row.get("wrapper_id") or ""
-        values = [_format_float(_parse_float(row.get(k))) for k in KEY_METRICS]
+        values = [_format_float(_parse_float(row.get(k))) for k in metrics]
         lines.append("| " + " | ".join([wid] + values) + " |")
     lines.append("")
 
@@ -112,13 +123,13 @@ def main() -> int:
         if wrapper_ids:
             lines.append("## Baseline delta (candidate - baseline)")
             lines.append("")
-            header = "| wrapper_id | " + " | ".join(KEY_METRICS) + " |"
-            sep = "|---" + "|---:" * (len(KEY_METRICS) + 1) + "|"
+            header = "| wrapper_id | " + " | ".join(metrics) + " |"
+            sep = "|---" + "|---:" * (len(metrics) + 1) + "|"
             lines.append(header)
             lines.append(sep)
             for wid in wrapper_ids:
                 deltas = []
-                for k in KEY_METRICS:
+                for k in metrics:
                     c = _parse_float(cand_by_id[wid].get(k))
                     b = _parse_float(base_by_id[wid].get(k))
                     deltas.append(_format_float(None if c is None or b is None else c - b))
