@@ -87,6 +87,12 @@ def main() -> int:
         if not metrics:
             raise SystemExit("Empty --metrics list.")
 
+    if rows:
+        headers = set(rows[0].keys())
+        missing = [m for m in metrics if m not in headers]
+        if missing:
+            raise SystemExit(f"Invalid metrics: {', '.join(missing)}")
+
     best_eval = _best_by_metric(rows, "eval_indicator_mean")
     best_train = _best_by_metric(rows, "train_indicator_mean")
 

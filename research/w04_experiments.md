@@ -167,3 +167,18 @@
 
 ### Next
 1. Decide whether to add metric-name validation for reports.
+
+### Done
+- Added metric-name validation to report generation.
+
+### Decisions
+- Fail fast when requested metrics are missing from the summary.
+
+### Artifacts
+- Updated: `scripts/run_report.py`
+
+### Open questions
+- Should we add a `--lenient` flag for reports too?
+
+### Next
+1. Decide whether to add lenient mode to reports.
