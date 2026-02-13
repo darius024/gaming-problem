@@ -182,3 +182,18 @@
 
 ### Next
 1. Decide whether to add lenient mode to reports.
+
+### Done
+- Added a lenient mode to report generation.
+
+### Decisions
+- In lenient mode, drop invalid metrics and proceed if any remain.
+
+### Artifacts
+- Updated: `scripts/run_report.py`, `README.md`
+
+### Open questions
+- Should lenient mode also ignore missing baseline runs?
+
+### Next
+1. Decide whether to add lenient baseline handling.

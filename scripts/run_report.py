@@ -71,6 +71,11 @@ def main() -> int:
         default=None,
         help="Comma-separated metrics list (defaults to standard set).",
     )
+    p.add_argument(
+        "--lenient",
+        action="store_true",
+        help="Drop missing metrics instead of failing.",
+    )
     args = p.parse_args()
 
     run_dir = pathlib.Path(args.run_dir)
@@ -91,7 +96,12 @@ def main() -> int:
         headers = set(rows[0].keys())
         missing = [m for m in metrics if m not in headers]
         if missing:
-            raise SystemExit(f"Invalid metrics: {', '.join(missing)}")
+            if args.lenient:
+                metrics = [m for m in metrics if m in headers]
+                if not metrics:
+                    raise SystemExit("No valid metrics left after filtering.")
+            else:
+                raise SystemExit(f"Invalid metrics: {', '.join(missing)}")
 
     best_eval = _best_by_metric(rows, "eval_indicator_mean")
     best_train = _best_by_metric(rows, "train_indicator_mean")
