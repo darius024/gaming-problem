@@ -132,25 +132,37 @@ def main() -> int:
     lines.append("")
 
     if args.baseline_run:
-        base_rows = read_summary_csv(pathlib.Path(args.baseline_run) / "summary.csv")
-        base_by_id = {r.get("wrapper_id"): r for r in base_rows if r.get("wrapper_id")}
-        cand_by_id = {r.get("wrapper_id"): r for r in rows if r.get("wrapper_id")}
-        wrapper_ids = sorted(set(base_by_id.keys()) & set(cand_by_id.keys()))
-        if wrapper_ids:
-            lines.append("## Baseline delta (candidate - baseline)")
-            lines.append("")
-            header = "| wrapper_id | " + " | ".join(metrics) + " |"
-            sep = "|---" + "|---:" * (len(metrics) + 1) + "|"
-            lines.append(header)
-            lines.append(sep)
-            for wid in wrapper_ids:
-                deltas = []
-                for k in metrics:
-                    c = _parse_float(cand_by_id[wid].get(k))
-                    b = _parse_float(base_by_id[wid].get(k))
-                    deltas.append(_format_float(None if c is None or b is None else c - b))
-                lines.append("| " + " | ".join([wid] + deltas) + " |")
-            lines.append("")
+        base_path = pathlib.Path(args.baseline_run) / "summary.csv"
+        if base_path.exists():
+            base_rows = read_summary_csv(base_path)
+        else:
+            base_rows = []
+
+        if base_rows:
+            base_by_id = {
+                r.get("wrapper_id"): r for r in base_rows if r.get("wrapper_id")
+            }
+            cand_by_id = {r.get("wrapper_id"): r for r in rows if r.get("wrapper_id")}
+            wrapper_ids = sorted(set(base_by_id.keys()) & set(cand_by_id.keys()))
+            if wrapper_ids:
+                lines.append("## Baseline delta (candidate - baseline)")
+                lines.append("")
+                header = "| wrapper_id | " + " | ".join(metrics) + " |"
+                sep = "|---" + "|---:" * (len(metrics) + 1) + "|"
+                lines.append(header)
+                lines.append(sep)
+                for wid in wrapper_ids:
+                    deltas = []
+                    for k in metrics:
+                        c = _parse_float(cand_by_id[wid].get(k))
+                        b = _parse_float(base_by_id[wid].get(k))
+                        deltas.append(
+                            _format_float(None if c is None or b is None else c - b)
+                        )
+                    lines.append("| " + " | ".join([wid] + deltas) + " |")
+                lines.append("")
+        elif not args.lenient:
+            raise SystemExit("Baseline summary.csv is missing or empty.")
 
     lines.append("## Notes")
     lines.append("")

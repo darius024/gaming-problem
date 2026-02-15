@@ -197,3 +197,18 @@
 
 ### Next
 1. Decide whether to add lenient baseline handling.
+
+### Done
+- Allowed report generation to ignore missing baseline when `--lenient` is set.
+
+### Decisions
+- Fail on missing baseline only in strict mode.
+
+### Artifacts
+- Updated: `scripts/run_report.py`
+
+### Open questions
+- Should strict mode also enforce overlapping wrapper_ids?
+
+### Next
+1. Decide whether to validate wrapper overlap in reports.
