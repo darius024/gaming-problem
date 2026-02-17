@@ -212,3 +212,18 @@
 
 ### Next
 1. Decide whether to validate wrapper overlap in reports.
+
+### Done
+- Added wrapper overlap validation for baseline deltas in strict mode.
+
+### Decisions
+- Require overlapping wrapper_ids unless `--lenient` is set.
+
+### Artifacts
+- Updated: `scripts/run_report.py`
+
+### Open questions
+- Should we reuse this logic in `run_compare.py`?
+
+### Next
+1. Decide whether to align report and compare overlap rules.

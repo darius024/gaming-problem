@@ -144,6 +144,8 @@ def main() -> int:
             }
             cand_by_id = {r.get("wrapper_id"): r for r in rows if r.get("wrapper_id")}
             wrapper_ids = sorted(set(base_by_id.keys()) & set(cand_by_id.keys()))
+            if not wrapper_ids and not args.lenient:
+                raise SystemExit("No overlapping wrapper_ids for baseline delta.")
             if wrapper_ids:
                 lines.append("## Baseline delta (candidate - baseline)")
                 lines.append("")
