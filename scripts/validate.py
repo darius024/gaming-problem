@@ -21,7 +21,7 @@ REQUIRED_FILES = [
 
 
 def _fail(msg: str) -> int:
-    print(f"run_validate: {msg}")
+    print(f"validate: {msg}")
     return 2
 
 
@@ -90,7 +90,7 @@ def main() -> int:
     if "wrapper_id" not in summary[0]:
         return _fail("summary.csv missing wrapper_id column")
 
-    print("run_validate: ok")
+    print("validate: ok")
     return 0
 
 

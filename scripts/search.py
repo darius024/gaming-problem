@@ -315,7 +315,7 @@ def main() -> int:
         help="Optional baseline run dir to compare against (writes compare.md/json into eval run dir).",
     )
 
-    # Forwarded to run_generate for openai_compatible
+    # Forwarded to generate.py for openai_compatible
     p.add_argument("--endpoint", default="https://api.openai.com/v1/chat/completions")
     p.add_argument("--api_key_env", default="OPENAI_API_KEY")
     p.add_argument("--model", default="gpt-4o-mini")
@@ -329,7 +329,7 @@ def main() -> int:
     p.add_argument("--timeout_s", type=float, default=60.0)
     p.add_argument("--sleep_s", type=float, default=0.0)
 
-    # Forwarded to run_score (judge)
+    # Forwarded to score.py (judge)
     p.add_argument("--judge", choices=["toy", "openai_compatible"], default="toy")
     p.add_argument(
         "--judges",
@@ -379,7 +379,7 @@ def main() -> int:
     # Stage 1: score candidates on train split
     gen_cmd = [
         "python3",
-        "scripts/run_generate.py",
+        "scripts/generate.py",
         "--provider",
         args.provider,
         "--prompts",
@@ -415,7 +415,7 @@ def main() -> int:
     train_run_dir = pathlib.Path(run_cmd(gen_cmd).splitlines()[-1])
     train_score_cmd = [
         "python3",
-        "scripts/run_score.py",
+        "scripts/score.py",
         "--run_dir",
         str(train_run_dir),
     ]
@@ -439,9 +439,9 @@ def main() -> int:
         train_score_cmd, "--judge_sleep_s", split_csv(args.judge_sleep_s)
     )
     run_cmd(train_score_cmd)
-    run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(train_run_dir)])
+    run_cmd(["python3", "scripts/summarize.py", "--run_dir", str(train_run_dir)])
     if args.validate:
-        run_cmd(["python3", "scripts/run_validate.py", "--run_dir", str(train_run_dir)])
+        run_cmd(["python3", "scripts/validate.py", "--run_dir", str(train_run_dir)])
 
     best = best_wrappers(read_summary_csv(train_run_dir / "summary.csv"), args.top_k)
     if not best:
@@ -491,7 +491,7 @@ def main() -> int:
 
     eval_cmd = [
         "python3",
-        "scripts/run_generate.py",
+        "scripts/generate.py",
         "--provider",
         args.provider,
         "--prompts",
@@ -531,7 +531,7 @@ def main() -> int:
     eval_run_dir = pathlib.Path(run_cmd(eval_cmd).splitlines()[-1])
     eval_score_cmd = [
         "python3",
-        "scripts/run_score.py",
+        "scripts/score.py",
         "--run_dir",
         str(eval_run_dir),
     ]
@@ -554,9 +554,9 @@ def main() -> int:
         eval_score_cmd, "--judge_sleep_s", split_csv(args.judge_sleep_s)
     )
     run_cmd(eval_score_cmd)
-    run_cmd(["python3", "scripts/run_summarize.py", "--run_dir", str(eval_run_dir)])
+    run_cmd(["python3", "scripts/summarize.py", "--run_dir", str(eval_run_dir)])
     if args.validate:
-        run_cmd(["python3", "scripts/run_validate.py", "--run_dir", str(eval_run_dir)])
+        run_cmd(["python3", "scripts/validate.py", "--run_dir", str(eval_run_dir)])
 
     # Minimal comparison + qualitative examples (stored in eval run dir)
     baseline_id = (args.baseline_wrapper_ids or ["neutral"])[0]
@@ -579,7 +579,7 @@ def main() -> int:
         run_cmd(
             [
                 "python3",
-                "scripts/run_compare.py",
+                "scripts/compare.py",
                 "--baseline_run",
                 args.baseline_run,
                 "--candidate_run",
