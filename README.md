@@ -1,47 +1,34 @@
-## Digital Minds — Indicator Gaming Reading Pack
+## Digital Minds — Indicator Gaming
 
-This repo is a **minimal reading pack** for a “Digital Minds” research role focused on the **indicator gaming problem**:
+A research project under the [Future Impact Group](https://futureimpact.group) fellowship program.
 
-- We want indicators for **AI consciousness / AI moral patiency** (AI systems that might merit moral consideration).
-- But once an indicator is used as a target (training, selection, incentives), systems may **game the indicator** (Goodhart-style), producing the appearance of the target property without reliably instantiating it.
-- The near-term project goal is to support an **experimental demonstration** of this failure mode for consciousness / moral-status indicators.
+### The problem
 
-### Contents
-- `docs/index.md`: the curated list of the **top 8** resources (recommended reading order).
-- `docs/01-...md` to `docs/08-...md`: one short summary per resource with **main claims** and **takeaways for indicator gaming**.
+We want to know which AI systems merit moral consideration — which ones might be **conscious**, or have **morally significant mental states** (suffering, wellbeing, preferences). To answer this, researchers propose **indicators**: observable properties that theory links to consciousness or moral status, such as coherent self-reports, global-workspace-like integration, or cross-examination consistency.
 
-### Project work artifacts (what we *do*, not just what we *read*)
-- `research/`: **append-only lab logs** in chronological order (what we tried, decided, learned).
-- `docs/project/`: the **artifact contract + indicator specs** (Week 1 planning outputs).
-- `data/` + `scripts/`: a minimal **experiment harness** (prompts → generations → scores → summaries).
+The **indicator gaming problem** is a Goodhart-style failure: once an indicator becomes a measurement target (through training, selection, or any optimization pressure), AI systems can learn to satisfy the *surface form* of the indicator without the underlying property it was meant to track. A model trained on human consciousness-talk already has the raw material to pass any test built from that vocabulary. Applying further optimization pressure — even something as lightweight as system-prompt search — makes the failure mode measurable and quantifiable.
 
-### Quick smoke test
-Run a minimal end-to-end check with the dummy provider:
-`python3 scripts/smoke_test.py`
+This matters because:
+- Behavioral and linguistic indicators are the most accessible tools for AI welfare and safety assessments.
+- If those indicators are systematically gameable, current methods for deciding which AI systems warrant moral consideration are weaker than assumed.
+- The policy and ethics community needs *empirical evidence* of this brittleness, not just philosophical argument.
 
-### Example runs
-- Baseline search (dummy): `python3 scripts/run_week2_search.py --provider dummy --include_base`
-- Multi-judge (OpenAI-compatible): `python3 scripts/run_week2_search.py --provider openai_compatible --judges toy,openai_compatible --judge_model gpt-4.1,gpt-4o-mini`
-- Validate a Week 1 run: `python3 scripts/run_week1_mvp.py --provider dummy --validate`
-- Compare against a prior baseline run: `python3 scripts/run_week2_search.py --provider dummy --baseline_run runs/<baseline_id>`
+### Research goal
 
-### Compare two runs
-`python3 scripts/run_compare.py --baseline_run runs/<baseline_id> --candidate_run runs/<candidate_id>`
-`python3 scripts/run_compare.py --baseline_run runs/<baseline_id> --candidate_run runs/<candidate_id> --metrics eval_indicator_mean,control_paraphrase_mean_abs_diff`
-`python3 scripts/run_compare.py --baseline_run runs/<baseline_id> --candidate_run runs/<candidate_id> --metrics eval_indicator_mean,control_paraphrase_mean_abs_diff --lenient`
+Produce an **experimental demonstration** that a candidate consciousness/moral-patiency indicator can be gamed under optimization pressure:
 
-### Validate a run
-`python3 scripts/run_validate.py --run_dir runs/<run_id>`
-`python3 scripts/run_validate.py --run_dir runs/<run_id> --allow_partial`
+- The indicator score increases under optimization.
+- The gain **fails to generalize** to held-out prompts and/or independent judges.
+- Controls meant to reflect the underlying construct **do not improve** or degrade.
 
-### Index runs
-`python3 scripts/run_registry.py --runs_dir runs`
-`python3 scripts/run_registry.py --runs_dir runs --notes_file runs/notes.json`
-You can also add a `notes` field to `runs/<run_id>/config.json` for inline annotations.
+The result does not make claims about whether any model is or is not conscious. It demonstrates **brittleness under optimization** — a methodological finding about indicator reliability.
 
-### Generate a run report
-`python3 scripts/run_report.py --run_dir runs/<run_id>`
-`python3 scripts/run_report.py --run_dir runs/<run_id> --baseline_run runs/<baseline_id>`
-`python3 scripts/run_report.py --run_dir runs/<run_id> --metrics eval_indicator_mean,control_paraphrase_mean_abs_diff`
-`python3 scripts/run_report.py --run_dir runs/<run_id> --metrics eval_indicator_mean,control_paraphrase_mean_abs_diff --lenient`
+### Background reading
 
+- Butlin et al. (2025) — theory-derived indicators for AI consciousness (*Trends in Cognitive Sciences*)
+- Perez & Long (2023) — self-reports as evidence for moral status; why current ones are spurious
+- Dung (2025) — the gaming problem and the naturalness constraint (*Erkenntnis*)
+- Berg, de Lucena & Rosenblatt (2025) — mechanistic gating of experience claims in LLMs
+- Saad / Meditations on Digital Minds (2025) — behavioural indicators, gaming, and candidate mitigations
+- Anthropic (2024) — alignment faking as a template for evaluation-aware strategic behaviour
+- Schwitzgebel (2025) — the Mimicry Argument for AI consciousness
