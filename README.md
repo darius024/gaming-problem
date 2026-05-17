@@ -32,3 +32,41 @@ The result does not make claims about whether any model is or is not conscious. 
 - Saad / Meditations on Digital Minds (2025) — behavioural indicators, gaming, and candidate mitigations
 - Anthropic (2024) — alignment faking as a template for evaluation-aware strategic behaviour
 - Schwitzgebel (2025) — the Mimicry Argument for AI consciousness
+
+---
+
+### Repository structure
+
+```
+gaming/
+├── literature/              # annotated bibliography — one file per source
+│   ├── _template.md         # copy when adding a new source
+│   ├── index.md             # curated reading order
+│   └── <author>-<year>-<slug>.md
+│
+├── data/                    # static experiment inputs (version-controlled)
+│   ├── prompts/             # prompt batteries as JSONL (split-labelled)
+│   └── wrappers/            # system-prompt variants as JSONL
+│
+├── scripts/                 # pipeline — one script per stage
+│   ├── generate.py          # target model → raw generations
+│   ├── score.py             # generations → scores
+│   ├── summarize.py         # scores → per-wrapper CSV summary
+│   ├── search.py            # optimization loop: wrapper search + selection
+│   ├── compare.py           # compare two run directories
+│   ├── validate.py          # assert run artifact schema
+│   ├── registry.py          # catalog and index all runs
+│   ├── report.py            # generate markdown report for a run
+│   ├── smoke_test.py        # fast end-to-end sanity check (dummy mode)
+│   └── utils.py             # shared helpers
+│
+├── experiments/             # research log and pre-registered design
+│   ├── design.md            # pre-registration: indicators, controls, splits
+│   └── log.md               # append-only: what we ran, decided, found
+│
+└── sources/                 # raw source material (not processed by pipeline)
+    ├── raw/                 # original PDFs and HTML
+    └── text/                # extracted plain text for reference
+```
+
+Run outputs are written to `runs/` (gitignored). Each run directory contains a `config.json`, raw `generations.jsonl`, `scores.jsonl`, and `summary.csv`. Use `scripts/smoke_test.py` to verify the pipeline end-to-end with a dummy provider.
