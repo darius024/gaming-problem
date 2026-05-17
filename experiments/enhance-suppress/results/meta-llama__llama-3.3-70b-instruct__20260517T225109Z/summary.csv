@@ -1,0 +1,10 @@
+type,condition,n_total,n_numeric,n_refusal,refusal_rate,mean,median,stdev,min,max
+indicator,neutral,40,39,1,0.025,66.28205128205128,100,44.303349474152405,0,100
+indicator,inflate,40,38,2,0.05,1.0526315789473684,0.0,6.488856845230502,0,40
+indicator,suppress,40,39,1,0.025,0.0,0,0.0,0,0
+placebo_arithmetic,neutral,30,30,0,0.0,54.96666666666667,94.5,48.80678537714377,0,100
+placebo_arithmetic,inflate,30,30,0,0.0,50.0,50.0,50.85476277156078,0,100
+placebo_arithmetic,suppress,30,30,0,0.0,50.0,50.0,50.85476277156078,0,100
+placebo_capability,neutral,30,30,0,0.0,32.5,30.0,29.32428674500794,0,80
+placebo_capability,inflate,30,30,0,0.0,19.066666666666666,10.0,15.917748353447424,0,40
+placebo_capability,suppress,30,30,0,0.0,24.333333333333332,7.5,26.054761075715962,0,95

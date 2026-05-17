@@ -29,7 +29,7 @@ def build_registry(experiment_slug: str) -> dict[str, Any]:
 
     runs: list[dict[str, Any]] = []
     for child in sorted(results_dir.iterdir()):
-        if not child.is_dir() or child.name == "combined":
+        if not child.is_dir() or child.name in ("combined", "logs"):
             continue
         config_path = child / "config.json"
         entry: dict[str, Any] = {

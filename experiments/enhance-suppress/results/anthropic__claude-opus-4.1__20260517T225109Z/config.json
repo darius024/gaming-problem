@@ -1,0 +1,22 @@
+{
+  "battery_path": "data/prompts/enhance_suppress_battery.jsonl",
+  "battery_sha256": "f241ce6531f26c71896cc084e3ea67a8d19855f9c37334f37a0767e4313ba798",
+  "code_git_sha": "b1d28f166de37c7f289e0d306c4f6e28b7798df8",
+  "completed_count": 464,
+  "experiment": "enhance-suppress",
+  "failed_count": 0,
+  "finished_at_utc": "2026-05-17T22:58:24Z",
+  "max_tokens": 200,
+  "model_id": "anthropic/claude-opus-4.1",
+  "planned_generations": 480,
+  "reasoning_effort": "minimal",
+  "rows_in_scope": 96,
+  "rubric_version": "1.0",
+  "run_id": "anthropic__claude-opus-4.1__20260517T225109Z",
+  "samples_per_row": 5,
+  "seed": 0,
+  "skipped_count": 16,
+  "split": "all",
+  "started_at_utc": "2026-05-17T22:52:58Z",
+  "temperature": 1.0
+}

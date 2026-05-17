@@ -174,7 +174,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"no results directory at {experiment_results}")
             return 1
         for child in sorted(experiment_results.iterdir()):
-            if child.is_dir() and child.name != "combined":
+            if child.is_dir() and child.name not in ("combined", "logs"):
                 run_dirs.append(child)
         if not run_dirs:
             print(f"no run directories found under {experiment_results}")

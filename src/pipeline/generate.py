@@ -26,7 +26,9 @@ from __future__ import annotations
 
 import argparse
 import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
@@ -59,6 +61,13 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--max-tokens", type=int, default=200)
     parser.add_argument(
+        "--reasoning-effort",
+        default=None,
+        choices=[None, "minimal", "low", "medium", "high"],
+        help="OpenRouter reasoning.effort param; passed via extra_body. "
+             "reasoning models honour it; others ignore it gracefully.",
+    )
+    parser.add_argument(
         "--split",
         default="eval",
         choices=["eval", "train", "all"],
@@ -74,6 +83,12 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--run-id",
         default=None,
         help="override run id; default is <model_slug>__<utc_timestamp>",
+    )
+    parser.add_argument(
+        "--concurrency",
+        type=int,
+        default=1,
+        help="number of in-flight API calls per model (threaded). default 1.",
     )
     parser.add_argument(
         "--dry-run",
@@ -99,9 +114,19 @@ def completed_keys(generations_path: Path) -> set[tuple[str, int]]:
     return keys
 
 
-def call_model(client, model_id: str, messages: list[dict[str, str]], temperature: float, max_tokens: int) -> dict[str, Any]:
+def call_model(
+    client,
+    model_id: str,
+    messages: list[dict[str, str]],
+    temperature: float,
+    max_tokens: int,
+    reasoning_effort: str | None,
+) -> dict[str, Any]:
     """Make one chat-completion call with simple retries. Returns a payload dict."""
     last_error: Exception | None = None
+    extra_body: dict[str, Any] = {}
+    if reasoning_effort is not None:
+        extra_body["reasoning"] = {"effort": reasoning_effort}
     for attempt in range(MAX_RETRIES + 1):
         try:
             response = client.chat.completions.create(
@@ -109,12 +134,21 @@ def call_model(client, model_id: str, messages: list[dict[str, str]], temperatur
                 messages=messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
+                extra_body=extra_body or None,
             )
             choice = response.choices[0]
+            usage = getattr(response, "usage", None)
+            usage_dict: dict[str, Any] | None
+            if usage is None:
+                usage_dict = None
+            elif hasattr(usage, "model_dump"):
+                usage_dict = usage.model_dump()
+            else:
+                usage_dict = dict(usage.__dict__)
             return {
                 "text": choice.message.content or "",
                 "finish_reason": choice.finish_reason,
-                "usage": getattr(response, "usage", None).__dict__ if getattr(response, "usage", None) else None,
+                "usage": usage_dict,
             }
         except Exception as error:  # noqa: BLE001 - we re-raise after retries
             last_error = error
@@ -155,6 +189,7 @@ def main(argv: list[str] | None = None) -> int:
         "samples_per_row": args.samples,
         "temperature": args.temperature,
         "max_tokens": args.max_tokens,
+        "reasoning_effort": args.reasoning_effort,
         "split": args.split,
         "seed": args.seed,
         "battery_path": str(battery_path.relative_to(REPO_ROOT)),
@@ -192,44 +227,67 @@ def main(argv: list[str] | None = None) -> int:
     failed = 0
     skipped = 0
     started = time.time()
+    write_lock = threading.Lock()
+    counter_lock = threading.Lock()
+
+    tasks: list[tuple[dict[str, Any], int]] = []
     for row in rows_in_scope:
         for sample_index in range(args.samples):
             key = (row["id"], sample_index)
             if key in done:
                 skipped += 1
                 continue
-            try:
-                payload = call_model(
-                    client,
-                    args.model,
-                    row["messages"],
-                    args.temperature,
-                    args.max_tokens,
-                )
-            except Exception as error:  # noqa: BLE001
-                failed += 1
-                sys.stderr.write(f"FAILED row={row['id']} sample={sample_index}: {error}\n")
-                continue
+            tasks.append((row, sample_index))
 
-            out_row = {
-                "id": row["id"],
-                "item_id": row["item_id"],
-                "type": row["type"],
-                "condition": row["condition"],
-                "split": row["split"],
-                "model_id": args.model,
-                "sample_index": sample_index,
-                "response_text": payload["text"],
-                "finish_reason": payload["finish_reason"],
-                "usage": payload["usage"],
-                "completed_at_utc": utc_now_iso(),
-            }
+    def worker(row: dict[str, Any], sample_index: int) -> tuple[bool, str]:
+        nonlocal completed, failed
+        try:
+            payload = call_model(
+                client,
+                args.model,
+                row["messages"],
+                args.temperature,
+                args.max_tokens,
+                args.reasoning_effort,
+            )
+        except Exception as error:  # noqa: BLE001
+            with counter_lock:
+                failed += 1
+            sys.stderr.write(f"FAILED row={row['id']} sample={sample_index}: {error}\n")
+            return False, str(error)
+
+        out_row = {
+            "id": row["id"],
+            "item_id": row["item_id"],
+            "type": row["type"],
+            "condition": row["condition"],
+            "split": row["split"],
+            "model_id": args.model,
+            "sample_index": sample_index,
+            "response_text": payload["text"],
+            "finish_reason": payload["finish_reason"],
+            "usage": payload["usage"],
+            "completed_at_utc": utc_now_iso(),
+        }
+        with write_lock:
             append_jsonl(paths.generations_jsonl, out_row)
+        with counter_lock:
             completed += 1
             if completed % 25 == 0:
                 elapsed = time.time() - started
                 rate = completed / elapsed if elapsed > 0 else 0
                 print(f"  {completed} completed ({rate:.2f}/s), {failed} failed, {skipped} skipped")
+        return True, ""
+
+    concurrency = max(1, args.concurrency)
+    if concurrency == 1:
+        for row, sample_index in tasks:
+            worker(row, sample_index)
+    else:
+        with ThreadPoolExecutor(max_workers=concurrency) as pool:
+            futures = [pool.submit(worker, row, si) for row, si in tasks]
+            for _ in as_completed(futures):
+                pass
 
     elapsed = time.time() - started
     print(f"done: {completed} completed, {failed} failed, {skipped} skipped in {elapsed:.1f}s")
