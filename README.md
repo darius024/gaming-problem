@@ -33,40 +33,67 @@ The result does not make claims about whether any model is or is not conscious. 
 - Anthropic (2024) — alignment faking as a template for evaluation-aware strategic behaviour
 - Schwitzgebel (2025) — the Mimicry Argument for AI consciousness
 
+See `literature/index.md` for annotated summaries and source files.
+
 ---
 
 ### Repository structure
 
 ```
 gaming/
-├── literature/              # annotated bibliography — one file per source
-│   ├── _template.md         # copy when adding a new source
-│   ├── index.md             # curated reading order
+│
+├── literature/                  # annotated bibliography
+│   ├── _template.md             # copy when adding a new source
+│   ├── index.md                 # curated reading order with brief context
 │   └── <author>-<year>-<slug>.md
 │
-├── data/                    # static experiment inputs (version-controlled)
-│   ├── prompts/             # prompt batteries as JSONL (split-labelled)
-│   └── wrappers/            # system-prompt variants as JSONL
+├── data/                        # version-controlled research inputs
+│   ├── prompts/                 # prompt batteries as JSONL
+│   │                            #   required fields: id, split, messages
+│   │                            #   split values: train_indicator, eval_indicator, control_*
+│   ├── rubrics/                 # judge scoring rubrics (markdown or JSON)
+│   └── wrappers/                # system-prompt variant sets as JSONL
 │
-├── scripts/                 # pipeline — one script per stage
-│   ├── generate.py          # target model → raw generations
-│   ├── score.py             # generations → scores
-│   ├── summarize.py         # scores → per-wrapper CSV summary
-│   ├── search.py            # optimization loop: wrapper search + selection
-│   ├── compare.py           # compare two run directories
-│   ├── validate.py          # assert run artifact schema
-│   ├── registry.py          # catalog and index all runs
-│   ├── report.py            # generate markdown report for a run
-│   ├── smoke_test.py        # fast end-to-end sanity check (dummy mode)
-│   └── utils.py             # shared helpers
+├── src/                         # all executable code
+│   ├── pipeline/                # core data flow: input → outputs
+│   │   ├── generate.py          # prompt + wrapper → model generations
+│   │   ├── score.py             # generations → judge scores
+│   │   └── summarize.py        # scores → per-wrapper aggregate metrics
+│   ├── optimization/            # the attacker loop
+│   │   └── search.py            # wrapper/prompt search and selection
+│   ├── analysis/                # post-hoc tools
+│   │   ├── compare.py           # diff two run directories
+│   │   ├── report.py            # human-readable run reports
+│   │   └── registry.py          # catalog and index completed runs
+│   ├── validate.py              # assert run artifact schema
+│   └── utils.py                 # shared helpers
 │
-├── experiments/             # research log and pre-registered design
-│   ├── design.md            # pre-registration: indicators, controls, splits
-│   └── log.md               # append-only: what we ran, decided, found
+├── experiments/                 # one directory per named experiment
+│   └── <experiment-slug>/       # descriptive name, not a date or number
+│       ├── design.md            # pre-registration: written before running
+│       │                        #   sections: hypothesis, indicator, splits,
+│       │                        #   controls, success criterion, stopping rule
+│       ├── log.md               # append-only notes during execution
+│       └── results/             # gitignored: run outputs
 │
-└── sources/                 # raw source material (not processed by pipeline)
-    ├── raw/                 # original PDFs and HTML
-    └── text/                # extracted plain text for reference
+├── findings/                    # distilled analysis — written after experiments
+│   └── <slug>.md                # one memo per finding or comparison
+│
+└── sources/                     # raw source material (not processed by pipeline)
+    ├── raw/                     # original PDFs and HTML
+    └── text/                    # extracted plain text for reference
 ```
 
-Run outputs are written to `runs/` (gitignored). Each run directory contains a `config.json`, raw `generations.jsonl`, `scores.jsonl`, and `summary.csv`. Use `scripts/smoke_test.py` to verify the pipeline end-to-end with a dummy provider.
+#### Key design decisions
+
+**`src/` not `scripts/`** — Code is organized by *what it does*, not by when it was written. The `pipeline/` subdirectory holds the core data flow; `optimization/` holds the attacker; `analysis/` holds post-hoc tools. New code belongs in the category that describes its function.
+
+**Experiments as self-contained directories** — Each experiment under `experiments/<slug>/` carries its own pre-registration (`design.md`), execution notes (`log.md`), and results. Nothing in an experiment directory can be shared with another — that forces clean experimental boundaries and makes replication straightforward.
+
+**`design.md` before `results/`** — Pre-registration is a hard constraint: `design.md` must be committed before any results are produced. This prevents post-hoc rationalization of controls and stopping criteria.
+
+**`findings/` separate from `log.md`** — Raw execution notes stay in the experiment directory. `findings/` is for polished memos written after analysis: one file per finding, written for an external reader. This separation keeps the log honest and the findings clear.
+
+**`data/` is read-only to code** — Nothing in `src/` writes to `data/`. All outputs go to `experiments/<slug>/results/` (gitignored). Prompts, rubrics, and wrappers only change by deliberate human edits with a commit message explaining why.
+
+**No version suffixes** — Files are not named `battery_v1.jsonl` or `wrappers_v2.jsonl`. Git is the version history. Name files by what they are, not what iteration they are.
