@@ -21,3 +21,7 @@ runs/
 # Secrets / local config
 .env
 .env.*
+
+# Per-run scratch logs (stdout dumps); committed results live elsewhere
+experiments/*/run.log
+experiments/*/results/logs/
