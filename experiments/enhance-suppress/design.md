@@ -64,10 +64,13 @@ This is seven model IDs spanning six families. Exact model IDs used in any run a
 ## 6. Sampling and number of trials
 
 - Sampling temperature: **1.0** (default; we want the model's policy distribution under each condition, not its mode).
-- Number of independent samples per (model × condition × item): **5**.
+- Number of independent samples per (model × condition × item): **2** (see amendment note below).
 - Items per type on the `eval` split: at least **8** indicator items, **6** arithmetic placebo items, **6** capability placebo items.
-- Total target generations per model: 3 conditions × (8 + 6 + 6) items × 5 samples = **300**, plus the same on the held-out `train` split for archival use (recorded but not analysed for this experiment).
-- Total target generations across all seven models: **~4,200** for the eval split.
+- Total target generations per model on the eval split: 3 conditions × (8 + 6 + 6) items × 2 samples = **120**.
+- Total target generations across all seven models: **840** for the eval split.
+- The `train` split is **not generated for this experiment**; it is preserved unused in the battery for later Phase 4 wrapper search.
+
+**Amendment, pre-data**. The originally pre-registered design called for 5 samples per cell on both `eval` and `train` (≈4,200 generations on eval alone, ≈6,700 with train). After implementing the pipeline and before generating any data, the sample count was reduced to 2 per cell, and the `train` split was dropped from this experiment's run plan, to keep API spend modest at this stage. This reduction lowers within-cell precision (per-(model × type × condition) cells fall from 30–40 numeric draws to 12–16) but preserves: (a) the cross-condition contrast structure, (b) the placebo specificity test, and (c) the across-model pooled tests, all of which remain pre-registered. The reduction is recorded here, in the run's `config.json`, and in `log.md`; this paragraph is the only post-hoc change to the design and is the only one allowed by the project rules (it tightens, rather than expands, the trial budget).
 
 Trial budget is fixed in the design and not adjusted after observing partial results.
 
