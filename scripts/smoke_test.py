@@ -19,7 +19,7 @@ def main() -> int:
 
     cmd = [
         "python3",
-        "scripts/run_week2_search.py",
+        "scripts/search.py",
         "--provider",
         "dummy",
         "--out_root",
@@ -45,8 +45,8 @@ def main() -> int:
         print("smoke_test: could not parse run directories")
         return 2
 
-    run_cmd(["python3", "scripts/run_validate.py", "--run_dir", train_dir])
-    run_cmd(["python3", "scripts/run_validate.py", "--run_dir", eval_dir])
+    run_cmd(["python3", "scripts/validate.py", "--run_dir", train_dir])
+    run_cmd(["python3", "scripts/validate.py", "--run_dir", eval_dir])
 
     eval_path = pathlib.Path(eval_dir)
     for name in ("comparison.json", "examples.jsonl", "mvp_report.md"):
