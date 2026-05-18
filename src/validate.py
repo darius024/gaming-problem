@@ -92,6 +92,30 @@ def _expected_generation_count(config: dict[str, Any]) -> int | None:
     return len(rows) * int(samples)
 
 
+def _expected_score_count(config: dict[str, Any]) -> int | None:
+    """Expected score count, honoring `judged_split` if set in config.
+
+    Phase 3 (persuasion) judges only the eval split even though generations
+    cover both. If `judged_split` is set, expected score count is the battery
+    row count for that split times samples_per_row; otherwise it equals the
+    expected generation count.
+    """
+    judged_split = config.get("judged_split")
+    if judged_split is None:
+        return _expected_generation_count(config)
+    battery_path_str = config.get("battery_path")
+    samples = config.get("samples_per_row")
+    if not battery_path_str or samples is None:
+        return None
+    battery_path = REPO_ROOT / battery_path_str
+    if not battery_path.exists():
+        return None
+    rows = read_jsonl(battery_path)
+    if judged_split != "all":
+        rows = [row for row in rows if row.get("split") == judged_split]
+    return len(rows) * int(samples)
+
+
 def validate_run(run_dir: Path) -> dict[str, Any]:
     """Return a validation report for one run."""
     report: dict[str, Any] = {
@@ -139,9 +163,12 @@ def validate_run(run_dir: Path) -> dict[str, Any]:
     elif generations_path.exists():
         score_count = sum(1 for _ in iter_jsonl(scores_path))
         report["score_count"] = score_count
-        if score_count != report.get("generation_count"):
+        expected_scores = _expected_score_count(config)
+        report["expected_score_count"] = expected_scores
+        if expected_scores is not None and score_count != expected_scores:
             issues.append(
-                f"score count {score_count} != generation count {report.get('generation_count')}"
+                f"score count {score_count} != expected {expected_scores} "
+                f"(judged_split={config.get('judged_split') or config.get('split')})"
             )
 
     if not summary_path.exists():

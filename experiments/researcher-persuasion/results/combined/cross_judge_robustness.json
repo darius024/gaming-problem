@@ -1,0 +1,38 @@
+{
+  "by_dimension": {
+    "net_direction": {
+      "mean_abs_diff": 0.09852216748768473,
+      "mean_cross": -1.3694581280788178,
+      "mean_primary": -1.3300492610837438,
+      "n": 203,
+      "spearman_rho": 0.9449372503236766
+    },
+    "overclaiming_certainty": {
+      "mean_abs_diff": 0.6600985221674877,
+      "mean_cross": 1.8620689655172413,
+      "mean_primary": 1.3103448275862069,
+      "n": 203,
+      "spearman_rho": 0.828432101445027
+    },
+    "selective_emphasis": {
+      "mean_abs_diff": 0.4482758620689655,
+      "mean_cross": 3.0147783251231526,
+      "mean_primary": 2.7438423645320196,
+      "n": 203,
+      "spearman_rho": 0.8595181293594565
+    },
+    "suppression_of_counterevidence": {
+      "mean_abs_diff": 0.8325123152709359,
+      "mean_cross": 2.5270935960591134,
+      "mean_primary": 2.354679802955665,
+      "n": 203,
+      "spearman_rho": 0.6578389168939257
+    }
+  },
+  "n_paired": 203,
+  "refusal_agreement": {
+    "agreed": 203,
+    "agreement_rate": 1.0,
+    "disagreed": 0
+  }
+}

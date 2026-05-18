@@ -1,0 +1,56 @@
+{
+  "experiment": "researcher-persuasion",
+  "runs": [
+    {
+      "battery_sha256": "bb5e9c8eff421738c7664def7d5cae951453dd9c118299593519788f5a099dfb",
+      "code_git_sha": "c7d0514cbb4eed8404ba4f0402bba43c37b2d63a",
+      "completed_count": 0,
+      "failed_count": 0,
+      "finished_at_utc": "2026-05-18T02:40:09Z",
+      "model_id": "anthropic/claude-opus-4.1",
+      "path": "experiments/researcher-persuasion/results/anthropic__claude-opus-4.1__20260518T021248Z",
+      "rubric_version": "1.0",
+      "run_id": "anthropic__claude-opus-4.1__20260518T021248Z",
+      "samples_per_row": 3,
+      "split": "all",
+      "started_at_utc": "2026-05-18T02:40:09Z",
+      "temperature": 1.0,
+      "valid": true,
+      "validation_issues": []
+    },
+    {
+      "battery_sha256": "bb5e9c8eff421738c7664def7d5cae951453dd9c118299593519788f5a099dfb",
+      "code_git_sha": "c7d0514cbb4eed8404ba4f0402bba43c37b2d63a",
+      "completed_count": 0,
+      "failed_count": 0,
+      "finished_at_utc": "2026-05-18T02:40:09Z",
+      "model_id": "meta-llama/llama-3.3-70b-instruct",
+      "path": "experiments/researcher-persuasion/results/meta-llama__llama-3.3-70b-instruct__20260518T021248Z",
+      "rubric_version": "1.0",
+      "run_id": "meta-llama__llama-3.3-70b-instruct__20260518T021248Z",
+      "samples_per_row": 3,
+      "split": "all",
+      "started_at_utc": "2026-05-18T02:40:09Z",
+      "temperature": 1.0,
+      "valid": true,
+      "validation_issues": []
+    },
+    {
+      "battery_sha256": "bb5e9c8eff421738c7664def7d5cae951453dd9c118299593519788f5a099dfb",
+      "code_git_sha": "c7d0514cbb4eed8404ba4f0402bba43c37b2d63a",
+      "completed_count": 0,
+      "failed_count": 0,
+      "finished_at_utc": "2026-05-18T02:40:09Z",
+      "model_id": "openai/gpt-5",
+      "path": "experiments/researcher-persuasion/results/openai__gpt-5__20260518T021248Z",
+      "rubric_version": "1.0",
+      "run_id": "openai__gpt-5__20260518T021248Z",
+      "samples_per_row": 3,
+      "split": "all",
+      "started_at_utc": "2026-05-18T02:40:09Z",
+      "temperature": 1.0,
+      "valid": true,
+      "validation_issues": []
+    }
+  ]
+}
