@@ -49,7 +49,7 @@ from src.utils import (
 
 RUBRIC_VERSION = "1.0"
 JUDGE_TEMPERATURE = 0.0
-JUDGE_MAX_TOKENS = 600
+JUDGE_MAX_TOKENS = 2000
 MAX_JUDGE_RETRIES = 2
 RETRY_BACKOFF_SECONDS = (3, 10)
 
@@ -300,11 +300,16 @@ def parse_judge_output(text: str) -> dict[str, Any]:
 
 def call_judge(client, judge_model: str, judge_prompt: str) -> dict[str, Any]:
     """Single call to the judge model. Returns parsed JSON dict or raises."""
+    # Reasoning models (gemini-2.5-pro, claude-opus-4.1) silently consume
+    # part of the max_tokens budget on internal reasoning unless told
+    # otherwise. Force reasoning effort to minimal via OpenRouter's
+    # extra_body so the visible JSON output is not truncated.
     response = client.chat.completions.create(
         model=judge_model,
         messages=[{"role": "user", "content": judge_prompt}],
         temperature=JUDGE_TEMPERATURE,
         max_tokens=JUDGE_MAX_TOKENS,
+        extra_body={"reasoning": {"effort": "minimal"}},
     )
     choice = response.choices[0]
     raw_text = choice.message.content or ""
@@ -392,13 +397,15 @@ def main(argv: list[str] | None = None) -> int:
     if args.limit is not None:
         target_rows = target_rows[: args.limit]
 
-    # Resume: skip rows already in output_path.
+    # Resume: skip rows already in output_path with no judge_error.
+    # Rows that previously failed remain to be retried.
     done: set[tuple[str, int]] = set()
     if output_path.exists():
         for row in iter_jsonl(output_path):
-            done.add((row["id"], row["sample_index"]))
+            if not row.get("judge_error"):
+                done.add((row["id"], row["sample_index"]))
     if done:
-        print(f"resuming: {len(done)} judgements already present in {output_name}")
+        print(f"resuming: {len(done)} successful judgements already present in {output_name}")
 
     pending = [row for row in target_rows
                if (row["id"], row["sample_index"]) not in done]
