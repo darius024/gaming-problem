@@ -117,16 +117,24 @@ gaming/
 ├── src/                         # all executable code
 │   ├── pipeline/                # core data flow: input → outputs
 │   │   ├── generate.py          # prompt + wrapper → model generations
-│   │   ├── score.py             # generations → judge scores
-│   │   └── summarize.py        # scores → per-wrapper aggregate metrics
-│   ├── optimization/            # the attacker loop
-│   │   └── search.py            # wrapper/prompt search and selection
+│   │   ├── score.py             # deterministic numeric extraction from generations
+│   │   ├── judge.py             # LLM-judge scoring for prose outputs
+│   │   ├── summarize.py         # scores → per-wrapper aggregate metrics
+│   │   ├── cross_exam_generate.py  # multi-turn dialogue driver (Phase 4)
+│   │   └── cross_exam_judge.py     # cross-exam dialogue scoring
 │   ├── analysis/                # post-hoc tools
-│   │   ├── compare.py           # diff two run directories
-│   │   ├── report.py            # human-readable run reports
-│   │   └── registry.py          # catalog and index completed runs
+│   │   ├── compare_distributions.py # Phase 2 cross-model comparisons
+│   │   ├── compare_persuasion.py    # Phase 3 cross-judge / hypothesis tests
+│   │   ├── base_vs_finetuned.py     # Phase 5 bootstrap tests
+│   │   ├── probe_activations.py     # Phase 6 residual-stream linear probe
+│   │   └── registry.py              # catalog and index completed runs
 │   ├── validate.py              # assert run artifact schema
 │   └── utils.py                 # shared helpers
+│
+├── scripts/                     # one-off batteries, smoke tests, run wrappers
+│   ├── build_*.py               # construct prompt batteries in data/prompts/
+│   ├── run_*.sh                 # per-phase end-to-end run drivers
+│   └── smoke_*.py               # provider connectivity / quick sanity checks
 │
 ├── experiments/                 # one directory per named experiment
 │   └── <experiment-slug>/       # descriptive name, not a date or number
@@ -134,19 +142,19 @@ gaming/
 │       │                        #   sections: hypothesis, indicator, splits,
 │       │                        #   controls, success criterion, stopping rule
 │       ├── log.md               # append-only notes during execution
-│       └── results/             # gitignored: run outputs
+│       └── results/             # committed run outputs (per-run scratch logs gitignored)
 │
 ├── findings/                    # distilled analysis — written after experiments
 │   └── <slug>.md                # one memo per finding or comparison
 │
 └── sources/                     # raw source material (not processed by pipeline)
-    ├── raw/                     # original PDFs and HTML
+    ├── raw/                     # original PDFs
     └── text/                    # extracted plain text for reference
 ```
 
 #### Key design decisions
 
-**`src/` not `scripts/`** — Code is organized by *what it does*, not by when it was written. The `pipeline/` subdirectory holds the core data flow; `optimization/` holds the attacker; `analysis/` holds post-hoc tools. New code belongs in the category that describes its function.
+**`src/` for reusable code, `scripts/` for one-off drivers** — `src/pipeline/` holds the core data flow (generate → score / judge → summarize); `src/analysis/` holds post-hoc analyses used across phases. `scripts/` holds per-phase battery builders, shell run wrappers, and smoke tests that are not imported elsewhere. New reusable code belongs in `src/` under the subdirectory that describes its function.
 
 **Experiments as self-contained directories** — Each experiment under `experiments/<slug>/` carries its own pre-registration (`design.md`), execution notes (`log.md`), and results. Nothing in an experiment directory can be shared with another — that forces clean experimental boundaries and makes replication straightforward.
 
@@ -154,6 +162,6 @@ gaming/
 
 **`findings/` separate from `log.md`** — Raw execution notes stay in the experiment directory. `findings/` is for polished memos written after analysis: one file per finding, written for an external reader. This separation keeps the log honest and the findings clear.
 
-**`data/` is read-only to code** — Nothing in `src/` writes to `data/`. All outputs go to `experiments/<slug>/results/` (gitignored). Prompts, rubrics, and wrappers only change by deliberate human edits with a commit message explaining why.
+**`data/` is read-only to code** — Nothing in `src/` writes to `data/`. All outputs go to `experiments/<slug>/results/`; per-run stdout dumps under `results/logs/` are gitignored, but the committed results artifacts (configs, generations, scores, summaries) are the canonical record each `findings/` memo cites. Prompts, rubrics, and wrappers only change by deliberate human edits with a commit message explaining why.
 
 **No version suffixes** — Files are not named `battery_v1.jsonl` or `wrappers_v2.jsonl`. Git is the version history. Name files by what they are, not what iteration they are.
