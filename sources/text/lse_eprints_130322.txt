@@ -1,0 +1,81 @@
+Identifying indicators of consciousness in AI systems - LSE Research Online
+
+Cookies?
+
+Home
+
+Browse
+
+Browse by
+Year
+
+Browse by
+Subject
+
+About
+
+Advanced Search
+
+Login
+
+Identifying indicators of consciousness in AI systems
+
+Butlin, Patrick, Long, Robert, Bayne, Tim, Bengio, Yoshua, Birch, Jonathan ORCID: 0000-0001-7517-4759, Chalmers, David, Constant, Axel, Deane, George, Elmoznino, Eric, Fleming, Stephen M, Ji, Xu, Kanai, Ryota, Klein, Colin, Lindsay, Grace, Michel, Matthias, Mudrik, Liad, Peters, Megan A K, Schwitzgebel, Eric, Simon, Jonathan and VanRullen, Rufin
+
+(2025)
+
+Identifying indicators of consciousness in AI systems.
+
+Trends in Cognitive Sciences.
+
+ISSN 1364-6613
+
+Text (1-s2.0-S1364661325002864-main)
+
+- Published Version
+
+Available under License Creative Commons Attribution Non-commercial No Derivatives.
+
+Download (542kB)
+
+Scopus publication
+
+Identification Number: 10.1016/j.tics.2025.10.011
+
+Abstract
+Rapid progress in artificial intelligence (AI) capabilities has drawn fresh attention to the prospect of consciousness in AI. There is an urgent need for rigorous methods to assess AI systems for consciousness, but significant uncertainty about relevant issues in consciousness science. We present a method for assessing AI systems for consciousness that involves exploring what follows from existing or future neuroscientific theories of consciousness. Indicators derived from such theories can be used to inform credences about whether particular AI systems are conscious. This method allows us to make meaningful progress because some influential theories of consciousness, notably including computational functionalist theories, have implications for AI that can be investigated empirically.
+
+Item Type:
+
+Article
+
+Additional Information:
+© 2025 The Authors
+
+Divisions:
+Philosophy, Logic and Scientific Method
+
+Subjects:
+Q Science > Q Science (General)B Philosophy. Psychology. Religion > B Philosophy (General)
+
+Date Deposited:
+25 Nov 2025 16:33
+
+Last Modified:
+09 Jan 2026 17:21
+
+URI:
+http://eprints.lse.ac.uk/id/eprint/130322
+
+Actions (login required)
+
+View Item
+
+Download Statistics Download Statistics Download Statistics
+Downloads
+
+Downloads per month over past year
+
+View more statistics
+
+Mission Statement & FAQs | Contact us | Takedown Policy | Content Policy | LSE Research Online supports OAI 2.0 with a base URL of /cgi/oai2
